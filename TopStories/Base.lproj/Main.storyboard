@@ -20,10 +20,10 @@
             </objects>
             <point key="canvasLocation" x="-38" y="-630"/>
         </scene>
-        <!--Collection View Controller-->
+        <!--Master View Controller-->
         <scene sceneID="qi7-la-UVu">
             <objects>
-                <collectionViewController id="yr2-GA-vw4" sceneMemberID="viewController">
+                <collectionViewController id="yr2-GA-vw4" customClass="MasterViewController" customModule="TopStories" customModuleProvider="target" sceneMemberID="viewController">
                     <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="BiX-6y-kn3">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

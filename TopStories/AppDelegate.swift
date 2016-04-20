@@ -13,20 +13,24 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
     var persistenceController: PersistenceController?
+    var requestController = RequestController()
     
     // MARK: - UIApplicationDelegate
     
-    func application(application: UIApplication, didFinishLaunchingWithxOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
+    func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         
         self.persistenceController = PersistenceController()
         
         let splitViewController = self.window!.rootViewController as! UISplitViewController
+        
         let navigationController = splitViewController.viewControllers[splitViewController.viewControllers.count-1] as! UINavigationController
         navigationController.topViewController!.navigationItem.leftBarButtonItem = splitViewController.displayModeButtonItem()
+        navigationController.topViewController!.navigationItem.leftItemsSupplementBackButton = true
 
         let masterNavigationController = splitViewController.viewControllers[0] as! UINavigationController
         let controller = masterNavigationController.topViewController as! MasterViewController
         controller.managedObjectContext = persistenceController?.managedObjectContext;
+        controller.requestController = requestController
         
         return true
     }

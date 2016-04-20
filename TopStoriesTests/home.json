@@ -1,0 +1,1604 @@
+{
+    "status":"OK",
+    "copyright":"Copyright (c) 2016 The New York Times Company. All Rights Reserved.",
+    "section":"home",
+    "last_updated":"2016-04-20T06:42:01-05:00",
+    "num_results":24,
+    "results":[
+               {
+               "section":"U.S.",
+               "subsection":"Politics",
+               "title":"Trump and Clinton Win New York Easily",
+               "abstract":"Donald J. Trump reclaimed control of the Republican race, and Hillary Clinton fought off another challenge from Senator Bernie Sanders.",
+               "url":"http:\/\/www.nytimes.com\/2016\/04\/20\/us\/politics\/new-york-primary.html",
+               "byline":"By PATRICK HEALY and MAGGIE HABERMAN",
+               "item_type":"Article",
+               "updated_date":"2016-04-20T00:01:04-5:00",
+               "created_date":"2016-04-19T19:15:44-5:00",
+               "published_date":"2016-04-20T00:00:00-5:00",
+               "material_type_facet":"News",
+               "kicker":"",
+               "des_facet":[
+                            "Presidential Election of 2016"
+                            ],
+               "org_facet":[
+                            "Democratic Party",
+                            "Republican Party"
+                            ],
+               "per_facet":[
+                            "Clinton, Hillary Rodham",
+                            "Trump, Donald J",
+                            "Sanders, Bernard",
+                            "Kasich, John R",
+                            "Cruz, Ted"
+                            ],
+               "geo_facet":"",
+               "multimedia":""
+               },
+               {
+               "section":"U.S.",
+               "subsection":"Politics",
+               "title":"The Test for Trump: Win Delegates, Not Just Voters",
+               "abstract":"Gaining steam at the ballot box, Mr. Trump must now secure delegates in the event of a floor fight at the Republican convention.",
+               "url":"http:\/\/www.nytimes.com\/2016\/04\/21\/us\/politics\/donald-trump-new-york.html",
+               "byline":"By JONATHAN MARTIN",
+               "item_type":"Article",
+               "updated_date":"2016-04-20T05:00:28-5:00",
+               "created_date":"2016-04-20T05:00:30-5:00",
+               "published_date":"2016-04-21T00:00:00-5:00",
+               "material_type_facet":"News Analysis",
+               "kicker":"",
+               "des_facet":[
+                            "Presidential Election of 2016"
+                            ],
+               "org_facet":[
+                            "Republican Party"
+                            ],
+               "per_facet":[
+                            "Trump, Donald J",
+                            "Cruz, Ted"
+                            ],
+               "geo_facet":[
+                            "New York State"
+                            ],
+               "multimedia":[
+                             {
+                             "url":"https:\/\/static01.nyt.com\/images\/2016\/04\/20\/us\/21TRUMPweb1\/21TRUMPweb1-thumbStandard.jpg",
+                             "format":"Standard Thumbnail",
+                             "height":75,
+                             "width":75,
+                             "type":"image",
+                             "subtype":"photo",
+                             "caption":"Donald J. Trump at Trump Tower in Manhattan on Tuesday. \u201cWe don\u2019t have much of a race anymore,\u201d he told supporters celebrating his victory in the New York primary.",
+                             "copyright":"Damon Winter\/The New York Times"
+                             },
+                             {
+                             "url":"https:\/\/static01.nyt.com\/images\/2016\/04\/20\/us\/21TRUMPweb1\/21TRUMPweb1-thumbLarge.jpg",
+                             "format":"thumbLarge",
+                             "height":150,
+                             "width":150,
+                             "type":"image",
+                             "subtype":"photo",
+                             "caption":"Donald J. Trump at Trump Tower in Manhattan on Tuesday. \u201cWe don\u2019t have much of a race anymore,\u201d he told supporters celebrating his victory in the New York primary.",
+                             "copyright":"Damon Winter\/The New York Times"
+                             },
+                             {
+                             "url":"https:\/\/static01.nyt.com\/images\/2016\/04\/20\/us\/21TRUMPweb1\/21TRUMPweb1-articleInline.jpg",
+                             "format":"Normal",
+                             "height":127,
+                             "width":190,
+                             "type":"image",
+                             "subtype":"photo",
+                             "caption":"Donald J. Trump at Trump Tower in Manhattan on Tuesday. \u201cWe don\u2019t have much of a race anymore,\u201d he told supporters celebrating his victory in the New York primary.",
+                             "copyright":"Damon Winter\/The New York Times"
+                             },
+                             {
+                             "url":"https:\/\/static01.nyt.com\/images\/2016\/04\/20\/us\/21TRUMPweb1\/21TRUMPweb1-mediumThreeByTwo210.jpg",
+                             "format":"mediumThreeByTwo210",
+                             "height":140,
+                             "width":210,
+                             "type":"image",
+                             "subtype":"photo",
+                             "caption":"Donald J. Trump at Trump Tower in Manhattan on Tuesday. \u201cWe don\u2019t have much of a race anymore,\u201d he told supporters celebrating his victory in the New York primary.",
+                             "copyright":"Damon Winter\/The New York Times"
+                             },
+                             {
+                             "url":"https:\/\/static01.nyt.com\/images\/2016\/04\/20\/us\/21TRUMPweb1\/21TRUMPweb1-superJumbo.jpg",
+                             "format":"superJumbo",
+                             "height":1365,
+                             "width":2048,
+                             "type":"image",
+                             "subtype":"photo",
+                             "caption":"Donald J. Trump at Trump Tower in Manhattan on Tuesday. \u201cWe don\u2019t have much of a race anymore,\u201d he told supporters celebrating his victory in the New York primary.",
+                             "copyright":"Damon Winter\/The New York Times"
+                             }
+                             ]
+               },
+               {
+               "section":"U.S.",
+               "subsection":"Politics",
+               "title":"A Homecoming and a Triumph for Clinton",
+               "abstract":"Through all of Mrs. Clinton\u2019s highs and lows, New York has always been the state that loved her back.",
+               "url":"http:\/\/www.nytimes.com\/2016\/04\/20\/us\/politics\/hillary-clinton-new-york.html",
+               "byline":"By AMY CHOZICK",
+               "item_type":"Article",
+               "updated_date":"2016-04-19T21:55:05-5:00",
+               "created_date":"2016-04-19T21:55:07-5:00",
+               "published_date":"2016-04-20T00:00:00-5:00",
+               "material_type_facet":"News",
+               "kicker":"",
+               "des_facet":[
+                            "Presidential Election of 2016",
+                            "Primaries and Caucuses"
+                            ],
+               "org_facet":[
+                            "Democratic Party",
+                            "Mikey Likes It Ice Cream (Manhattan, NY, Restaurant)",
+                            "Jackson Diner"
+                            ],
+               "per_facet":[
+                            "Clinton, Hillary Rodham"
+                            ],
+               "geo_facet":"",
+               "multimedia":""
+               },
+               {
+               "section":"U.S.",
+               "subsection":"Politics",
+               "title":"Takeaways From Tuesday\u2019s New York Primary",
+               "abstract":"The scale of the victories by Mr. Trump and Mrs. Clinton exposes some important limitations in their opponents\u2019 campaigns.",
+               "url":"http:\/\/www.nytimes.com\/2016\/04\/21\/us\/politics\/new-york-primary-highlights.html",
+               "byline":"By ALEXANDER BURNS",
+               "item_type":"Article",
+               "updated_date":"2016-04-20T05:00:27-5:00",
+               "created_date":"2016-04-20T05:00:29-5:00",
+               "published_date":"2016-04-21T00:00:00-5:00",
+               "material_type_facet":"News",
+               "kicker":"",
+               "des_facet":[
+                            "United States Politics and Government",
+                            "Presidential Election of 2016",
+                            "Primaries and Caucuses"
+                            ],
+               "org_facet":"",
+               "per_facet":[
+                            "Clinton, Hillary Rodham",
+                            "Cruz, Ted",
+                            "Kasich, John R",
+                            "Trump, Donald J",
+                            "Sanders, Bernard"
+                            ],
+               "geo_facet":[
+                            "New York City",
+                            "New York State"
+                            ],
+               "multimedia":[
+                             {
+                             "url":"https:\/\/static01.nyt.com\/images\/2016\/04\/21\/us\/22takeawaystrump1\/22takeawaystrump1-thumbStandard.jpg",
+                             "format":"Standard Thumbnail",
+                             "height":75,
+                             "width":75,
+                             "type":"image",
+                             "subtype":"photo",
+                             "caption":"Supporters of Donald J. Trump on Tuesday night at Trump Tower in Manhattan.",
+                             "copyright":"Damon Winter\/The New York Times"
+                             },
+                             {
+                             "url":"https:\/\/static01.nyt.com\/images\/2016\/04\/21\/us\/22takeawaystrump1\/22takeawaystrump1-thumbLarge.jpg",
+                             "format":"thumbLarge",
+                             "height":150,
+                             "width":150,
+                             "type":"image",
+                             "subtype":"photo",
+                             "caption":"Supporters of Donald J. Trump on Tuesday night at Trump Tower in Manhattan.",
+                             "copyright":"Damon Winter\/The New York Times"
+                             },
+                             {
+                             "url":"https:\/\/static01.nyt.com\/images\/2016\/04\/21\/us\/22takeawaystrump1\/22takeawaystrump1-articleInline.jpg",
+                             "format":"Normal",
+                             "height":127,
+                             "width":190,
+                             "type":"image",
+                             "subtype":"photo",
+                             "caption":"Supporters of Donald J. Trump on Tuesday night at Trump Tower in Manhattan.",
+                             "copyright":"Damon Winter\/The New York Times"
+                             },
+                             {
+                             "url":"https:\/\/static01.nyt.com\/images\/2016\/04\/21\/us\/22takeawaystrump1\/22takeawaystrump1-mediumThreeByTwo210.jpg",
+                             "format":"mediumThreeByTwo210",
+                             "height":140,
+                             "width":210,
+                             "type":"image",
+                             "subtype":"photo",
+                             "caption":"Supporters of Donald J. Trump on Tuesday night at Trump Tower in Manhattan.",
+                             "copyright":"Damon Winter\/The New York Times"
+                             },
+                             {
+                             "url":"https:\/\/static01.nyt.com\/images\/2016\/04\/21\/us\/22takeawaystrump1\/22takeawaystrump1-superJumbo.jpg",
+                             "format":"superJumbo",
+                             "height":1365,
+                             "width":2048,
+                             "type":"image",
+                             "subtype":"photo",
+                             "caption":"Supporters of Donald J. Trump on Tuesday night at Trump Tower in Manhattan.",
+                             "copyright":"Damon Winter\/The New York Times"
+                             }
+                             ]
+               },
+               {
+               "section":"The Upshot",
+               "subsection":"",
+               "title":"Realistically, Bernie Sanders Cannot Afford Losses",
+               "abstract":"The New York result confirms that he is on track to lose the pledged delegate race and therefore the nomination.",
+               "url":"http:\/\/www.nytimes.com\/2016\/04\/20\/upshot\/realistically-bernie-sanders-cannot-afford-losses.html",
+               "byline":"By NATE COHN",
+               "item_type":"Article",
+               "updated_date":"2016-04-19T22:55:53-5:00",
+               "created_date":"2016-04-19T22:55:54-5:00",
+               "published_date":"2016-04-20T00:00:00-5:00",
+               "material_type_facet":"News",
+               "kicker":"",
+               "des_facet":[
+                            "Presidential Election of 2016"
+                            ],
+               "org_facet":[
+                            "Democratic Party"
+                            ],
+               "per_facet":[
+                            "Sanders, Bernard",
+                            "Clinton, Hillary Rodham"
+                            ],
+               "geo_facet":[
+                            "New York State"
+                            ],
+               "multimedia":[
+                             {
+                             "url":"https:\/\/static01.nyt.com\/images\/2016\/04\/20\/upshot\/20UP-Dem-Delegates\/20UP-Dem-Delegates-thumbStandard.jpg",
+                             "format":"Standard Thumbnail",
+                             "height":75,
+                             "width":75,
+                             "type":"image",
+                             "subtype":"photo",
+                             "caption":"Bernie Sanders in a rush in Midtown Manhattan on Election Day. He is running out of time.",
+                             "copyright":"Sam Hodgson for The New York Times"
+                             },
+                             {
+                             "url":"https:\/\/static01.nyt.com\/images\/2016\/04\/20\/upshot\/20UP-Dem-Delegates\/20UP-Dem-Delegates-thumbLarge.jpg",
+                             "format":"thumbLarge",
+                             "height":150,
+                             "width":150,
+                             "type":"image",
+                             "subtype":"photo",
+                             "caption":"Bernie Sanders in a rush in Midtown Manhattan on Election Day. He is running out of time.",
+                             "copyright":"Sam Hodgson for The New York Times"
+                             },
+                             {
+                             "url":"https:\/\/static01.nyt.com\/images\/2016\/04\/20\/upshot\/20UP-Dem-Delegates\/20UP-Dem-Delegates-articleInline.jpg",
+                             "format":"Normal",
+                             "height":127,
+                             "width":190,
+                             "type":"image",
+                             "subtype":"photo",
+                             "caption":"Bernie Sanders in a rush in Midtown Manhattan on Election Day. He is running out of time.",
+                             "copyright":"Sam Hodgson for The New York Times"
+                             },
+                             {
+                             "url":"https:\/\/static01.nyt.com\/images\/2016\/04\/20\/upshot\/20UP-Dem-Delegates\/20UP-Dem-Delegates-mediumThreeByTwo210.jpg",
+                             "format":"mediumThreeByTwo210",
+                             "height":140,
+                             "width":210,
+                             "type":"image",
+                             "subtype":"photo",
+                             "caption":"Bernie Sanders in a rush in Midtown Manhattan on Election Day. He is running out of time.",
+                             "copyright":"Sam Hodgson for The New York Times"
+                             },
+                             {
+                             "url":"https:\/\/static01.nyt.com\/images\/2016\/04\/20\/upshot\/20UP-Dem-Delegates\/20UP-Dem-Delegates-superJumbo.jpg",
+                             "format":"superJumbo",
+                             "height":1365,
+                             "width":2048,
+                             "type":"image",
+                             "subtype":"photo",
+                             "caption":"Bernie Sanders in a rush in Midtown Manhattan on Election Day. He is running out of time.",
+                             "copyright":"Sam Hodgson for The New York Times"
+                             }
+                             ]
+               },
+               {
+               "section":"N.Y. \/ Region",
+               "subsection":"",
+               "title":"Voting Problems Prompt Comptroller to Vow Audit of New York City\u2019s Elections Board",
+               "abstract":"The city comptroller, Scott M. Stringer, said he wanted to determine if tens of thousands of Democratic voters were improperly barred from the polls.",
+               "url":"http:\/\/www.nytimes.com\/2016\/04\/20\/nyregion\/new-york-voters-face-problems-at-the-polls.html",
+               "byline":"By ELIZABETH A. HARRIS",
+               "item_type":"Article",
+               "updated_date":"2016-04-19T18:29:33-5:00",
+               "created_date":"2016-04-19T17:19:31-5:00",
+               "published_date":"2016-04-20T00:00:00-5:00",
+               "material_type_facet":"News",
+               "kicker":"",
+               "des_facet":[
+                            "Voter Registration and Requirements",
+                            "Presidential Election of 2016"
+                            ],
+               "org_facet":[
+                            "Board of Elections (NYC)"
+                            ],
+               "per_facet":"",
+               "geo_facet":[
+                            "New York City"
+                            ],
+               "multimedia":[
+                             {
+                             "url":"https:\/\/static01.nyt.com\/images\/2016\/04\/20\/nyregion\/20NYPOLLING1\/20NYPOLLING1-thumbStandard.jpg",
+                             "format":"Standard Thumbnail",
+                             "height":75,
+                             "width":75,
+                             "type":"image",
+                             "subtype":"photo",
+                             "caption":"A polling station at Medgar Evers College in Crown Heights, Brooklyn, for the New York State presidential primary on Tuesday. Voting problems were reported, and officials are looking into whether many Democrats were improperly removed from voter rolls.",
+                             "copyright":"Hiroko Masuike\/The New York Times"
+                             },
+                             {
+                             "url":"https:\/\/static01.nyt.com\/images\/2016\/04\/20\/nyregion\/20NYPOLLING1\/20NYPOLLING1-thumbLarge.jpg",
+                             "format":"thumbLarge",
+                             "height":150,
+                             "width":150,
+                             "type":"image",
+                             "subtype":"photo",
+                             "caption":"A polling station at Medgar Evers College in Crown Heights, Brooklyn, for the New York State presidential primary on Tuesday. Voting problems were reported, and officials are looking into whether many Democrats were improperly removed from voter rolls.",
+                             "copyright":"Hiroko Masuike\/The New York Times"
+                             },
+                             {
+                             "url":"https:\/\/static01.nyt.com\/images\/2016\/04\/20\/nyregion\/20NYPOLLING1\/20NYPOLLING1-articleInline.jpg",
+                             "format":"Normal",
+                             "height":127,
+                             "width":190,
+                             "type":"image",
+                             "subtype":"photo",
+                             "caption":"A polling station at Medgar Evers College in Crown Heights, Brooklyn, for the New York State presidential primary on Tuesday. Voting problems were reported, and officials are looking into whether many Democrats were improperly removed from voter rolls.",
+                             "copyright":"Hiroko Masuike\/The New York Times"
+                             },
+                             {
+                             "url":"https:\/\/static01.nyt.com\/images\/2016\/04\/20\/nyregion\/20NYPOLLING1\/20NYPOLLING1-mediumThreeByTwo210.jpg",
+                             "format":"mediumThreeByTwo210",
+                             "height":140,
+                             "width":210,
+                             "type":"image",
+                             "subtype":"photo",
+                             "caption":"A polling station at Medgar Evers College in Crown Heights, Brooklyn, for the New York State presidential primary on Tuesday. Voting problems were reported, and officials are looking into whether many Democrats were improperly removed from voter rolls.",
+                             "copyright":"Hiroko Masuike\/The New York Times"
+                             },
+                             {
+                             "url":"https:\/\/static01.nyt.com\/images\/2016\/04\/20\/nyregion\/20NYPOLLING1\/20NYPOLLING1-superJumbo.jpg",
+                             "format":"superJumbo",
+                             "height":1365,
+                             "width":2048,
+                             "type":"image",
+                             "subtype":"photo",
+                             "caption":"A polling station at Medgar Evers College in Crown Heights, Brooklyn, for the New York State presidential primary on Tuesday. Voting problems were reported, and officials are looking into whether many Democrats were improperly removed from voter rolls.",
+                             "copyright":"Hiroko Masuike\/The New York Times"
+                             }
+                             ]
+               },
+               {
+               "section":"NYT Now",
+               "subsection":"",
+               "title":"Your Wednesday Briefing: Donald Trump, Boston Celtics, Doris Roberts",
+               "abstract":"Here\u2019s what you need to know to start your day.",
+               "url":"http:\/\/www.nytimes.com\/2016\/04\/20\/nytnow\/your-wednesday-briefing-donald-trump-boston-celtics-doris-roberts.html",
+               "byline":"By ADEEL HASSAN",
+               "item_type":"Article",
+               "updated_date":"2016-04-20T06:18:35-5:00",
+               "created_date":"2016-04-20T05:47:41-5:00",
+               "published_date":"2016-04-20T00:00:00-5:00",
+               "material_type_facet":"briefing",
+               "kicker":"",
+               "des_facet":"",
+               "org_facet":"",
+               "per_facet":"",
+               "geo_facet":"",
+               "multimedia":[
+                             {
+                             "url":"https:\/\/static01.nyt.com\/images\/2016\/04\/21\/nytnow\/20NYTNow-Primary2\/20NYTNow-Primary2-thumbStandard-v4.jpg",
+                             "format":"Standard Thumbnail",
+                             "height":75,
+                             "width":75,
+                             "type":"image",
+                             "subtype":"photo",
+                             "caption":"Hillary Clinton with her family and supporters after winning the New York primary on Tuesday.",
+                             "copyright":"Chang W. Lee\/The New York Times"
+                             },
+                             {
+                             "url":"https:\/\/static01.nyt.com\/images\/2016\/04\/21\/nytnow\/20NYTNow-Primary2\/20NYTNow-Primary2-thumbLarge-v4.jpg",
+                             "format":"thumbLarge",
+                             "height":150,
+                             "width":150,
+                             "type":"image",
+                             "subtype":"photo",
+                             "caption":"Hillary Clinton with her family and supporters after winning the New York primary on Tuesday.",
+                             "copyright":"Chang W. Lee\/The New York Times"
+                             },
+                             {
+                             "url":"https:\/\/static01.nyt.com\/images\/2016\/04\/21\/nytnow\/20NYTNow-Primary2\/20NYTNow-Primary2-articleInline-v3.jpg",
+                             "format":"Normal",
+                             "height":127,
+                             "width":190,
+                             "type":"image",
+                             "subtype":"photo",
+                             "caption":"Hillary Clinton with her family and supporters after winning the New York primary on Tuesday.",
+                             "copyright":"Chang W. Lee\/The New York Times"
+                             },
+                             {
+                             "url":"https:\/\/static01.nyt.com\/images\/2016\/04\/21\/nytnow\/20NYTNow-Primary2\/20NYTNow-Primary2-mediumThreeByTwo210-v3.jpg",
+                             "format":"mediumThreeByTwo210",
+                             "height":140,
+                             "width":210,
+                             "type":"image",
+                             "subtype":"photo",
+                             "caption":"Hillary Clinton with her family and supporters after winning the New York primary on Tuesday.",
+                             "copyright":"Chang W. Lee\/The New York Times"
+                             },
+                             {
+                             "url":"https:\/\/static01.nyt.com\/images\/2016\/04\/21\/nytnow\/20NYTNow-Primary2\/20NYTNow-Primary2-superJumbo-v3.jpg",
+                             "format":"superJumbo",
+                             "height":1365,
+                             "width":2048,
+                             "type":"image",
+                             "subtype":"photo",
+                             "caption":"Hillary Clinton with her family and supporters after winning the New York primary on Tuesday.",
+                             "copyright":"Chang W. Lee\/The New York Times"
+                             }
+                             ]
+               },
+               {
+               "section":"N.Y. \/ Region",
+               "subsection":"",
+               "title":"New York Today: Hometown Glory",
+               "abstract":"Wednesday: Primary results, millennials and politics, and a long-term weather forecast.",
+               "url":"http:\/\/www.nytimes.com\/2016\/04\/20\/nyregion\/new-york-today-primary-primaries-donald-trump-bernie-sanders-hillary-clinton-who-won.html",
+               "byline":"By JONATHAN WOLFE",
+               "item_type":"Article",
+               "updated_date":"2016-04-20T06:20:45-5:00",
+               "created_date":"2016-04-20T05:59:18-5:00",
+               "published_date":"2016-04-20T00:00:00-5:00",
+               "material_type_facet":"briefing",
+               "kicker":"",
+               "des_facet":"",
+               "org_facet":"",
+               "per_facet":"",
+               "geo_facet":"",
+               "multimedia":[
+                             {
+                             "url":"https:\/\/static01.nyt.com\/images\/2016\/04\/20\/nyregion\/20nytoday-trumpclinton\/20nytoday-trumpclinton-thumbStandard.jpg",
+                             "format":"Standard Thumbnail",
+                             "height":75,
+                             "width":75,
+                             "type":"image",
+                             "subtype":"photo",
+                             "caption":"Residents, and winners.",
+                             "copyright":"Damon Winter and Chang W. Lee\/The New York Times"
+                             },
+                             {
+                             "url":"https:\/\/static01.nyt.com\/images\/2016\/04\/20\/nyregion\/20nytoday-trumpclinton\/20nytoday-trumpclinton-thumbLarge.jpg",
+                             "format":"thumbLarge",
+                             "height":150,
+                             "width":150,
+                             "type":"image",
+                             "subtype":"photo",
+                             "caption":"Residents, and winners.",
+                             "copyright":"Damon Winter and Chang W. Lee\/The New York Times"
+                             },
+                             {
+                             "url":"https:\/\/static01.nyt.com\/images\/2016\/04\/20\/nyregion\/20nytoday-trumpclinton\/20nytoday-trumpclinton-articleInline.jpg",
+                             "format":"Normal",
+                             "height":125,
+                             "width":190,
+                             "type":"image",
+                             "subtype":"photo",
+                             "caption":"Residents, and winners.",
+                             "copyright":"Damon Winter and Chang W. Lee\/The New York Times"
+                             },
+                             {
+                             "url":"https:\/\/static01.nyt.com\/images\/2016\/04\/20\/nyregion\/20nytoday-trumpclinton\/20nytoday-trumpclinton-mediumThreeByTwo210.jpg",
+                             "format":"mediumThreeByTwo210",
+                             "height":140,
+                             "width":210,
+                             "type":"image",
+                             "subtype":"photo",
+                             "caption":"Residents, and winners.",
+                             "copyright":"Damon Winter and Chang W. Lee\/The New York Times"
+                             },
+                             {
+                             "url":"https:\/\/static01.nyt.com\/images\/2016\/04\/20\/nyregion\/20nytoday-trumpclinton\/20nytoday-trumpclinton-superJumbo.jpg",
+                             "format":"superJumbo",
+                             "height":1352,
+                             "width":2048,
+                             "type":"image",
+                             "subtype":"photo",
+                             "caption":"Residents, and winners.",
+                             "copyright":"Damon Winter and Chang W. Lee\/The New York Times"
+                             }
+                             ]
+               },
+               {
+               "section":"Technology",
+               "subsection":"",
+               "title":"Google Is Charged With Breaking E.U. Antitrust Rules",
+               "abstract":"European Union officials accused the company of unfairly favoring its own services on the popular Android mobile software over those of rivals.",
+               "url":"http:\/\/www.nytimes.com\/2016\/04\/21\/technology\/google-europe-antitrust.html",
+               "byline":"By MARK SCOTT",
+               "item_type":"Article",
+               "updated_date":"2016-04-20T05:49:34-5:00",
+               "created_date":"2016-04-20T05:49:36-5:00",
+               "published_date":"2016-04-21T00:00:00-5:00",
+               "material_type_facet":"News",
+               "kicker":"",
+               "des_facet":[
+                            "Antitrust Laws and Competition Issues",
+                            "Android (Operating System)"
+                            ],
+               "org_facet":[
+                            "Google Inc",
+                            "European Commission"
+                            ],
+               "per_facet":"",
+               "geo_facet":"",
+               "multimedia":""
+               },
+               {
+               "section":"World",
+               "subsection":"Middle East",
+               "title":"Obama Arrives in Saudi Arabia Amid New Tensions",
+               "abstract":"President Obama arrived barely a day after expressing support for the release of documents implicating Saudi officials in the United States in the Sept. 11 terrorist attacks.",
+               "url":"http:\/\/www.nytimes.com\/2016\/04\/21\/world\/middleeast\/obama-arrives-in-saudi-arabia-amid-a-new-round-of-contention.html",
+               "byline":"By MICHAEL D. SHEAR",
+               "item_type":"Article",
+               "updated_date":"2016-04-20T06:05:27-5:00",
+               "created_date":"2016-04-20T06:05:28-5:00",
+               "published_date":"2016-04-21T00:00:00-5:00",
+               "material_type_facet":"News",
+               "kicker":"",
+               "des_facet":[
+                            "September 11 (2001)",
+                            "International Relations"
+                            ],
+               "org_facet":"",
+               "per_facet":[
+                            "Obama, Barack",
+                            "Salman, King of Saudi Arabia"
+                            ],
+               "geo_facet":[
+                            "Saudi Arabia"
+                            ],
+               "multimedia":[
+                             {
+                             "url":"https:\/\/static01.nyt.com\/images\/2016\/04\/21\/nytnow\/21Prexy-web\/21Prexy-web-thumbStandard.jpg",
+                             "format":"Standard Thumbnail",
+                             "height":75,
+                             "width":75,
+                             "type":"image",
+                             "subtype":"photo",
+                             "caption":"President Obama boarding Air Force One on Tuesday. He is heading to Riyadh, Saudi Arabia, where he will attend a meeting with Persian Gulf leaders.",
+                             "copyright":"Stephen Crowley\/The New York Times"
+                             },
+                             {
+                             "url":"https:\/\/static01.nyt.com\/images\/2016\/04\/21\/nytnow\/21Prexy-web\/21Prexy-web-thumbLarge.jpg",
+                             "format":"thumbLarge",
+                             "height":150,
+                             "width":150,
+                             "type":"image",
+                             "subtype":"photo",
+                             "caption":"President Obama boarding Air Force One on Tuesday. He is heading to Riyadh, Saudi Arabia, where he will attend a meeting with Persian Gulf leaders.",
+                             "copyright":"Stephen Crowley\/The New York Times"
+                             },
+                             {
+                             "url":"https:\/\/static01.nyt.com\/images\/2016\/04\/21\/nytnow\/21Prexy-web\/21Prexy-web-articleInline.jpg",
+                             "format":"Normal",
+                             "height":126,
+                             "width":190,
+                             "type":"image",
+                             "subtype":"photo",
+                             "caption":"President Obama boarding Air Force One on Tuesday. He is heading to Riyadh, Saudi Arabia, where he will attend a meeting with Persian Gulf leaders.",
+                             "copyright":"Stephen Crowley\/The New York Times"
+                             },
+                             {
+                             "url":"https:\/\/static01.nyt.com\/images\/2016\/04\/21\/nytnow\/21Prexy-web\/21Prexy-web-mediumThreeByTwo210.jpg",
+                             "format":"mediumThreeByTwo210",
+                             "height":140,
+                             "width":210,
+                             "type":"image",
+                             "subtype":"photo",
+                             "caption":"President Obama boarding Air Force One on Tuesday. He is heading to Riyadh, Saudi Arabia, where he will attend a meeting with Persian Gulf leaders.",
+                             "copyright":"Stephen Crowley\/The New York Times"
+                             },
+                             {
+                             "url":"https:\/\/static01.nyt.com\/images\/2016\/04\/21\/nytnow\/21Prexy-web\/21Prexy-web-superJumbo.jpg",
+                             "format":"superJumbo",
+                             "height":1359,
+                             "width":2048,
+                             "type":"image",
+                             "subtype":"photo",
+                             "caption":"President Obama boarding Air Force One on Tuesday. He is heading to Riyadh, Saudi Arabia, where he will attend a meeting with Persian Gulf leaders.",
+                             "copyright":"Stephen Crowley\/The New York Times"
+                             }
+                             ]
+               },
+               {
+               "section":"World",
+               "subsection":"Middle East",
+               "title":"Senator May Support Bill Exposing Saudis to 9\/11 Suits",
+               "abstract":"Senator Lindsey Graham, Republican of South Carolina, said he would drop his opposition to the bill if its sponsors agreed to changes seeking to protect American interests abroad.",
+               "url":"http:\/\/www.nytimes.com\/2016\/04\/20\/world\/middleeast\/saudi-arabia-september-11-lindsey-graham.html",
+               "byline":"By MARK MAZZETTI and JENNIFER STEINHAUER",
+               "item_type":"Article",
+               "updated_date":"2016-04-19T20:05:04-5:00",
+               "created_date":"2016-04-19T20:05:11-5:00",
+               "published_date":"2016-04-20T00:00:00-5:00",
+               "material_type_facet":"News",
+               "kicker":"",
+               "des_facet":[
+                            "Terrorism",
+                            "United States International Relations",
+                            "Law and Legislation",
+                            "September 11 (2001)",
+                            "United States Politics and Government"
+                            ],
+               "org_facet":"",
+               "per_facet":[
+                            "Graham, Lindsey"
+                            ],
+               "geo_facet":[
+                            "Saudi Arabia"
+                            ],
+               "multimedia":[
+                             {
+                             "url":"https:\/\/static01.nyt.com\/images\/2016\/04\/20\/world\/20terror1\/20terror1-thumbStandard.jpg",
+                             "format":"Standard Thumbnail",
+                             "height":75,
+                             "width":75,
+                             "type":"image",
+                             "subtype":"photo",
+                             "caption":"Senator Mitch McConnell, left, the majority leader, and Senator John Cornyn, Republican of Texas, leave a Senate policy luncheon on Tuesday. Mr. McConnell has declined to give his full support to the Sept. 11 bill, saying he would need to study the measure more carefully.",
+                             "copyright":"Zach Gibson\/The New York Times"
+                             },
+                             {
+                             "url":"https:\/\/static01.nyt.com\/images\/2016\/04\/20\/world\/20terror1\/20terror1-thumbLarge.jpg",
+                             "format":"thumbLarge",
+                             "height":150,
+                             "width":150,
+                             "type":"image",
+                             "subtype":"photo",
+                             "caption":"Senator Mitch McConnell, left, the majority leader, and Senator John Cornyn, Republican of Texas, leave a Senate policy luncheon on Tuesday. Mr. McConnell has declined to give his full support to the Sept. 11 bill, saying he would need to study the measure more carefully.",
+                             "copyright":"Zach Gibson\/The New York Times"
+                             },
+                             {
+                             "url":"https:\/\/static01.nyt.com\/images\/2016\/04\/20\/world\/20terror1\/20terror1-articleInline.jpg",
+                             "format":"Normal",
+                             "height":127,
+                             "width":190,
+                             "type":"image",
+                             "subtype":"photo",
+                             "caption":"Senator Mitch McConnell, left, the majority leader, and Senator John Cornyn, Republican of Texas, leave a Senate policy luncheon on Tuesday. Mr. McConnell has declined to give his full support to the Sept. 11 bill, saying he would need to study the measure more carefully.",
+                             "copyright":"Zach Gibson\/The New York Times"
+                             },
+                             {
+                             "url":"https:\/\/static01.nyt.com\/images\/2016\/04\/20\/world\/20terror1\/20terror1-mediumThreeByTwo210.jpg",
+                             "format":"mediumThreeByTwo210",
+                             "height":140,
+                             "width":210,
+                             "type":"image",
+                             "subtype":"photo",
+                             "caption":"Senator Mitch McConnell, left, the majority leader, and Senator John Cornyn, Republican of Texas, leave a Senate policy luncheon on Tuesday. Mr. McConnell has declined to give his full support to the Sept. 11 bill, saying he would need to study the measure more carefully.",
+                             "copyright":"Zach Gibson\/The New York Times"
+                             },
+                             {
+                             "url":"https:\/\/static01.nyt.com\/images\/2016\/04\/20\/world\/20terror1\/20terror1-superJumbo.jpg",
+                             "format":"superJumbo",
+                             "height":1365,
+                             "width":2048,
+                             "type":"image",
+                             "subtype":"photo",
+                             "caption":"Senator Mitch McConnell, left, the majority leader, and Senator John Cornyn, Republican of Texas, leave a Senate policy luncheon on Tuesday. Mr. McConnell has declined to give his full support to the Sept. 11 bill, saying he would need to study the measure more carefully.",
+                             "copyright":"Zach Gibson\/The New York Times"
+                             }
+                             ]
+               },
+               {
+               "section":"U.S.",
+               "subsection":"",
+               "title":"Transgender Student Wins Court Appeal on Use of Restrooms",
+               "abstract":"A court in Richmond, Va., ruled in favor of a student who was born female and wishes to use the boys\u2019 restroom at his high school.",
+               "url":"http:\/\/www.nytimes.com\/2016\/04\/20\/us\/appeals-court-favors-transgender-student-in-virginia-restroom-case.html",
+               "byline":"By RICHARD FAUSSET",
+               "item_type":"Article",
+               "updated_date":"2016-04-19T21:06:31-5:00",
+               "created_date":"2016-04-19T16:01:18-5:00",
+               "published_date":"2016-04-20T00:00:00-5:00",
+               "material_type_facet":"News",
+               "kicker":"",
+               "des_facet":[
+                            "Title IX (Gender Discrimination Legislation)",
+                            "Transgender and Transsexuals"
+                            ],
+               "org_facet":"",
+               "per_facet":[
+                            "Grimm, Gavin"
+                            ],
+               "geo_facet":[
+                            "Virginia"
+                            ],
+               "multimedia":[
+                             {
+                             "url":"https:\/\/static01.nyt.com\/images\/2016\/04\/20\/us\/20virginia-web\/20virginia-web-thumbStandard.jpg",
+                             "format":"Standard Thumbnail",
+                             "height":75,
+                             "width":75,
+                             "type":"image",
+                             "subtype":"photo",
+                             "caption":"The court ruling in favor of Gavin Grimm comes amid escalating fights nationwide over transgender people and the bathrooms they should be allowed to use.",
+                             "copyright":"Damon Winter\/The New York Times"
+                             },
+                             {
+                             "url":"https:\/\/static01.nyt.com\/images\/2016\/04\/20\/us\/20virginia-web\/20virginia-web-thumbLarge.jpg",
+                             "format":"thumbLarge",
+                             "height":150,
+                             "width":150,
+                             "type":"image",
+                             "subtype":"photo",
+                             "caption":"The court ruling in favor of Gavin Grimm comes amid escalating fights nationwide over transgender people and the bathrooms they should be allowed to use.",
+                             "copyright":"Damon Winter\/The New York Times"
+                             },
+                             {
+                             "url":"https:\/\/static01.nyt.com\/images\/2016\/04\/20\/us\/20virginia-web\/20virginia-web-articleInline.jpg",
+                             "format":"Normal",
+                             "height":127,
+                             "width":190,
+                             "type":"image",
+                             "subtype":"photo",
+                             "caption":"The court ruling in favor of Gavin Grimm comes amid escalating fights nationwide over transgender people and the bathrooms they should be allowed to use.",
+                             "copyright":"Damon Winter\/The New York Times"
+                             },
+                             {
+                             "url":"https:\/\/static01.nyt.com\/images\/2016\/04\/20\/us\/20virginia-web\/20virginia-web-mediumThreeByTwo210.jpg",
+                             "format":"mediumThreeByTwo210",
+                             "height":140,
+                             "width":210,
+                             "type":"image",
+                             "subtype":"photo",
+                             "caption":"The court ruling in favor of Gavin Grimm comes amid escalating fights nationwide over transgender people and the bathrooms they should be allowed to use.",
+                             "copyright":"Damon Winter\/The New York Times"
+                             },
+                             {
+                             "url":"https:\/\/static01.nyt.com\/images\/2016\/04\/20\/us\/20virginia-web\/20virginia-web-superJumbo.jpg",
+                             "format":"superJumbo",
+                             "height":1365,
+                             "width":2048,
+                             "type":"image",
+                             "subtype":"photo",
+                             "caption":"The court ruling in favor of Gavin Grimm comes amid escalating fights nationwide over transgender people and the bathrooms they should be allowed to use.",
+                             "copyright":"Damon Winter\/The New York Times"
+                             }
+                             ]
+               },
+               {
+               "section":"U.S.",
+               "subsection":"",
+               "title":"Greater Competition for College Means Higher Anxiety",
+               "abstract":"Although the average acceptance rate at four-year colleges has remained stable, students are expressing their fears of rejection by applying to more institutions.",
+               "url":"http:\/\/www.nytimes.com\/2016\/04\/21\/us\/greater-competition-for-college-places-means-higher-anxiety-too.html",
+               "byline":"By ANEMONA HARTOCOLLIS",
+               "item_type":"Article",
+               "updated_date":"2016-04-20T05:00:27-5:00",
+               "created_date":"2016-04-20T05:00:29-5:00",
+               "published_date":"2016-04-21T00:00:00-5:00",
+               "material_type_facet":"News",
+               "kicker":"",
+               "des_facet":[
+                            "Colleges and Universities",
+                            "Admissions Standards"
+                            ],
+               "org_facet":[
+                            "Common Application, The",
+                            "College of William and Mary",
+                            "Columbia University",
+                            "Georgia Institute of Technology",
+                            "Harvard University",
+                            "Yale University",
+                            "Stanford University"
+                            ],
+               "per_facet":"",
+               "geo_facet":"",
+               "multimedia":[
+                             {
+                             "url":"https:\/\/static01.nyt.com\/images\/2016\/04\/19\/us\/19admissions-web\/19admissions-web-thumbStandard.jpg",
+                             "format":"Standard Thumbnail",
+                             "height":75,
+                             "width":75,
+                             "type":"image",
+                             "subtype":"photo",
+                             "caption":"Students at L\u00e9man Manhattan Preparatory School in New York during a college admissions preparatory class in 2012. Applications have increased at many colleges for 10 of the past 15 years.",
+                             "copyright":"Todd Heisler\/The New York Times"
+                             },
+                             {
+                             "url":"https:\/\/static01.nyt.com\/images\/2016\/04\/19\/us\/19admissions-web\/19admissions-web-thumbLarge.jpg",
+                             "format":"thumbLarge",
+                             "height":150,
+                             "width":150,
+                             "type":"image",
+                             "subtype":"photo",
+                             "caption":"Students at L\u00e9man Manhattan Preparatory School in New York during a college admissions preparatory class in 2012. Applications have increased at many colleges for 10 of the past 15 years.",
+                             "copyright":"Todd Heisler\/The New York Times"
+                             },
+                             {
+                             "url":"https:\/\/static01.nyt.com\/images\/2016\/04\/19\/us\/19admissions-web\/19admissions-web-articleInline.jpg",
+                             "format":"Normal",
+                             "height":127,
+                             "width":190,
+                             "type":"image",
+                             "subtype":"photo",
+                             "caption":"Students at L\u00e9man Manhattan Preparatory School in New York during a college admissions preparatory class in 2012. Applications have increased at many colleges for 10 of the past 15 years.",
+                             "copyright":"Todd Heisler\/The New York Times"
+                             },
+                             {
+                             "url":"https:\/\/static01.nyt.com\/images\/2016\/04\/19\/us\/19admissions-web\/19admissions-web-mediumThreeByTwo210.jpg",
+                             "format":"mediumThreeByTwo210",
+                             "height":140,
+                             "width":210,
+                             "type":"image",
+                             "subtype":"photo",
+                             "caption":"Students at L\u00e9man Manhattan Preparatory School in New York during a college admissions preparatory class in 2012. Applications have increased at many colleges for 10 of the past 15 years.",
+                             "copyright":"Todd Heisler\/The New York Times"
+                             },
+                             {
+                             "url":"https:\/\/static01.nyt.com\/images\/2016\/04\/19\/us\/19admissions-web\/19admissions-web-superJumbo.jpg",
+                             "format":"superJumbo",
+                             "height":1365,
+                             "width":2048,
+                             "type":"image",
+                             "subtype":"photo",
+                             "caption":"Students at L\u00e9man Manhattan Preparatory School in New York during a college admissions preparatory class in 2012. Applications have increased at many colleges for 10 of the past 15 years.",
+                             "copyright":"Todd Heisler\/The New York Times"
+                             }
+                             ]
+               },
+               {
+               "section":"Opinion",
+               "subsection":"",
+               "title":"Op-Ed | Frank Bruni: Rethinking College Admissions",
+               "abstract":"A new report suggests that we\u2019re on the cusp of important, necessary changes in the way colleges evaluate applicants.",
+               "url":"http:\/\/www.nytimes.com\/2016\/01\/20\/opinion\/rethinking-college-admissions.html",
+               "byline":"By FRANK BRUNI",
+               "item_type":"Article",
+               "updated_date":"2016-01-19T13:00:22-5:00",
+               "created_date":"2016-01-19T13:00:29-5:00",
+               "published_date":"2016-01-20T00:00:00-5:00",
+               "material_type_facet":"Op-Ed",
+               "kicker":"",
+               "des_facet":[
+                            "Colleges and Universities",
+                            "Admissions Standards"
+                            ],
+               "org_facet":[
+                            "Coalition for Access, Affordability and Success"
+                            ],
+               "per_facet":"",
+               "geo_facet":"",
+               "multimedia":[
+                             {
+                             "url":"https:\/\/static01.nyt.com\/images\/2016\/01\/20\/opinion\/20bruniWeb\/20bruniWeb-thumbStandard.jpg",
+                             "format":"Standard Thumbnail",
+                             "height":75,
+                             "width":75,
+                             "type":"image",
+                             "subtype":"photo",
+                             "caption":"A tour group at Princeton University.",
+                             "copyright":"Mark Makela for The New York Times"
+                             },
+                             {
+                             "url":"https:\/\/static01.nyt.com\/images\/2016\/01\/20\/opinion\/20bruniWeb\/20bruniWeb-thumbLarge.jpg",
+                             "format":"thumbLarge",
+                             "height":150,
+                             "width":150,
+                             "type":"image",
+                             "subtype":"photo",
+                             "caption":"A tour group at Princeton University.",
+                             "copyright":"Mark Makela for The New York Times"
+                             },
+                             {
+                             "url":"https:\/\/static01.nyt.com\/images\/2016\/01\/20\/opinion\/20bruniWeb\/20bruniWeb-articleInline.jpg",
+                             "format":"Normal",
+                             "height":127,
+                             "width":190,
+                             "type":"image",
+                             "subtype":"photo",
+                             "caption":"A tour group at Princeton University.",
+                             "copyright":"Mark Makela for The New York Times"
+                             },
+                             {
+                             "url":"https:\/\/static01.nyt.com\/images\/2016\/01\/20\/opinion\/20bruniWeb\/20bruniWeb-mediumThreeByTwo210.jpg",
+                             "format":"mediumThreeByTwo210",
+                             "height":140,
+                             "width":210,
+                             "type":"image",
+                             "subtype":"photo",
+                             "caption":"A tour group at Princeton University.",
+                             "copyright":"Mark Makela for The New York Times"
+                             },
+                             {
+                             "url":"https:\/\/static01.nyt.com\/images\/2016\/01\/20\/opinion\/20bruniWeb\/20bruniWeb-superJumbo.jpg",
+                             "format":"superJumbo",
+                             "height":1365,
+                             "width":2048,
+                             "type":"image",
+                             "subtype":"photo",
+                             "caption":"A tour group at Princeton University.",
+                             "copyright":"Mark Makela for The New York Times"
+                             }
+                             ]
+               },
+               {
+               "section":"World",
+               "subsection":"Americas",
+               "title":"Fidel Castro Asks Party to Fulfill His Vision",
+               "abstract":"In a farewell speech to Cuba\u2019s Communist Party congress, Mr. Castro, 89, said that he would soon die, but others in his cohort signaled their intentions to stay put.",
+               "url":"http:\/\/www.nytimes.com\/2016\/04\/20\/world\/americas\/in-farewell-fidel-castro-urges-party-to-fulfill-vision-for-cuba.html",
+               "byline":"By VICTORIA BURNETT",
+               "item_type":"Article",
+               "updated_date":"2016-04-19T19:55:34-5:00",
+               "created_date":"2016-04-19T19:55:36-5:00",
+               "published_date":"2016-04-20T00:00:00-5:00",
+               "material_type_facet":"News",
+               "kicker":"",
+               "des_facet":"",
+               "org_facet":"",
+               "per_facet":[
+                            "Castro, Fidel",
+                            "Castro, Raul"
+                            ],
+               "geo_facet":[
+                            "Cuba"
+                            ],
+               "multimedia":[
+                             {
+                             "url":"https:\/\/static01.nyt.com\/images\/2016\/04\/20\/world\/20cuba\/20cuba-thumbStandard.jpg",
+                             "format":"Standard Thumbnail",
+                             "height":75,
+                             "width":75,
+                             "type":"image",
+                             "subtype":"photo",
+                             "caption":"Fidel Castro, left, with his brother, President Ra\u00fal Castro, addressed Cuba\u2019s Communist Party at the party congress in Havana on Tuesday.",
+                             "copyright":"Ismael Francisco\/Cubadebate, via Associated Press"
+                             },
+                             {
+                             "url":"https:\/\/static01.nyt.com\/images\/2016\/04\/20\/world\/20cuba\/20cuba-thumbLarge.jpg",
+                             "format":"thumbLarge",
+                             "height":150,
+                             "width":150,
+                             "type":"image",
+                             "subtype":"photo",
+                             "caption":"Fidel Castro, left, with his brother, President Ra\u00fal Castro, addressed Cuba\u2019s Communist Party at the party congress in Havana on Tuesday.",
+                             "copyright":"Ismael Francisco\/Cubadebate, via Associated Press"
+                             },
+                             {
+                             "url":"https:\/\/static01.nyt.com\/images\/2016\/04\/20\/world\/20cuba\/20cuba-articleInline.jpg",
+                             "format":"Normal",
+                             "height":138,
+                             "width":190,
+                             "type":"image",
+                             "subtype":"photo",
+                             "caption":"Fidel Castro, left, with his brother, President Ra\u00fal Castro, addressed Cuba\u2019s Communist Party at the party congress in Havana on Tuesday.",
+                             "copyright":"Ismael Francisco\/Cubadebate, via Associated Press"
+                             },
+                             {
+                             "url":"https:\/\/static01.nyt.com\/images\/2016\/04\/20\/world\/20cuba\/20cuba-mediumThreeByTwo210.jpg",
+                             "format":"mediumThreeByTwo210",
+                             "height":140,
+                             "width":210,
+                             "type":"image",
+                             "subtype":"photo",
+                             "caption":"Fidel Castro, left, with his brother, President Ra\u00fal Castro, addressed Cuba\u2019s Communist Party at the party congress in Havana on Tuesday.",
+                             "copyright":"Ismael Francisco\/Cubadebate, via Associated Press"
+                             },
+                             {
+                             "url":"https:\/\/static01.nyt.com\/images\/2016\/04\/20\/world\/20cuba\/20cuba-superJumbo.jpg",
+                             "format":"superJumbo",
+                             "height":1483,
+                             "width":2048,
+                             "type":"image",
+                             "subtype":"photo",
+                             "caption":"Fidel Castro, left, with his brother, President Ra\u00fal Castro, addressed Cuba\u2019s Communist Party at the party congress in Havana on Tuesday.",
+                             "copyright":"Ismael Francisco\/Cubadebate, via Associated Press"
+                             }
+                             ]
+               },
+               {
+               "section":"N.Y. \/ Region",
+               "subsection":"",
+               "title":"An Alternate Uncle Sam Emerges From New York History",
+               "abstract":"A professor has fleshed out a reference that predates traditional wisdom, which has long suggested that the nickname was derived from an upstate New York butcher.",
+               "url":"http:\/\/www.nytimes.com\/2016\/04\/20\/nyregion\/alternate-uncle-sam-spotted-in-the-mists-of-new-york-history.html",
+               "byline":"By SAM ROBERTS",
+               "item_type":"Article",
+               "updated_date":"2016-04-19T21:32:36-5:00",
+               "created_date":"2016-04-19T21:32:37-5:00",
+               "published_date":"2016-04-20T00:00:00-5:00",
+               "material_type_facet":"News",
+               "kicker":"",
+               "des_facet":"",
+               "org_facet":[
+                            "United States Navy"
+                            ],
+               "per_facet":"",
+               "geo_facet":[
+                            "Brooklyn Navy Yard (Brooklyn, NY)"
+                            ],
+               "multimedia":[
+                             {
+                             "url":"https:\/\/static01.nyt.com\/images\/2016\/04\/21\/nytnow\/20NYTNOW-Sam\/20NYTNOW-Sam-thumbStandard.jpg",
+                             "format":"Standard Thumbnail",
+                             "height":75,
+                             "width":75,
+                             "type":"image",
+                             "subtype":"photo",
+                             "caption":"",
+                             "copyright":"FILIPPO MONTEFORTE\/Agence France-Presse \u2014 Getty Images"
+                             },
+                             {
+                             "url":"https:\/\/static01.nyt.com\/images\/2016\/04\/21\/nytnow\/20NYTNOW-Sam\/20NYTNOW-Sam-thumbLarge.jpg",
+                             "format":"thumbLarge",
+                             "height":150,
+                             "width":150,
+                             "type":"image",
+                             "subtype":"photo",
+                             "caption":"",
+                             "copyright":"FILIPPO MONTEFORTE\/Agence France-Presse \u2014 Getty Images"
+                             },
+                             {
+                             "url":"https:\/\/static01.nyt.com\/images\/2016\/04\/21\/nytnow\/20NYTNOW-Sam\/20NYTNOW-Sam-articleInline.jpg",
+                             "format":"Normal",
+                             "height":126,
+                             "width":190,
+                             "type":"image",
+                             "subtype":"photo",
+                             "caption":"",
+                             "copyright":"FILIPPO MONTEFORTE\/Agence France-Presse \u2014 Getty Images"
+                             },
+                             {
+                             "url":"https:\/\/static01.nyt.com\/images\/2016\/04\/21\/nytnow\/20NYTNOW-Sam\/20NYTNOW-Sam-mediumThreeByTwo210.jpg",
+                             "format":"mediumThreeByTwo210",
+                             "height":140,
+                             "width":210,
+                             "type":"image",
+                             "subtype":"photo",
+                             "caption":"",
+                             "copyright":"FILIPPO MONTEFORTE\/Agence France-Presse \u2014 Getty Images"
+                             },
+                             {
+                             "url":"https:\/\/static01.nyt.com\/images\/2016\/04\/21\/nytnow\/20NYTNOW-Sam\/20NYTNOW-Sam-superJumbo.jpg",
+                             "format":"superJumbo",
+                             "height":1363,
+                             "width":2048,
+                             "type":"image",
+                             "subtype":"photo",
+                             "caption":"",
+                             "copyright":"FILIPPO MONTEFORTE\/Agence France-Presse \u2014 Getty Images"
+                             }
+                             ]
+               },
+               {
+               "section":"World",
+               "subsection":"Asia Pacific",
+               "title":"Mitsubishi Finds Falsified Fuel Mileage Tests",
+               "abstract":"Mitsubishi Motors Corp., the Japanese automaker tarnished by a massive recall-cover-up 15 years ago, owned up to another scandal Wednesday, saying employees had intentionally falsified fuel mileage test data for several vehicle models.",
+               "url":"http:\/\/www.nytimes.com\/aponline\/2016\/04\/20\/world\/asia\/ap-as-mitsubishi-motors-emissions-.html",
+               "byline":"By THE ASSOCIATED PRESS",
+               "item_type":"Article",
+               "updated_date":"2016-04-20T05:48:33-5:00",
+               "created_date":"2016-04-20T04:18:33-5:00",
+               "published_date":"2016-04-20T04:16:12-5:00",
+               "material_type_facet":"News",
+               "kicker":"",
+               "des_facet":"",
+               "org_facet":"",
+               "per_facet":"",
+               "geo_facet":"",
+               "multimedia":""
+               },
+               {
+               "section":"Business Day",
+               "subsection":"DealBook",
+               "title":"After Rough Quarter, Goldman May Adjust Strategy",
+               "abstract":"Wall Street banks have been buffeted by tumultuous financial markets, but Goldman Sachs had particularly weak results because of its focus on trading.",
+               "url":"http:\/\/www.nytimes.com\/2016\/04\/20\/business\/dealbook\/goldman-sachss-profit-and-revenue-tumble-in-quarter.html",
+               "byline":"By NATHANIEL POPPER",
+               "item_type":"Article",
+               "updated_date":"2016-04-19T17:26:30-5:00",
+               "created_date":"2016-04-19T08:27:33-5:00",
+               "published_date":"2016-04-20T00:00:00-5:00",
+               "material_type_facet":"News",
+               "kicker":"",
+               "des_facet":[
+                            "Banking and Financial Institutions",
+                            "Company Reports"
+                            ],
+               "org_facet":[
+                            "Goldman Sachs Group Inc"
+                            ],
+               "per_facet":[
+                            "Blankfein, Lloyd C"
+                            ],
+               "geo_facet":"",
+               "multimedia":[
+                             {
+                             "url":"https:\/\/static01.nyt.com\/images\/2016\/04\/12\/business\/db-goldman1\/db-goldman1-thumbStandard.jpg",
+                             "format":"Standard Thumbnail",
+                             "height":75,
+                             "width":75,
+                             "type":"image",
+                             "subtype":"photo",
+                             "caption":"The headquarters of Goldman Sachs in New York.",
+                             "copyright":"Mark Lennihan\/Associated Press"
+                             },
+                             {
+                             "url":"https:\/\/static01.nyt.com\/images\/2016\/04\/12\/business\/db-goldman1\/db-goldman1-thumbLarge.jpg",
+                             "format":"thumbLarge",
+                             "height":150,
+                             "width":150,
+                             "type":"image",
+                             "subtype":"photo",
+                             "caption":"The headquarters of Goldman Sachs in New York.",
+                             "copyright":"Mark Lennihan\/Associated Press"
+                             },
+                             {
+                             "url":"https:\/\/static01.nyt.com\/images\/2016\/04\/12\/business\/db-goldman1\/db-goldman1-articleInline.jpg",
+                             "format":"Normal",
+                             "height":127,
+                             "width":190,
+                             "type":"image",
+                             "subtype":"photo",
+                             "caption":"The headquarters of Goldman Sachs in New York.",
+                             "copyright":"Mark Lennihan\/Associated Press"
+                             },
+                             {
+                             "url":"https:\/\/static01.nyt.com\/images\/2016\/04\/12\/business\/db-goldman1\/db-goldman1-mediumThreeByTwo210.jpg",
+                             "format":"mediumThreeByTwo210",
+                             "height":140,
+                             "width":210,
+                             "type":"image",
+                             "subtype":"photo",
+                             "caption":"The headquarters of Goldman Sachs in New York.",
+                             "copyright":"Mark Lennihan\/Associated Press"
+                             },
+                             {
+                             "url":"https:\/\/static01.nyt.com\/images\/2016\/04\/12\/business\/db-goldman1\/db-goldman1-superJumbo.jpg",
+                             "format":"superJumbo",
+                             "height":1365,
+                             "width":2048,
+                             "type":"image",
+                             "subtype":"photo",
+                             "caption":"The headquarters of Goldman Sachs in New York.",
+                             "copyright":"Mark Lennihan\/Associated Press"
+                             }
+                             ]
+               },
+               {
+               "section":"N.Y. \/ Region",
+               "subsection":"",
+               "title":"No Prison Term for Officer in Brooklyn Stairwell Killing",
+               "abstract":"Peter Liang was sentenced to five years of probation and 800 hours of community service in the killing of Akai Gurley.",
+               "url":"http:\/\/www.nytimes.com\/2016\/04\/20\/nyregion\/peter-liang-ex-new-york-police-officer-sentenced-akai-gurley-shooting-death-brooklyn.html",
+               "byline":"By ALAN FEUER",
+               "item_type":"Article",
+               "updated_date":"2016-04-19T21:08:36-5:00",
+               "created_date":"2016-04-19T15:18:37-5:00",
+               "published_date":"2016-04-20T00:00:00-5:00",
+               "material_type_facet":"News",
+               "kicker":"",
+               "des_facet":[
+                            "Police Brutality, Misconduct and Shootings"
+                            ],
+               "org_facet":[
+                            "Police Department (NYC)"
+                            ],
+               "per_facet":[
+                            "Gurley, Akai",
+                            "Liang, Peter (1987- )"
+                            ],
+               "geo_facet":[
+                            "East New York (Brooklyn, NY)"
+                            ],
+               "multimedia":[
+                             {
+                             "url":"https:\/\/static01.nyt.com\/images\/2016\/04\/20\/nyregion\/20liang-hp\/20liang-hp-thumbStandard.jpg",
+                             "format":"Standard Thumbnail",
+                             "height":75,
+                             "width":75,
+                             "type":"image",
+                             "subtype":"photo",
+                             "caption":"Peter Liang, a former New York City police officer, leaving State Supreme Court in Brooklyn on Tuesday after he was spared jail time in the shooting death of Akai Gurley in November 2014.",
+                             "copyright":"Karsten Moran for The New York Times"
+                             },
+                             {
+                             "url":"https:\/\/static01.nyt.com\/images\/2016\/04\/20\/nyregion\/20liang-hp\/20liang-hp-thumbLarge.jpg",
+                             "format":"thumbLarge",
+                             "height":150,
+                             "width":150,
+                             "type":"image",
+                             "subtype":"photo",
+                             "caption":"Peter Liang, a former New York City police officer, leaving State Supreme Court in Brooklyn on Tuesday after he was spared jail time in the shooting death of Akai Gurley in November 2014.",
+                             "copyright":"Karsten Moran for The New York Times"
+                             },
+                             {
+                             "url":"https:\/\/static01.nyt.com\/images\/2016\/04\/20\/nyregion\/20liang-hp\/20liang-hp-articleInline.jpg",
+                             "format":"Normal",
+                             "height":127,
+                             "width":190,
+                             "type":"image",
+                             "subtype":"photo",
+                             "caption":"Peter Liang, a former New York City police officer, leaving State Supreme Court in Brooklyn on Tuesday after he was spared jail time in the shooting death of Akai Gurley in November 2014.",
+                             "copyright":"Karsten Moran for The New York Times"
+                             },
+                             {
+                             "url":"https:\/\/static01.nyt.com\/images\/2016\/04\/20\/nyregion\/20liang-hp\/20liang-hp-mediumThreeByTwo210.jpg",
+                             "format":"mediumThreeByTwo210",
+                             "height":140,
+                             "width":210,
+                             "type":"image",
+                             "subtype":"photo",
+                             "caption":"Peter Liang, a former New York City police officer, leaving State Supreme Court in Brooklyn on Tuesday after he was spared jail time in the shooting death of Akai Gurley in November 2014.",
+                             "copyright":"Karsten Moran for The New York Times"
+                             },
+                             {
+                             "url":"https:\/\/static01.nyt.com\/images\/2016\/04\/20\/nyregion\/20liang-hp\/20liang-hp-superJumbo.jpg",
+                             "format":"superJumbo",
+                             "height":1367,
+                             "width":2048,
+                             "type":"image",
+                             "subtype":"photo",
+                             "caption":"Peter Liang, a former New York City police officer, leaving State Supreme Court in Brooklyn on Tuesday after he was spared jail time in the shooting death of Akai Gurley in November 2014.",
+                             "copyright":"Karsten Moran for The New York Times"
+                             }
+                             ]
+               },
+               {  
+               "section":"Technology",
+               "subsection":"",
+               "title":"Intel to Cut 12,000 Jobs as Demand for PCs Plummets",
+               "abstract":"The company, the largest semiconductor maker, will lay off 11 percent of its work force as it shifts to supplying chips for phones and other devices.",
+               "url":"http:\/\/www.nytimes.com\/2016\/04\/20\/technology\/intel-earnings-job-cuts.html",
+               "byline":"By QUENTIN HARDY",
+               "item_type":"Article",
+               "updated_date":"2016-04-19T22:02:35-5:00",
+               "created_date":"2016-04-19T16:33:06-5:00",
+               "published_date":"2016-04-20T00:00:00-5:00",
+               "material_type_facet":"News",
+               "kicker":"",
+               "des_facet":[  
+                            "Computer Chips",
+                            "Cloud Computing",
+                            "Company Reports"
+                            ],
+               "org_facet":[  
+                            "Intel Corporation"
+                            ],
+               "per_facet":[  
+                            "Krzanich, Brian M"
+                            ],
+               "geo_facet":"",
+               "multimedia":[  
+                             {  
+                             "url":"https:\/\/static01.nyt.com\/images\/2016\/04\/20\/business\/20chip\/20chip-thumbStandard.jpg",
+                             "format":"Standard Thumbnail",
+                             "height":75,
+                             "width":75,
+                             "type":"image",
+                             "subtype":"photo",
+                             "caption":"Brendon Villalobos demonstrates gloves he made that translate hand gestures into computer text input with the help of Intel\u2019s latest sensor-laden chip package, Curie.",
+                             "copyright":"Damian Dovarganes\/Associated Press"
+                             },
+                             {  
+                             "url":"https:\/\/static01.nyt.com\/images\/2016\/04\/20\/business\/20chip\/20chip-thumbLarge.jpg",
+                             "format":"thumbLarge",
+                             "height":150,
+                             "width":150,
+                             "type":"image",
+                             "subtype":"photo",
+                             "caption":"Brendon Villalobos demonstrates gloves he made that translate hand gestures into computer text input with the help of Intel\u2019s latest sensor-laden chip package, Curie.",
+                             "copyright":"Damian Dovarganes\/Associated Press"
+                             },
+                             {  
+                             "url":"https:\/\/static01.nyt.com\/images\/2016\/04\/20\/business\/20chip\/20chip-articleInline.jpg",
+                             "format":"Normal",
+                             "height":157,
+                             "width":190,
+                             "type":"image",
+                             "subtype":"photo",
+                             "caption":"Brendon Villalobos demonstrates gloves he made that translate hand gestures into computer text input with the help of Intel\u2019s latest sensor-laden chip package, Curie.",
+                             "copyright":"Damian Dovarganes\/Associated Press"
+                             },
+                             {  
+                             "url":"https:\/\/static01.nyt.com\/images\/2016\/04\/20\/business\/20chip\/20chip-mediumThreeByTwo210.jpg",
+                             "format":"mediumThreeByTwo210",
+                             "height":140,
+                             "width":210,
+                             "type":"image",
+                             "subtype":"photo",
+                             "caption":"Brendon Villalobos demonstrates gloves he made that translate hand gestures into computer text input with the help of Intel\u2019s latest sensor-laden chip package, Curie.",
+                             "copyright":"Damian Dovarganes\/Associated Press"
+                             },
+                             {  
+                             "url":"https:\/\/static01.nyt.com\/images\/2016\/04\/20\/business\/20chip\/20chip-superJumbo.jpg",
+                             "format":"superJumbo",
+                             "height":1688,
+                             "width":2048,
+                             "type":"image",
+                             "subtype":"photo",
+                             "caption":"Brendon Villalobos demonstrates gloves he made that translate hand gestures into computer text input with the help of Intel\u2019s latest sensor-laden chip package, Curie.",
+                             "copyright":"Damian Dovarganes\/Associated Press"
+                             }
+                             ]
+               },
+               {  
+               "section":"World",
+               "subsection":"Americas",
+               "title":"In Ecuador Towns Hit by Quake, Contact Was Lost for Days",
+               "abstract":"New York Times journalists accompanied an aid mission to an area without water, power or the means to contact the outside world, demonstrating why the death toll could increase.",
+               "url":"http:\/\/www.nytimes.com\/2016\/04\/20\/world\/americas\/in-remote-ecuador-towns-hit-by-quake-contact-was-cut-off-for-days.html",
+               "byline":"By NICHOLAS CASEY and MAGGY AYALA",
+               "item_type":"Article",
+               "updated_date":"2016-04-19T21:21:15-5:00",
+               "created_date":"2016-04-19T21:21:17-5:00",
+               "published_date":"2016-04-20T00:00:00-5:00",
+               "material_type_facet":"News",
+               "kicker":"",
+               "des_facet":[  
+                            "Earthquakes",
+                            "Disasters and Emergencies"
+                            ],
+               "org_facet":"",
+               "per_facet":"",
+               "geo_facet":[  
+                            "Ecuador"
+                            ],
+               "multimedia":""
+               },
+               {  
+               "section":"Arts",
+               "subsection":"Television",
+               "title":"Don\u2019t Like the Girls in \u2018Girls\u2019? That\u2019s Its Genius.",
+               "abstract":"Through 52 episodes, the HBO show has never stopped looking for the grander, harsher psychological story. And, it never stopped looking for tough laughs.",
+               "url":"http:\/\/www.nytimes.com\/2016\/04\/19\/arts\/television\/you-dont-like-the-girls-in-girls-but-thats-its-genius.html",
+               "byline":"By WESLEY MORRIS",
+               "item_type":"Article",
+               "updated_date":"2016-04-19T10:46:07-5:00",
+               "created_date":"2016-04-18T18:06:44-5:00",
+               "published_date":"2016-04-19T00:00:00-5:00",
+               "material_type_facet":"News",
+               "kicker":"",
+               "des_facet":[  
+                            "Television",
+                            "Girls (TV Program)"
+                            ],
+               "org_facet":[  
+                            "Home Box Office"
+                            ],
+               "per_facet":[  
+                            "Dunham, Lena"
+                            ],
+               "geo_facet":"",
+               "multimedia":[  
+                             {  
+                             "url":"https:\/\/static01.nyt.com\/images\/2016\/04\/19\/arts\/19GIRLSFINALEJP\/19GIRLSFINALEJP-thumbStandard.jpg",
+                             "format":"Standard Thumbnail",
+                             "height":75,
+                             "width":75,
+                             "type":"image",
+                             "subtype":"photo",
+                             "caption":"Alex Karpovsky and Lena Dunham in the \u201cHello Kitty\u201d episode of \u201cGirls.\u201d",
+                             "copyright":"Craig Blankenhorn\/HBO"
+                             },
+                             {  
+                             "url":"https:\/\/static01.nyt.com\/images\/2016\/04\/19\/arts\/19GIRLSFINALEJP\/19GIRLSFINALEJP-thumbLarge.jpg",
+                             "format":"thumbLarge",
+                             "height":150,
+                             "width":150,
+                             "type":"image",
+                             "subtype":"photo",
+                             "caption":"Alex Karpovsky and Lena Dunham in the \u201cHello Kitty\u201d episode of \u201cGirls.\u201d",
+                             "copyright":"Craig Blankenhorn\/HBO"
+                             },
+                             {  
+                             "url":"https:\/\/static01.nyt.com\/images\/2016\/04\/19\/arts\/19GIRLSFINALEJP\/19GIRLSFINALEJP-articleInline.jpg",
+                             "format":"Normal",
+                             "height":119,
+                             "width":190,
+                             "type":"image",
+                             "subtype":"photo",
+                             "caption":"Alex Karpovsky and Lena Dunham in the \u201cHello Kitty\u201d episode of \u201cGirls.\u201d",
+                             "copyright":"Craig Blankenhorn\/HBO"
+                             },
+                             {  
+                             "url":"https:\/\/static01.nyt.com\/images\/2016\/04\/19\/arts\/19GIRLSFINALEJP\/19GIRLSFINALEJP-mediumThreeByTwo210.jpg",
+                             "format":"mediumThreeByTwo210",
+                             "height":140,
+                             "width":210,
+                             "type":"image",
+                             "subtype":"photo",
+                             "caption":"Alex Karpovsky and Lena Dunham in the \u201cHello Kitty\u201d episode of \u201cGirls.\u201d",
+                             "copyright":"Craig Blankenhorn\/HBO"
+                             },
+                             {  
+                             "url":"https:\/\/static01.nyt.com\/images\/2016\/04\/19\/arts\/19GIRLSFINALEJP\/19GIRLSFINALEJP-superJumbo.jpg",
+                             "format":"superJumbo",
+                             "height":1169,
+                             "width":1867,
+                             "type":"image",
+                             "subtype":"photo",
+                             "caption":"Alex Karpovsky and Lena Dunham in the \u201cHello Kitty\u201d episode of \u201cGirls.\u201d",
+                             "copyright":"Craig Blankenhorn\/HBO"
+                             }
+                             ]
+               },
+               {  
+               "section":"Travel",
+               "subsection":"",
+               "title":"For an Eco-Friendly Los Angeles Trip, Lose the Car",
+               "abstract":"Contrary to reputation, it\u2019s possible to escape the routines of the typical visitor in the name of environmental friendliness, the frugal traveler writes.",
+               "url":"http:\/\/www.nytimes.com\/2016\/04\/24\/travel\/budget-travel-los-angeles.html",
+               "byline":"By LUCAS PETERSON",
+               "item_type":"Article",
+               "updated_date":"2016-04-19T12:44:26-5:00",
+               "created_date":"2016-04-19T12:44:32-5:00",
+               "published_date":"2016-04-24T00:00:00-5:00",
+               "material_type_facet":"News",
+               "kicker":"",
+               "des_facet":[  
+                            "Eco-Tourism",
+                            "Budget Travel",
+                            "Transit Systems",
+                            "Sustainable Living",
+                            "Yurts (Shelters)",
+                            "Travel and Vacations"
+                            ],
+               "org_facet":"",
+               "per_facet":"",
+               "geo_facet":[  
+                            "Los Angeles (Calif)"
+                            ],
+               "multimedia":[  
+                             {  
+                             "url":"https:\/\/static01.nyt.com\/images\/2016\/04\/24\/travel\/24FRUGAL1\/24FRUGAL1-thumbStandard.jpg",
+                             "format":"Standard Thumbnail",
+                             "height":75,
+                             "width":75,
+                             "type":"image",
+                             "subtype":"photo",
+                             "caption":"Bikers at Venice Beach.",
+                             "copyright":"Beth Coller for The New York Times"
+                             },
+                             {  
+                             "url":"https:\/\/static01.nyt.com\/images\/2016\/04\/24\/travel\/24FRUGAL1\/24FRUGAL1-thumbLarge.jpg",
+                             "format":"thumbLarge",
+                             "height":150,
+                             "width":150,
+                             "type":"image",
+                             "subtype":"photo",
+                             "caption":"Bikers at Venice Beach.",
+                             "copyright":"Beth Coller for The New York Times"
+                             },
+                             {  
+                             "url":"https:\/\/static01.nyt.com\/images\/2016\/04\/24\/travel\/24FRUGAL1\/24FRUGAL1-articleInline.jpg",
+                             "format":"Normal",
+                             "height":127,
+                             "width":190,
+                             "type":"image",
+                             "subtype":"photo",
+                             "caption":"Bikers at Venice Beach.",
+                             "copyright":"Beth Coller for The New York Times"
+                             },
+                             {  
+                             "url":"https:\/\/static01.nyt.com\/images\/2016\/04\/24\/travel\/24FRUGAL1\/24FRUGAL1-mediumThreeByTwo210.jpg",
+                             "format":"mediumThreeByTwo210",
+                             "height":140,
+                             "width":210,
+                             "type":"image",
+                             "subtype":"photo",
+                             "caption":"Bikers at Venice Beach.",
+                             "copyright":"Beth Coller for The New York Times"
+                             },
+                             {  
+                             "url":"https:\/\/static01.nyt.com\/images\/2016\/04\/24\/travel\/24FRUGAL1\/24FRUGAL1-superJumbo.jpg",
+                             "format":"superJumbo",
+                             "height":1366,
+                             "width":2048,
+                             "type":"image",
+                             "subtype":"photo",
+                             "caption":"Bikers at Venice Beach.",
+                             "copyright":"Beth Coller for The New York Times"
+                             }
+                             ]
+               },
+               {  
+               "section":"Food",
+               "subsection":"",
+               "title":"From Paris, a New York Debut",
+               "abstract":"Following years of success in Paris, the American chef Daniel Rose plans to open Le Coucou in SoHo.",
+               "url":"http:\/\/www.nytimes.com\/2016\/04\/20\/dining\/daniel-rose-chef-le-coucou.html",
+               "byline":"By JEFF GORDINIER",
+               "item_type":"Article",
+               "updated_date":"2016-04-19T11:15:32-5:00",
+               "created_date":"2016-04-18T12:41:36-5:00",
+               "published_date":"2016-04-20T00:00:00-5:00",
+               "material_type_facet":"News",
+               "kicker":"",
+               "des_facet":[  
+                            "Restaurants",
+                            "Chefs"
+                            ],
+               "org_facet":[  
+                            "Le Coucou"
+                            ],
+               "per_facet":[  
+                            "Daniel Rose",
+                            "Stephen Starr"
+                            ],
+               "geo_facet":[  
+                            "Paris (France)",
+                            "SoHo (Manhattan, NY)"
+                            ],
+               "multimedia":[  
+                             {  
+                             "url":"https:\/\/static01.nyt.com\/images\/2016\/04\/20\/dining\/20ROSEWEB\/20ROSEWEB-thumbStandard.jpg",
+                             "format":"Standard Thumbnail",
+                             "height":75,
+                             "width":75,
+                             "type":"image",
+                             "subtype":"photo",
+                             "caption":"The chef Daniel Rose on the roof of the 11 Howard hotel, which will contain his new restaurant, Le Coucou.",
+                             "copyright":"Christopher Gregory for The New York Times"
+                             },
+                             {  
+                             "url":"https:\/\/static01.nyt.com\/images\/2016\/04\/20\/dining\/20ROSEWEB\/20ROSEWEB-thumbLarge.jpg",
+                             "format":"thumbLarge",
+                             "height":150,
+                             "width":150,
+                             "type":"image",
+                             "subtype":"photo",
+                             "caption":"The chef Daniel Rose on the roof of the 11 Howard hotel, which will contain his new restaurant, Le Coucou.",
+                             "copyright":"Christopher Gregory for The New York Times"
+                             },
+                             {  
+                             "url":"https:\/\/static01.nyt.com\/images\/2016\/04\/20\/dining\/20ROSEWEB\/20ROSEWEB-articleInline-v2.jpg",
+                             "format":"Normal",
+                             "height":126,
+                             "width":190,
+                             "type":"image",
+                             "subtype":"photo",
+                             "caption":"The chef Daniel Rose on the roof of the 11 Howard hotel, which will contain his new restaurant, Le Coucou.",
+                             "copyright":"Christopher Gregory for The New York Times"
+                             },
+                             {  
+                             "url":"https:\/\/static01.nyt.com\/images\/2016\/04\/20\/dining\/20ROSEWEB\/20ROSEWEB-mediumThreeByTwo210-v2.jpg",
+                             "format":"mediumThreeByTwo210",
+                             "height":140,
+                             "width":210,
+                             "type":"image",
+                             "subtype":"photo",
+                             "caption":"The chef Daniel Rose on the roof of the 11 Howard hotel, which will contain his new restaurant, Le Coucou.",
+                             "copyright":"Christopher Gregory for The New York Times"
+                             },
+                             {  
+                             "url":"https:\/\/static01.nyt.com\/images\/2016\/04\/20\/dining\/20ROSEWEB\/20ROSEWEB-superJumbo-v2.jpg",
+                             "format":"superJumbo",
+                             "height":1354,
+                             "width":2048,
+                             "type":"image",
+                             "subtype":"photo",
+                             "caption":"The chef Daniel Rose on the roof of the 11 Howard hotel, which will contain his new restaurant, Le Coucou.",
+                             "copyright":"Christopher Gregory for The New York Times"
+                             }
+                             ]
+               }
+               ]
+}

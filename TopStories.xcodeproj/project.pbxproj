@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FB41B39F1CC7731A0053E803 /* TopStoriesRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB41B39E1CC7731A0053E803 /* TopStoriesRequest.swift */; };
+		FB41B3A11CC77B490053E803 /* NetworkRequestTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB41B3A01CC77B490053E803 /* NetworkRequestTests.swift */; };
+		FB41B3A51CC7957F0053E803 /* home.json in Resources */ = {isa = PBXBuildFile; fileRef = FB41B3A41CC7957F0053E803 /* home.json */; };
+		FB41B3A81CC796F30053E803 /* TestableURLSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB41B3A71CC796F30053E803 /* TestableURLSession.swift */; };
+		FB41B3AA1CC797770053E803 /* TestableURLSessionDataTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB41B3A91CC797770053E803 /* TestableURLSessionDataTask.swift */; };
 		FB826C191CC66D4E000FC778 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB826C181CC66D4E000FC778 /* AppDelegate.swift */; };
 		FB826C1C1CC66D4E000FC778 /* TopStories.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = FB826C1A1CC66D4E000FC778 /* TopStories.xcdatamodeld */; };
 		FB826C1E1CC66D4E000FC778 /* MasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB826C1D1CC66D4E000FC778 /* MasterViewController.swift */; };
@@ -14,7 +19,6 @@
 		FB826C231CC66D4E000FC778 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FB826C211CC66D4E000FC778 /* Main.storyboard */; };
 		FB826C251CC66D4E000FC778 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FB826C241CC66D4E000FC778 /* Assets.xcassets */; };
 		FB826C281CC66D4E000FC778 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FB826C261CC66D4E000FC778 /* LaunchScreen.storyboard */; };
-		FB826C331CC66D4E000FC778 /* TopStoriesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB826C321CC66D4E000FC778 /* TopStoriesTests.swift */; };
 		FB826C421CC68717000FC778 /* RequestController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB826C411CC68717000FC778 /* RequestController.swift */; };
 		FB826C441CC6883E000FC778 /* PersistenceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB826C431CC6883E000FC778 /* PersistenceController.swift */; };
 /* End PBXBuildFile section */
@@ -30,6 +34,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		FB41B39E1CC7731A0053E803 /* TopStoriesRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TopStoriesRequest.swift; sourceTree = "<group>"; };
+		FB41B3A01CC77B490053E803 /* NetworkRequestTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkRequestTests.swift; sourceTree = "<group>"; };
+		FB41B3A41CC7957F0053E803 /* home.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = home.json; sourceTree = "<group>"; };
+		FB41B3A71CC796F30053E803 /* TestableURLSession.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestableURLSession.swift; sourceTree = "<group>"; };
+		FB41B3A91CC797770053E803 /* TestableURLSessionDataTask.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestableURLSessionDataTask.swift; sourceTree = "<group>"; };
 		FB826C151CC66D4E000FC778 /* TopStories.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TopStories.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FB826C181CC66D4E000FC778 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FB826C1B1CC66D4E000FC778 /* TopStories.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TopStories.xcdatamodel; sourceTree = "<group>"; };
@@ -40,7 +49,6 @@
 		FB826C271CC66D4E000FC778 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FB826C291CC66D4E000FC778 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FB826C2E1CC66D4E000FC778 /* TopStoriesTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TopStoriesTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		FB826C321CC66D4E000FC778 /* TopStoriesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopStoriesTests.swift; sourceTree = "<group>"; };
 		FB826C341CC66D4E000FC778 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FB826C411CC68717000FC778 /* RequestController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestController.swift; sourceTree = "<group>"; };
 		FB826C431CC6883E000FC778 /* PersistenceController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersistenceController.swift; sourceTree = "<group>"; };
@@ -64,6 +72,31 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		FB41B3A21CC7937D0053E803 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				FB41B3A01CC77B490053E803 /* NetworkRequestTests.swift */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
+		FB41B3A31CC7955A0053E803 /* Test Data */ = {
+			isa = PBXGroup;
+			children = (
+				FB41B3A41CC7957F0053E803 /* home.json */,
+			);
+			name = "Test Data";
+			sourceTree = "<group>";
+		};
+		FB41B3A61CC796E30053E803 /* Test Support */ = {
+			isa = PBXGroup;
+			children = (
+				FB41B3A71CC796F30053E803 /* TestableURLSession.swift */,
+				FB41B3A91CC797770053E803 /* TestableURLSessionDataTask.swift */,
+			);
+			name = "Test Support";
+			sourceTree = "<group>";
+		};
 		FB826C0C1CC66D4E000FC778 = {
 			isa = PBXGroup;
 			children = (
@@ -101,8 +134,10 @@
 		FB826C311CC66D4E000FC778 /* TopStoriesTests */ = {
 			isa = PBXGroup;
 			children = (
-				FB826C321CC66D4E000FC778 /* TopStoriesTests.swift */,
+				FB41B3A21CC7937D0053E803 /* Controller */,
 				FB826C341CC66D4E000FC778 /* Info.plist */,
+				FB41B3A31CC7955A0053E803 /* Test Data */,
+				FB41B3A61CC796E30053E803 /* Test Support */,
 			);
 			path = TopStoriesTests;
 			sourceTree = "<group>";
@@ -110,8 +145,9 @@
 		FB826C401CC686D7000FC778 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				FB826C411CC68717000FC778 /* RequestController.swift */,
 				FB826C431CC6883E000FC778 /* PersistenceController.swift */,
+				FB826C411CC68717000FC778 /* RequestController.swift */,
+				FB41B39E1CC7731A0053E803 /* TopStoriesRequest.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -207,6 +243,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FB41B3A51CC7957F0053E803 /* home.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -217,6 +254,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FB41B39F1CC7731A0053E803 /* TopStoriesRequest.swift in Sources */,
 				FB826C191CC66D4E000FC778 /* AppDelegate.swift in Sources */,
 				FB826C421CC68717000FC778 /* RequestController.swift in Sources */,
 				FB826C1C1CC66D4E000FC778 /* TopStories.xcdatamodeld in Sources */,
@@ -230,7 +268,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FB826C331CC66D4E000FC778 /* TopStoriesTests.swift in Sources */,
+				FB41B3A81CC796F30053E803 /* TestableURLSession.swift in Sources */,
+				FB41B3A11CC77B490053E803 /* NetworkRequestTests.swift in Sources */,
+				FB41B3AA1CC797770053E803 /* TestableURLSessionDataTask.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
