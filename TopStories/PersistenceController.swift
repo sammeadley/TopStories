@@ -11,7 +11,13 @@ import CoreData
 
 class PersistenceController {
     
-    lazy var managedObjectContext: NSManagedObjectContext? = {
+    private let storeType: String
+    
+    init(storeType: String = NSSQLiteStoreType) {
+        self.storeType = storeType
+    }
+    
+    lazy var managedObjectContext: NSManagedObjectContext = {
         
         let coordinator = self.persistentStoreCoordinator
         var managedObjectContext = NSManagedObjectContext(concurrencyType: .MainQueueConcurrencyType)
@@ -37,7 +43,7 @@ class PersistenceController {
         }
 
         do {
-            try coordinator.addPersistentStoreWithType(NSSQLiteStoreType, configuration: nil, URL: URL, options: nil)
+            try coordinator.addPersistentStoreWithType(self.storeType, configuration: nil, URL: URL, options: nil)
 
         } catch {
             
