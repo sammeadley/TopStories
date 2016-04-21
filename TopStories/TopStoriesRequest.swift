@@ -65,7 +65,6 @@ class TopStoriesRequest: NetworkRequest {
             privateContext.parentContext = managedObjectContext
             privateContext.performBlock({
                 
-                // If URL exists, update the entry. If not create new entry, parse and store (using child context).
                 let results = JSONObject["results"] as! [Dictionary<String, AnyObject>]
                 let URLs = results.map({ $0["url"] as! String })
                 // Fetch existing records at once, so there's only a single hit on the database.

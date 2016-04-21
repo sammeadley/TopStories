@@ -30,14 +30,20 @@ class RequestController {
         URLComponents?.path = (URLComponents?.path)! + "\(defaultSection).\(responseFormat)"
         URLComponents?.queryItems = [ NSURLQueryItem(name: "api-key", value: APIKey) ]
         
-        let request = TopStoriesRequest(managedObjectContext: managedObjectContext, URL: URLComponents!.URL!)
-        
-        operationQueue.addOperation(request)
         
         let fetchedResultsController = NSFetchedResultsController(fetchRequest: Story.fetchRequest(),
                                                                   managedObjectContext: managedObjectContext,
                                                                   sectionNameKeyPath: nil,
                                                                   cacheName: nil)
+        do {
+            try fetchedResultsController.performFetch()
+        } catch {
+            // TODO: Handle error
+        }
+        
+        let request = TopStoriesRequest(managedObjectContext: managedObjectContext, URL: URLComponents!.URL!)
+        operationQueue.addOperation(request)
+        
         return fetchedResultsController
     }
     
