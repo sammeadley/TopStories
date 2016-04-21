@@ -25,6 +25,8 @@
 		FB826C441CC6883E000FC778 /* PersistenceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB826C431CC6883E000FC778 /* PersistenceController.swift */; };
 		FBAF85091CC8BDA000F85BEA /* ImageRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBAF85081CC8BDA000F85BEA /* ImageRequest.swift */; };
 		FBAF850B1CC8BE2F00F85BEA /* NetworkRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBAF850A1CC8BE2F00F85BEA /* NetworkRequest.swift */; };
+		FBAF853E1CC9295700F85BEA /* StoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBAF853D1CC9295700F85BEA /* StoryCollectionViewCell.swift */; };
+		FBAF85401CC934AA00F85BEA /* StoriesViewControllerLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBAF853F1CC934AA00F85BEA /* StoriesViewControllerLayout.swift */; };
 		FBC1C32C1CC81210002F79A3 /* CoreDataTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBC1C32B1CC81210002F79A3 /* CoreDataTestCase.swift */; };
 /* End PBXBuildFile section */
 
@@ -61,6 +63,8 @@
 		FB826C431CC6883E000FC778 /* PersistenceController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersistenceController.swift; sourceTree = "<group>"; };
 		FBAF85081CC8BDA000F85BEA /* ImageRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageRequest.swift; sourceTree = "<group>"; };
 		FBAF850A1CC8BE2F00F85BEA /* NetworkRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkRequest.swift; sourceTree = "<group>"; };
+		FBAF853D1CC9295700F85BEA /* StoryCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoryCollectionViewCell.swift; sourceTree = "<group>"; };
+		FBAF853F1CC934AA00F85BEA /* StoriesViewControllerLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoriesViewControllerLayout.swift; sourceTree = "<group>"; };
 		FBC1C32B1CC81210002F79A3 /* CoreDataTestCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataTestCase.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -177,6 +181,8 @@
 				FB826C241CC66D4E000FC778 /* Assets.xcassets */,
 				FB826C261CC66D4E000FC778 /* LaunchScreen.storyboard */,
 				FB826C211CC66D4E000FC778 /* Main.storyboard */,
+				FBAF853F1CC934AA00F85BEA /* StoriesViewControllerLayout.swift */,
+				FBAF853D1CC9295700F85BEA /* StoryCollectionViewCell.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -296,7 +302,9 @@
 				FB41B39F1CC7731A0053E803 /* TopStoriesRequest.swift in Sources */,
 				FB826C191CC66D4E000FC778 /* AppDelegate.swift in Sources */,
 				FB826C421CC68717000FC778 /* RequestController.swift in Sources */,
+				FBAF85401CC934AA00F85BEA /* StoriesViewControllerLayout.swift in Sources */,
 				FB826C1C1CC66D4E000FC778 /* TopStories.xcdatamodeld in Sources */,
+				FBAF853E1CC9295700F85BEA /* StoryCollectionViewCell.swift in Sources */,
 				FB826C441CC6883E000FC778 /* PersistenceController.swift in Sources */,
 				FB41B3AE1CC7E2DD0053E803 /* Story+CoreDataProperties.swift in Sources */,
 				FB826C1E1CC66D4E000FC778 /* MasterViewController.swift in Sources */,

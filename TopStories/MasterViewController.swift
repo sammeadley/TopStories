@@ -17,22 +17,20 @@ class MasterViewController: UICollectionViewController, NSFetchedResultsControll
     
     var itemChanges: [ NSFetchedResultsChangeType : [AnyObject] ]?
     
-    func configureCell(cell: UICollectionViewCell, withObject object: NSManagedObject) {
-        // TODO: Complete implementation.
-    }
-    
     // MARK: - UIViewController
     
     override func viewDidLoad() {
-        fetchedResultsController = requestController?.requestTopStories()
-        fetchedResultsController?.delegate = self
-        collectionView?.reloadData()
+        collectionView?.collectionViewLayout = StoriesViewControllerLayout()
         
         super.viewDidLoad()
     }
     
     override func viewWillAppear(animated: Bool) {
         self.clearsSelectionOnViewWillAppear = self.splitViewController!.collapsed
+        
+        fetchedResultsController = requestController?.requestTopStories()
+        fetchedResultsController?.delegate = self
+        collectionView?.reloadData()
         
         super.viewWillAppear(animated)
     }
@@ -57,7 +55,7 @@ class MasterViewController: UICollectionViewController, NSFetchedResultsControll
     
     override func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
         
-        return self.fetchedResultsController?.sections?.count ?? 0
+        return self.fetchedResultsController?.sections?.count ?? 1
     }
     
     override func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -67,9 +65,13 @@ class MasterViewController: UICollectionViewController, NSFetchedResultsControll
     }
     
     override func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCellWithReuseIdentifier("UICollectionViewCell", forIndexPath: indexPath)
-        let object = self.fetchedResultsController!.objectAtIndexPath(indexPath) as! NSManagedObject
-        self.configureCell(cell, withObject: object)
+        
+        let cell = collectionView.dequeueReusableCellWithReuseIdentifier(StoryCollectionViewCell.defaultReuseIdentifier,
+                                                                         forIndexPath: indexPath) as! StoryCollectionViewCell
+        
+        let story = self.fetchedResultsController!.objectAtIndexPath(indexPath) as! Story
+        cell.updateForStory(story)
+        
         return cell
     }
     
