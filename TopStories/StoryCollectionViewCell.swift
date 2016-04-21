@@ -27,4 +27,12 @@ class StoryCollectionViewCell: UICollectionViewCell {
         titleLabel?.text = story.title
         abstractLabel?.text = story.abstract
     }
+    
+    // MARK: - UICollectionViewCell
+    
+    override func prepareForReuse() {
+        imageView?.image = nil
+        
+        super.prepareForReuse()
+    }
 }

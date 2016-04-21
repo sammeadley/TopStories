@@ -11,6 +11,15 @@ import CoreData
 
 class RequestController {
 
+    enum Notifications {
+        static let ImageRequestDidComplete = "com.sammeadley.TopStories.ImageRequestDidComplete"
+        
+        enum Keys {
+            static let Image = "image"
+            static let Story = "story"
+        }
+    }
+    
     var managedObjectContext: NSManagedObjectContext
     var URLSession: NSURLSession?
     
@@ -47,4 +56,9 @@ class RequestController {
         return fetchedResultsController
     }
     
+    func requestImagesForStories(stories: [Story]) {
+        
+        let operations = stories.map({ ImageRequest(story: $0) })
+        operationQueue.addOperations(operations, waitUntilFinished: false)
+    }
 }

@@ -22,6 +22,10 @@ class MasterViewController: UICollectionViewController, NSFetchedResultsControll
     override func viewDidLoad() {
         collectionView?.collectionViewLayout = StoriesViewControllerLayout()
         
+        NSNotificationCenter.defaultCenter().addObserver(self,
+                                                         selector: #selector(didReceiveImageRequestDidCompleteNotification),
+                                                         name: RequestController.Notifications.ImageRequestDidComplete,
+                                                         object: nil)
         super.viewDidLoad()
     }
     
@@ -71,6 +75,8 @@ class MasterViewController: UICollectionViewController, NSFetchedResultsControll
         
         let story = self.fetchedResultsController!.objectAtIndexPath(indexPath) as! Story
         cell.updateForStory(story)
+        
+        requestController?.requestImagesForStories([story])
         
         return cell
     }
@@ -132,6 +138,29 @@ class MasterViewController: UICollectionViewController, NSFetchedResultsControll
                 
                 self.itemChanges = nil
         })
+    }
+    
+    // MARK: - Actions
+    
+    func didReceiveImageRequestDidCompleteNotification(notification: NSNotification) {
+
+        guard let userInfo = notification.userInfo else {
+            return
+        }
+        
+        let image = userInfo[RequestController.Notifications.Keys.Image] as? UIImage
+        let story = userInfo[RequestController.Notifications.Keys.Story] as? Story
+        
+        if let index = fetchedResultsController?.fetchedObjects?.indexOf({ $0 as? Story == story }) {
+
+            // Collection view just has a single section, so we're OK to hard code this for now...
+            let indexPath = NSIndexPath(forItem: index, inSection: 0)
+            if collectionView!.indexPathsForVisibleItems().contains(indexPath) {
+            
+                let cell = collectionView?.cellForItemAtIndexPath(indexPath) as? StoryCollectionViewCell
+                cell?.image = image
+            }
+        }
     }
     
 }

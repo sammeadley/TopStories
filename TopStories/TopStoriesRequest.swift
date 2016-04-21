@@ -84,7 +84,7 @@ class TopStoriesRequest: NetworkRequest {
                     story.contentURL = storyJSON["url"] as? String
                     
                     if let multimedia = storyJSON["multimedia"] as? [Dictionary<String, AnyObject>] {
-                        if let index = multimedia.indexOf({ $0["format"] as? String == "thumbLarge"}) {
+                        if let index = multimedia.indexOf({ $0["format"] as? String == "superJumbo"}) {
                             let item = multimedia[index]
                             story.imageURL = item["url"] as? String
                         }                        
