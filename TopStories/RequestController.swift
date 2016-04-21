@@ -11,12 +11,16 @@ import CoreData
 
 class RequestController {
 
-    var managedObjectContext: NSManagedObjectContext?
+    var managedObjectContext: NSManagedObjectContext
     var URLSession: NSURLSession?
     
     private let operationQueue = NSOperationQueue()
     
-    func requestTopStories() {
+    init(managedObjectContext: NSManagedObjectContext) {
+        self.managedObjectContext = managedObjectContext
+    }
+    
+    func requestTopStories() -> NSFetchedResultsController {
      
         let APIKey = "015e7acf5628e1337cd461eff1cf7283:18:75044656"
         let defaultSection = "home"
@@ -29,6 +33,12 @@ class RequestController {
         let request = TopStoriesRequest(managedObjectContext: managedObjectContext, URL: URLComponents!.URL!)
         
         operationQueue.addOperation(request)
+        
+        let fetchedResultsController = NSFetchedResultsController(fetchRequest: Story.fetchRequest(),
+                                                                  managedObjectContext: managedObjectContext,
+                                                                  sectionNameKeyPath: nil,
+                                                                  cacheName: nil)
+        return fetchedResultsController
     }
     
 }

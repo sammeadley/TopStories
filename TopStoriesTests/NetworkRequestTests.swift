@@ -7,9 +7,11 @@
 //
 
 import XCTest
+import CoreData
+
 @testable import TopStories
 
-class TopStoriesRequestTests: XCTestCase {
+class TopStoriesRequestTests: CoreDataTestCase {
 
     var expectation: XCTestExpectation?
     
@@ -20,7 +22,8 @@ class TopStoriesRequestTests: XCTestCase {
         let path = bundle.pathForResource("home", ofType: "json")
         let data = NSData(contentsOfFile: path!)
         
-        let request = TopStoriesRequest(managedObjectContext: nil, URL: NSURL())
+        let request = TopStoriesRequest(managedObjectContext: persistenceController.managedObjectContext,
+                                        URL: NSURL())
 
         let URLSession = TestableURLSession(delegate: request)
         let task = TestableURLSessionDataTask(URLSession: URLSession)
@@ -29,12 +32,37 @@ class TopStoriesRequestTests: XCTestCase {
         
         request.URLSession = URLSession
         
-        expectation = expectationWithDescription("testStart")
-        
         // Act
         request.start()
         
         // Assert
+        expectation = expectationWithDescription("testStart")
+        
+        // Operation internally dispatches async block operations to update private/main MOCs.
+        // As this is done asyncronously, we listen for NSManagedObjectContextDidSaveNotification before
+        // attempting the assert stage.
+        //
+        // We could KVO the request operation's isFinished, which would work just as well. However
+        // that would mean implementing observeValueForKeyPath(_:ofObject:change:context:).
+        // This way we keep all test logic together.
+        let defaultCenter = NSNotificationCenter.defaultCenter()
+        let observer = defaultCenter.addObserverForName(NSManagedObjectContextDidSaveNotification,
+                                                        object: persistenceController.managedObjectContext,
+                                                        queue: nil,
+                                                        usingBlock: { notification in
+                                                            
+                                                            let stories = Story.instancesInManagedObjectContext(self.persistenceController.managedObjectContext)
+                                                            
+                                                            XCTAssertEqual(stories?.count, 24)
+                                                            
+                                                            self.expectation?.fulfill()
+        })
+        
+        waitForExpectationsWithTimeout(2.0, handler: { error in
+            
+            // Cleanup
+            defaultCenter.removeObserver(observer)
+        })
     }
     
 }

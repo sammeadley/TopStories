@@ -13,13 +13,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
     var persistenceController: PersistenceController?
-    var requestController = RequestController()
+    var requestController: RequestController?
     
     // MARK: - UIApplicationDelegate
     
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         
-        self.persistenceController = PersistenceController()
+        persistenceController = PersistenceController()
+        if let managedObjectContext = persistenceController?.managedObjectContext {
+            requestController = RequestController(managedObjectContext: managedObjectContext)
+        }
         
         let splitViewController = self.window!.rootViewController as! UISplitViewController
         

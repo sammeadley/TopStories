@@ -23,11 +23,14 @@ class MasterViewController: UICollectionViewController, NSFetchedResultsControll
 
     override func viewWillAppear(animated: Bool) {
         self.clearsSelectionOnViewWillAppear = self.splitViewController!.collapsed
+        
         super.viewWillAppear(animated)
     }
     
     override func viewDidAppear(animated: Bool) {
-        requestController?.requestTopStories()
+        fetchedResultsController = requestController?.requestTopStories()
+        fetchedResultsController?.delegate = self
+        
         super.viewDidAppear(animated)
     }
 
@@ -50,14 +53,22 @@ class MasterViewController: UICollectionViewController, NSFetchedResultsControll
     // MARK: - UICollectionViewDataSource
 
     override func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
-//        return self.fetchedResultsController!.sections?.count ?? 0
-        return 0
+        
+        if fetchedResultsController == nil {
+            return 0
+        }
+        
+        return self.fetchedResultsController!.sections?.count ?? 0
     }
 
     override func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-//        let sectionInfo = self.fetchedResultsController!.sections![section]
-//        return sectionInfo.numberOfObjects
-        return 0
+
+        if fetchedResultsController == nil {
+            return 0
+        }
+        
+        let sectionInfo = self.fetchedResultsController!.sections![section]
+        return sectionInfo.numberOfObjects
     }
 
     override func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {

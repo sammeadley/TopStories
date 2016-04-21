@@ -17,10 +17,10 @@ class TopStoriesRequest: NSOperation, NSURLSessionDataDelegate {
     private var task: NSURLSessionTask?
     
     private let data = NSMutableData()
-    private let managedObjectContext: NSManagedObjectContext?
+    private let managedObjectContext: NSManagedObjectContext
     private let URL: NSURL
     
-    init(managedObjectContext: NSManagedObjectContext?, URL: NSURL) {
+    init(managedObjectContext: NSManagedObjectContext, URL: NSURL) {
         self.managedObjectContext = managedObjectContext
         self.URL = URL
         
@@ -83,12 +83,12 @@ class TopStoriesRequest: NSOperation, NSURLSessionDataDelegate {
             URLSession = NSURLSession(configuration: configuration, delegate: self, delegateQueue: nil)
         }
         
-        task = URLSession?.dataTaskWithURL(URL)        
+        task = URLSession?.dataTaskWithURL(URL)
         task?.resume()
     }
     
     // MARK: - NSURLSessionDelegate
-
+    
     func URLSession(session: NSURLSession,
                     dataTask: NSURLSessionDataTask,
                     didReceiveResponse: NSURLResponse,
@@ -99,7 +99,7 @@ class TopStoriesRequest: NSOperation, NSURLSessionDataDelegate {
             task?.cancel()
             return
         }
-    
+        
         completionHandler(.Allow)
     }
     
@@ -132,14 +132,64 @@ class TopStoriesRequest: NSOperation, NSURLSessionDataDelegate {
         do {
             guard let JSONObject = try NSJSONSerialization.JSONObjectWithData(self.data,
                                                                               options: []) as? Dictionary<String, AnyObject> else {
-                return;
+                                                                                return;
             }
             
-        } catch {
+            let privateContext = NSManagedObjectContext(concurrencyType: .PrivateQueueConcurrencyType)
+            privateContext.parentContext = managedObjectContext
+            privateContext.performBlock({
+                
+                // If URL exists, update the entry. If not create new entry, parse and store (using child context).
+                let results = JSONObject["results"] as! [Dictionary<String, AnyObject>]
+                let URLs = results.map({ $0["url"] as! String })
+                // Fetch existing records at once, so there's only a single hit on the database.
+                let existing = Story.instancesForContentURLs(URLs, managedObjectContext: privateContext)
+                
+                _ = results.map({ storyJSON in
+                    
+                    var story: Story
+                    if let index = (existing?.map({ $0.contentURL }).indexOf({ $0 == storyJSON["url"] as? String })) {
+                        story = existing![index]
+                    } else {
+                        story = NSEntityDescription.insertNewObjectForEntityForName(String(Story),
+                            inManagedObjectContext: privateContext) as! Story
+                    }
+                    
+                    story.abstract = storyJSON["abstract"] as? String
+                    story.contentURL = storyJSON["url"] as? String
+                    story.imageURL = nil
+                    story.publishedDate = NSDate() // TODO: Parse published date
+                    story.title = storyJSON["title"] as? String
+                })
+                
+                // Push changes to parent context
+                do {
+                    try privateContext.save()
+                } catch {
+                    self.error = error as NSError
+                    self.state = .Finished
+                    return
+                }
+                
+                // Save parent context to disk
+                self.managedObjectContext.performBlock({
+                    
+                    do {
+                        try self.managedObjectContext.save()
+                    } catch {
+                        self.error = error as NSError
+                        self.state = .Finished
+                        return
+                    }
+                })
+            })
             
+        } catch {
+
+            self.error = error as NSError
         }
         
         self.state = .Finished
     }
-
+    
 }
