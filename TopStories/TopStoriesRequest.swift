@@ -83,7 +83,14 @@ class TopStoriesRequest: NetworkRequest {
                     
                     story.abstract = storyJSON["abstract"] as? String
                     story.contentURL = storyJSON["url"] as? String
-                    story.imageURL = nil // TODO: Parse imageURL
+                    
+                    if let multimedia = storyJSON["multimedia"] as? [Dictionary<String, AnyObject>] {
+                        if let index = multimedia.indexOf({ $0["format"] as? String == "thumbLarge"}) {
+                            let item = multimedia[index]
+                            story.imageURL = item["url"] as? String
+                        }                        
+                    }
+                    
                     story.publishedDate = NSDate() // TODO: Parse published date
                     story.title = storyJSON["title"] as? String
                 })
