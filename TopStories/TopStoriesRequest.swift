@@ -9,14 +9,10 @@
 import Foundation
 import CoreData
 
-class TopStoriesRequest: NSOperation, NSURLSessionDataDelegate {
+class TopStoriesRequest: NetworkRequest {
     
-    var error: NSError?
     var URLSession: NSURLSession?
     
-    private var task: NSURLSessionTask?
-    
-    private let data = NSMutableData()
     private let managedObjectContext: NSManagedObjectContext
     private let URL: NSURL
     
@@ -29,52 +25,7 @@ class TopStoriesRequest: NSOperation, NSURLSessionDataDelegate {
         self.qualityOfService = .UserInitiated
     }
     
-    // MARK: - Types
-    
-    enum State {
-        case Ready, Executing, Finished
-        func keyPath() -> String {
-            switch self {
-            case Ready:
-                return "isReady"
-            case Executing:
-                return "isExecuting"
-            case Finished:
-                return "isFinished"
-            }
-        }
-    }
-    
-    // MARK: - Properties
-    
-    private var state = State.Ready {
-        willSet {
-            willChangeValueForKey(newValue.keyPath())
-            willChangeValueForKey(state.keyPath())
-        }
-        didSet {
-            didChangeValueForKey(oldValue.keyPath())
-            didChangeValueForKey(state.keyPath())
-        }
-    }
-    
     // MARK: - NSOperation
-    
-    override var ready: Bool {
-        return super.ready && state == .Ready
-    }
-    
-    override var executing: Bool {
-        return state == .Executing
-    }
-    
-    override var finished: Bool {
-        return state == .Finished
-    }
-    
-    override var asynchronous: Bool {
-        return true
-    }
     
     override func start() {
         
@@ -87,32 +38,7 @@ class TopStoriesRequest: NSOperation, NSURLSessionDataDelegate {
         task?.resume()
     }
     
-    // MARK: - NSURLSessionDelegate
-    
-    func URLSession(session: NSURLSession,
-                    dataTask: NSURLSessionDataTask,
-                    didReceiveResponse: NSURLResponse,
-                    completionHandler: (NSURLSessionResponseDisposition) -> Void) {
-        
-        if cancelled {
-            self.state = .Finished
-            task?.cancel()
-            return
-        }
-        
-        completionHandler(.Allow)
-    }
-    
-    func URLSession(session: NSURLSession, dataTask: NSURLSessionDataTask, didReceiveData data: NSData) {
-        
-        if cancelled {
-            self.state = .Finished
-            task?.cancel()
-            return
-        }
-        
-        self.data.appendData(data)
-    }
+    // MARK: - NSURLSessionDataDelegate
     
     func URLSession(session: NSURLSession, task: NSURLSessionTask, didCompleteWithError error: NSError?) {
         
@@ -157,7 +83,7 @@ class TopStoriesRequest: NSOperation, NSURLSessionDataDelegate {
                     
                     story.abstract = storyJSON["abstract"] as? String
                     story.contentURL = storyJSON["url"] as? String
-                    story.imageURL = nil
+                    story.imageURL = nil // TODO: Parse imageURL
                     story.publishedDate = NSDate() // TODO: Parse published date
                     story.title = storyJSON["title"] as? String
                 })
