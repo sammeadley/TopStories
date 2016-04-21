@@ -57,7 +57,7 @@ class MasterViewController: UICollectionViewController, NSFetchedResultsControll
     
     override func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
         
-        return self.fetchedResultsController?.sections?.count ?? 1
+        return self.fetchedResultsController?.sections?.count ?? 0
     }
     
     override func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
