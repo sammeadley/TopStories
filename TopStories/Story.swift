@@ -14,7 +14,7 @@ class Story: NSManagedObject {
     class func fetchRequest() -> NSFetchRequest {
         
         let fetchRequest = NSFetchRequest(entityName: String(Story))
-        fetchRequest.sortDescriptors = [ NSSortDescriptor(key:"publishedDate", ascending: false) ]
+        fetchRequest.sortDescriptors = [ NSSortDescriptor(key: "createdDate", ascending: false) ]
         
         return fetchRequest
     }

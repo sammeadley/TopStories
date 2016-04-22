@@ -3,8 +3,8 @@
     <entity name="Story" representedClassName=".Story">
         <attribute name="abstract" attributeType="String" syncable="YES"/>
         <attribute name="contentURL" attributeType="String" syncable="YES"/>
+        <attribute name="createdDate" attributeType="Date" syncable="YES"/>
         <attribute name="imageURL" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="publishedDate" attributeType="Date" syncable="YES"/>
         <attribute name="title" attributeType="String" syncable="YES"/>
         <userInfo/>
     </entity>

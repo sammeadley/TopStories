@@ -8,6 +8,7 @@
 
 import Foundation
 import CoreData
+import ISO8601
 
 class TopStoriesRequest: NetworkRequest {
     
@@ -90,7 +91,11 @@ class TopStoriesRequest: NetworkRequest {
                         }                        
                     }
                     
-                    story.publishedDate = NSDate() // TODO: Parse published date
+                    if let createdDate = storyJSON["created_date"] as? String {
+                        let formatter = ISO8601DateFormatter()
+                        story.createdDate = formatter.dateFromString(createdDate)
+                    }
+                    
                     story.title = storyJSON["title"] as? String
                 })
                 
