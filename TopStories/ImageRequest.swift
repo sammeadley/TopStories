@@ -96,7 +96,7 @@ class ImageRequest: NetworkRequest, NSURLSessionDownloadDelegate {
         }
         
         // We've got this far, so we must have an imageURL
-        cache.setImage(image, forURL: story.imageURL!)
+        cache.setImage(image, forURL: story.imageURL!, temporaryFileURL: location)
         
         dispatch_async(dispatch_get_main_queue(), {
             NSNotificationCenter.defaultCenter().postNotificationName(RequestController.Notifications.ImageRequestDidComplete,

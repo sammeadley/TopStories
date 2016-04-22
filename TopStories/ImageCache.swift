@@ -50,9 +50,21 @@ class ImageCache {
         }
     }
     
-    func setImage(image: UIImage, forURL URL: String) {
+    func setImage(image: UIImage, forURL URL: String, temporaryFileURL: NSURL? = nil) {
         
         cache.setObject(image, forKey: URL)
+        
+        guard let sourceURL = temporaryFileURL else {
+            return
+        }
+        
+        do {
+            let destinationURL = try self.URLForCachedImageForKey(URL)
+            try fileManager.moveItemAtURL(sourceURL, toURL: destinationURL)
+            
+        } catch {
+            // TODO: Handle error
+        }
     }
     
 }
@@ -78,6 +90,8 @@ private extension ImageCache {
 enum ImageCacheError: ErrorType {
     case CachesDirectoryNotFound
 }
+
+// MARK: - String extension methods
 
 extension String {
     

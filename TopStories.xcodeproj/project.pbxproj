@@ -147,7 +147,6 @@
 			isa = PBXGroup;
 			children = (
 				FB826C401CC686D7000FC778 /* Controller */,
-				FBCC5E171CC9585D001C937D /* ImageCache.swift */,
 				FB826C291CC66D4E000FC778 /* Info.plist */,
 				FB41B3AB1CC7E2BD0053E803 /* Model */,
 				FBCFDA3B1CCA179D00E7FA59 /* Supporting Files */,
@@ -170,11 +169,12 @@
 		FB826C401CC686D7000FC778 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				FBAF85071CC8BD7900F85BEA /* Request */,
 				FB826C181CC66D4E000FC778 /* AppDelegate.swift */,
 				FB826C1F1CC66D4E000FC778 /* DetailViewController.swift */,
+				FBCC5E171CC9585D001C937D /* ImageCache.swift */,
 				FB826C1D1CC66D4E000FC778 /* MasterViewController.swift */,
 				FB826C431CC6883E000FC778 /* PersistenceController.swift */,
+				FBAF85071CC8BD7900F85BEA /* Request */,
 				FB826C411CC68717000FC778 /* RequestController.swift */,
 			);
 			name = Controller;
