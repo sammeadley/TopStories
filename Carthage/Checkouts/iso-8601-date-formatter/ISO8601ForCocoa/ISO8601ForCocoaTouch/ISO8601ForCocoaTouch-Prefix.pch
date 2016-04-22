@@ -1,0 +1,8 @@
+//
+// Prefix header for all source files of the 'ISO8601ForCocoaTouch' target in the 'ISO8601ForCocoaTouch' project
+//
+
+#ifdef __OBJC__
+#	define NS_ENABLE_CALENDAR_NEW_API 1
+#	import <Foundation/Foundation.h>
+#endif
