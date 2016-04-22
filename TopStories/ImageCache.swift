@@ -68,7 +68,7 @@ private extension ImageCache {
             throw ImageCacheError.CachesDirectoryNotFound
         }
         
-        return URL.URLByAppendingPathComponent(key)
+        return URL.URLByAppendingPathComponent(key.MD5())
     }
     
 }
@@ -77,4 +77,18 @@ private extension ImageCache {
 
 enum ImageCacheError: ErrorType {
     case CachesDirectoryNotFound
+}
+
+extension String {
+    
+    func MD5() -> String {
+        
+        let data = self.dataUsingEncoding(NSUTF8StringEncoding)!
+        var digest = [UInt8](count: Int(CC_MD5_DIGEST_LENGTH), repeatedValue: 0)
+        CC_MD5(data.bytes, CC_LONG(data.length), &digest)
+        let hexBytes = digest.map { String(format: "%02x", $0) }
+        
+        return hexBytes.joinWithSeparator("")
+    }
+    
 }
