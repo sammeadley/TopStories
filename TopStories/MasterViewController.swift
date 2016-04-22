@@ -13,9 +13,9 @@ class MasterViewController: UICollectionViewController, NSFetchedResultsControll
     
     var managedObjectContext: NSManagedObjectContext? = nil
     var requestController: RequestController?
-    var fetchedResultsController: NSFetchedResultsController?
     
-    var itemChanges: [ NSFetchedResultsChangeType : [AnyObject] ]?
+    private var fetchedResultsController: NSFetchedResultsController?
+    private var itemChanges: [ NSFetchedResultsChangeType : [AnyObject] ]?
     
     // MARK: - UIViewController
     
@@ -26,15 +26,16 @@ class MasterViewController: UICollectionViewController, NSFetchedResultsControll
                                                          selector: #selector(didReceiveImageRequestDidCompleteNotification),
                                                          name: RequestController.Notifications.ImageRequestDidComplete,
                                                          object: nil)
+        
+        fetchedResultsController = requestController?.requestTopStories()
+        fetchedResultsController?.delegate = self
+        collectionView?.reloadData()
+        
         super.viewDidLoad()
     }
     
     override func viewWillAppear(animated: Bool) {
         self.clearsSelectionOnViewWillAppear = self.splitViewController!.collapsed
-        
-        fetchedResultsController = requestController?.requestTopStories()
-        fetchedResultsController?.delegate = self
-        collectionView?.reloadData()
         
         super.viewWillAppear(animated)
     }
@@ -45,27 +46,33 @@ class MasterViewController: UICollectionViewController, NSFetchedResultsControll
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if segue.identifier == "showDetail" {
-            if let indexPath = self.collectionView?.indexPathsForSelectedItems()?.first {
-                let object = self.fetchedResultsController!.objectAtIndexPath(indexPath)
-                let controller = (segue.destinationViewController as! UINavigationController).topViewController as! DetailViewController
-                controller.navigationItem.leftBarButtonItem = self.splitViewController?.displayModeButtonItem()
-                controller.navigationItem.leftItemsSupplementBackButton = true
+        
+        if segue.identifier == DetailViewController.defaultSegueIdentifier {
+            
+            guard let indexPath = self.collectionView?.indexPathsForSelectedItems()?.first else {
+                return
             }
+            
+            let story = fetchedResultsController?.objectAtIndexPath(indexPath) as! Story
+            let navigationController = segue.destinationViewController as! UINavigationController
+            let viewController = navigationController.topViewController as! DetailViewController            
+            viewController.story = story
+            viewController.requestController = requestController
         }
     }
-    
+
     // MARK: - UICollectionViewDataSource
     
     override func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
         
-        return self.fetchedResultsController?.sections?.count ?? 1
+        return self.fetchedResultsController?.sections?.count ?? 0
     }
     
     override func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         
-        let sectionInfo = self.fetchedResultsController!.sections![section]
-        return sectionInfo.numberOfObjects
+        let sectionInfo = self.fetchedResultsController?.sections?[section]
+        
+        return sectionInfo?.numberOfObjects ?? 0
     }
     
     override func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {

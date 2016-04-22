@@ -17,7 +17,6 @@
 		FB826C191CC66D4E000FC778 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB826C181CC66D4E000FC778 /* AppDelegate.swift */; };
 		FB826C1C1CC66D4E000FC778 /* TopStories.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = FB826C1A1CC66D4E000FC778 /* TopStories.xcdatamodeld */; };
 		FB826C1E1CC66D4E000FC778 /* MasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB826C1D1CC66D4E000FC778 /* MasterViewController.swift */; };
-		FB826C201CC66D4E000FC778 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB826C1F1CC66D4E000FC778 /* DetailViewController.swift */; };
 		FB826C231CC66D4E000FC778 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FB826C211CC66D4E000FC778 /* Main.storyboard */; };
 		FB826C251CC66D4E000FC778 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FB826C241CC66D4E000FC778 /* Assets.xcassets */; };
 		FB826C281CC66D4E000FC778 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FB826C261CC66D4E000FC778 /* LaunchScreen.storyboard */; };
@@ -30,6 +29,7 @@
 		FBC1C32C1CC81210002F79A3 /* CoreDataTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBC1C32B1CC81210002F79A3 /* CoreDataTestCase.swift */; };
 		FBCC5E181CC9585D001C937D /* ImageCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBCC5E171CC9585D001C937D /* ImageCache.swift */; };
 		FBCFDA761CCA2B9C00E7FA59 /* ISO8601.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FBCFDA751CCA2B9C00E7FA59 /* ISO8601.framework */; };
+		FBCFDA7B1CCA3E0400E7FA59 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBCFDA7A1CCA3E0400E7FA59 /* DetailViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,7 +54,6 @@
 		FB826C181CC66D4E000FC778 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FB826C1B1CC66D4E000FC778 /* TopStories.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TopStories.xcdatamodel; sourceTree = "<group>"; };
 		FB826C1D1CC66D4E000FC778 /* MasterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasterViewController.swift; sourceTree = "<group>"; };
-		FB826C1F1CC66D4E000FC778 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		FB826C221CC66D4E000FC778 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		FB826C241CC66D4E000FC778 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FB826C271CC66D4E000FC778 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -71,6 +70,7 @@
 		FBCC5E171CC9585D001C937D /* ImageCache.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageCache.swift; sourceTree = "<group>"; };
 		FBCFDA371CCA15C900E7FA59 /* TopStories-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TopStories-Bridging-Header.h"; sourceTree = "<group>"; };
 		FBCFDA751CCA2B9C00E7FA59 /* ISO8601.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ISO8601.framework; path = ../Carthage/Build/iOS/ISO8601.framework; sourceTree = "<group>"; };
+		FBCFDA7A1CCA3E0400E7FA59 /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -174,7 +174,7 @@
 			isa = PBXGroup;
 			children = (
 				FB826C181CC66D4E000FC778 /* AppDelegate.swift */,
-				FB826C1F1CC66D4E000FC778 /* DetailViewController.swift */,
+				FBCFDA7A1CCA3E0400E7FA59 /* DetailViewController.swift */,
 				FBCC5E171CC9585D001C937D /* ImageCache.swift */,
 				FB826C1D1CC66D4E000FC778 /* MasterViewController.swift */,
 				FB826C431CC6883E000FC778 /* PersistenceController.swift */,
@@ -368,11 +368,11 @@
 				FB826C441CC6883E000FC778 /* PersistenceController.swift in Sources */,
 				FB41B3AE1CC7E2DD0053E803 /* Story+CoreDataProperties.swift in Sources */,
 				FB826C1E1CC66D4E000FC778 /* MasterViewController.swift in Sources */,
-				FB826C201CC66D4E000FC778 /* DetailViewController.swift in Sources */,
 				FBAF850B1CC8BE2F00F85BEA /* NetworkRequest.swift in Sources */,
 				FB41B3AF1CC7E2DD0053E803 /* Story.swift in Sources */,
 				FBCC5E181CC9585D001C937D /* ImageCache.swift in Sources */,
 				FBAF85091CC8BDA000F85BEA /* ImageRequest.swift in Sources */,
+				FBCFDA7B1CCA3E0400E7FA59 /* DetailViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

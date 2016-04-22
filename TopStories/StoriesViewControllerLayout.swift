@@ -10,7 +10,7 @@ import UIKit
 
 class StoriesViewControllerLayout: UICollectionViewFlowLayout {
 
-    private let defaultItemHeight: CGFloat = 300
+    private let defaultItemHeight: CGFloat = 180
     private var bounds = CGRect.zero
     
     override func prepareLayout() {

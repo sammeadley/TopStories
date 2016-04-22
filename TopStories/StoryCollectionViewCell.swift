@@ -19,13 +19,11 @@ class StoryCollectionViewCell: UICollectionViewCell {
     }
     
     @IBOutlet private weak var titleLabel: UILabel?
-    @IBOutlet private weak var abstractLabel: UILabel?
     @IBOutlet private weak var imageView: UIImageView?
 
     func updateForStory(story: Story) {
         
         titleLabel?.text = story.title
-        abstractLabel?.text = story.abstract
     }
     
     // MARK: - UICollectionViewCell
