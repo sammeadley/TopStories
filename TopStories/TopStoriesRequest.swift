@@ -92,7 +92,7 @@ class TopStoriesRequest: NetworkRequest {
                     }
                     
                     if let createdDate = storyJSON["created_date"] as? String {
-                        let formatter = ISO8601DateFormatter()
+                        let formatter = ISO8601DateFormatter.formatter
                         story.createdDate = formatter.dateFromString(createdDate)
                     }
                     
@@ -128,5 +128,16 @@ class TopStoriesRequest: NetworkRequest {
         
         self.state = .Finished
     }
+    
+}
+
+// MARK: - ISO8601DateFormatter extensions
+
+extension ISO8601DateFormatter {
+    
+    private static let formatter: ISO8601DateFormatter = {
+        let formatter = ISO8601DateFormatter()
+        return formatter
+    }()
     
 }
