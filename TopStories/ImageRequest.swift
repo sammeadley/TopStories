@@ -74,25 +74,11 @@ class ImageRequest: NetworkRequest, NSURLSessionDownloadDelegate {
             return
         }
         
-        guard var image = UIImage(data: data) else {
+        guard let image = UIImage(data: data)?.decompress() else {
             
             self.error = NSError(domain: "", code: 000, userInfo: [NSLocalizedDescriptionKey : NSLocalizedString("Failed to build image from data", comment: "")])
             self.state = .Finished
             return
-        }
-        
-        // Decompress image
-        let imageRef = image.CGImage
-        let colorSpace = CGColorSpaceCreateDeviceRGB()
-        let bitmapInfo = CGBitmapInfo(rawValue: CGImageAlphaInfo.PremultipliedLast.rawValue).rawValue
-        
-        if let context = CGBitmapContextCreate(nil, CGImageGetWidth(imageRef), CGImageGetHeight(imageRef), 8, 0, colorSpace, bitmapInfo) {
-            
-            let rect = CGRect(x: 0, y: 0, width: CGImageGetWidth(imageRef), height: CGImageGetHeight(imageRef))
-            CGContextDrawImage(context, rect, imageRef)
-            
-            let decompressedImageRef = CGBitmapContextCreateImage(context)
-            image = UIImage(CGImage: decompressedImageRef!)
         }
         
         // We've got this far, so we must have an imageURL
@@ -107,6 +93,21 @@ class ImageRequest: NetworkRequest, NSURLSessionDownloadDelegate {
             })
         
         self.state = .Finished
+    }
+    
+    // MARK: - NSObject
+    
+    override func isEqual(object: AnyObject?) -> Bool {
+        
+        if let object = object as? ImageRequest {
+            return story == object.story
+        } else {
+            return false
+        }
+    }
+    
+    override var hash: Int {
+        return story.hashValue
     }
     
 }

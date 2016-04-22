@@ -74,8 +74,15 @@ class MasterViewController: UICollectionViewController, NSFetchedResultsControll
                                                                          forIndexPath: indexPath) as! StoryCollectionViewCell
         
         let story = self.fetchedResultsController!.objectAtIndexPath(indexPath) as! Story
-        cell.image = requestController?.requestImageForStory(story)
         cell.updateForStory(story)
+        
+        // Fetching an image from the disk cache can be costly, so do this in a background queue.
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)) {
+            let image = self.requestController?.requestImageForStory(story)
+            dispatch_async(dispatch_get_main_queue()) {
+                cell.image = image
+            }
+        }
         
         return cell
     }

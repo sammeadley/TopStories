@@ -75,6 +75,9 @@ class RequestController {
      Checks the in-memory and disk caches before making a network request.
      If the image is cached, the function returns the cached image.
      
+     It is recommended that this function be called from a background thread, as fetching an image
+     from the disk cache can be slow.
+     
      - parameter story: The story containing the imageURL to load.
      
      - returns: The image if cached, otherwise nil.
@@ -90,7 +93,9 @@ class RequestController {
         }
         
         let request = ImageRequest(story: story, cache: imageCache)
-        operationQueue.addOperation(request)
+        if !operationQueue.operations.contains(request) {
+            operationQueue.addOperation(request)
+        }
         
         return nil
     }

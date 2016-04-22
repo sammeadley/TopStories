@@ -38,7 +38,7 @@ class ImageCache {
                 return nil
             }
             
-            guard let image = UIImage(data: data) else {
+            guard let image = UIImage(data: data)?.decompress() else {
                 return nil
             }
             
@@ -103,6 +103,29 @@ extension String {
         let hexBytes = digest.map { String(format: "%02x", $0) }
         
         return hexBytes.joinWithSeparator("")
+    }
+    
+}
+
+// MARK: - UIImage extensions methods
+
+extension UIImage {
+    
+    func decompress() -> UIImage? {
+        
+        let imageRef = self.CGImage
+        let colorSpace = CGColorSpaceCreateDeviceRGB()
+        let bitmapInfo = CGBitmapInfo(rawValue: CGImageAlphaInfo.PremultipliedLast.rawValue).rawValue
+        
+        guard let context = CGBitmapContextCreate(nil, CGImageGetWidth(imageRef), CGImageGetHeight(imageRef), 8, 0, colorSpace, bitmapInfo) else {
+            return nil
+        }
+        
+        let rect = CGRect(x: 0, y: 0, width: CGImageGetWidth(imageRef), height: CGImageGetHeight(imageRef))
+        CGContextDrawImage(context, rect, imageRef)
+        
+        let decompressedImageRef = CGBitmapContextCreateImage(context)
+        return UIImage(CGImage: decompressedImageRef!)
     }
     
 }
