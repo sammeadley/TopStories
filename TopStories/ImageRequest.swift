@@ -13,9 +13,11 @@ class ImageRequest: NetworkRequest, NSURLSessionDownloadDelegate {
     var URLSession: NSURLSession?
     
     private let story: Story
+    private let cache: ImageCache
     
-    init(story: Story) {
+    init(story: Story, cache: ImageCache) {
         self.story = story
+        self.cache = cache
         
         super.init()
         self.queuePriority = .Low
@@ -92,6 +94,9 @@ class ImageRequest: NetworkRequest, NSURLSessionDownloadDelegate {
             let decompressedImageRef = CGBitmapContextCreateImage(context)
             image = UIImage(CGImage: decompressedImageRef!)
         }
+        
+        // We've got this far, so we must have an imageURL
+        cache.setImage(image, forURL: story.imageURL!)
         
         dispatch_async(dispatch_get_main_queue(), {
             NSNotificationCenter.defaultCenter().postNotificationName(RequestController.Notifications.ImageRequestDidComplete,

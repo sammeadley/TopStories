@@ -74,9 +74,8 @@ class MasterViewController: UICollectionViewController, NSFetchedResultsControll
                                                                          forIndexPath: indexPath) as! StoryCollectionViewCell
         
         let story = self.fetchedResultsController!.objectAtIndexPath(indexPath) as! Story
+        cell.image = requestController?.requestImageForStory(story)
         cell.updateForStory(story)
-        
-        requestController?.requestImagesForStories([story])
         
         return cell
     }

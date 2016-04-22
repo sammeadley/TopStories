@@ -28,6 +28,7 @@
 		FBAF853E1CC9295700F85BEA /* StoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBAF853D1CC9295700F85BEA /* StoryCollectionViewCell.swift */; };
 		FBAF85401CC934AA00F85BEA /* StoriesViewControllerLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBAF853F1CC934AA00F85BEA /* StoriesViewControllerLayout.swift */; };
 		FBC1C32C1CC81210002F79A3 /* CoreDataTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBC1C32B1CC81210002F79A3 /* CoreDataTestCase.swift */; };
+		FBCC5E181CC9585D001C937D /* ImageCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBCC5E171CC9585D001C937D /* ImageCache.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -66,6 +67,7 @@
 		FBAF853D1CC9295700F85BEA /* StoryCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoryCollectionViewCell.swift; sourceTree = "<group>"; };
 		FBAF853F1CC934AA00F85BEA /* StoriesViewControllerLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoriesViewControllerLayout.swift; sourceTree = "<group>"; };
 		FBC1C32B1CC81210002F79A3 /* CoreDataTestCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataTestCase.swift; sourceTree = "<group>"; };
+		FBCC5E171CC9585D001C937D /* ImageCache.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageCache.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -147,6 +149,7 @@
 				FB826C291CC66D4E000FC778 /* Info.plist */,
 				FB41B3AB1CC7E2BD0053E803 /* Model */,
 				FBAF85061CC8BCC700F85BEA /* View */,
+				FBCC5E171CC9585D001C937D /* ImageCache.swift */,
 			);
 			path = TopStories;
 			sourceTree = "<group>";
@@ -311,6 +314,7 @@
 				FB826C201CC66D4E000FC778 /* DetailViewController.swift in Sources */,
 				FBAF850B1CC8BE2F00F85BEA /* NetworkRequest.swift in Sources */,
 				FB41B3AF1CC7E2DD0053E803 /* Story.swift in Sources */,
+				FBCC5E181CC9585D001C937D /* ImageCache.swift in Sources */,
 				FBAF85091CC8BDA000F85BEA /* ImageRequest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -6,7 +6,7 @@
 //  Copyright © 2016 Sam Meadley. All rights reserved.
 //
 
-import Foundation
+import UIKit
 import CoreData
 
 class RequestController {
@@ -24,11 +24,24 @@ class RequestController {
     var URLSession: NSURLSession?
     
     private let operationQueue = NSOperationQueue()
+    private let imageCache = ImageCache()
     
     init(managedObjectContext: NSManagedObjectContext) {
         self.managedObjectContext = managedObjectContext
     }
     
+    /**
+     Performs top stories API request
+     
+     Requests the top stories from the home section of the NYTimes API, and stores the parsed
+     Story entities to the Core Data cache. The returned NSFetchedResultsController instance is 
+     configured to monitor the Story entities and the delegate will be triggered for any update.
+ 
+     Consuming classes should use the returned NSFetchedResultsController instance to make any
+     changes to view content.
+     
+     - returns: NSFetchedResultsController instance configured to monitor Story entities.
+     */
     func requestTopStories() -> NSFetchedResultsController {
      
         let APIKey = "015e7acf5628e1337cd461eff1cf7283:18:75044656"
@@ -56,9 +69,30 @@ class RequestController {
         return fetchedResultsController
     }
     
-    func requestImagesForStories(stories: [Story]) {
+    /**
+     Requests the image referred to by the story's imageURL.
+     
+     Checks the in-memory and disk caches before making a network request.
+     If the image is cached, the function returns the cached image.
+     
+     - parameter story: The story containing the imageURL to load.
+     
+     - returns: The image if cached, otherwise nil.
+     */
+    func requestImageForStory(story: Story) -> UIImage? {
         
-        let operations = stories.map({ ImageRequest(story: $0) })
-        operationQueue.addOperations(operations, waitUntilFinished: false)
+        guard let imageURL = story.imageURL else {
+            return nil
+        }
+        
+        if let image = imageCache.imageForURL(imageURL) {
+            return image
+        }
+        
+        let request = ImageRequest(story: story, cache: imageCache)
+        operationQueue.addOperation(request)
+        
+        return nil
     }
+    
 }
