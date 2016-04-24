@@ -66,13 +66,7 @@ class ImageCache {
             // TODO: Handle error
         }
     }
-    
-}
 
-// MARK:- Private methods
-
-private extension ImageCache {
-    
     func URLForCachedImageForKey(key: String) throws -> NSURL {
         
         let URLs = fileManager.URLsForDirectory(.CachesDirectory, inDomains: .UserDomainMask)
