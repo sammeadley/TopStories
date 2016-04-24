@@ -30,6 +30,7 @@
 		FBCC5E181CC9585D001C937D /* ImageCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBCC5E171CC9585D001C937D /* ImageCache.swift */; };
 		FBCFDA761CCA2B9C00E7FA59 /* ISO8601.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FBCFDA751CCA2B9C00E7FA59 /* ISO8601.framework */; };
 		FBCFDA7B1CCA3E0400E7FA59 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBCFDA7A1CCA3E0400E7FA59 /* DetailViewController.swift */; };
+		FBCFDA851CCD21A000E7FA59 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBCFDA841CCD21A000E7FA59 /* main.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -71,6 +72,7 @@
 		FBCFDA371CCA15C900E7FA59 /* TopStories-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TopStories-Bridging-Header.h"; sourceTree = "<group>"; };
 		FBCFDA751CCA2B9C00E7FA59 /* ISO8601.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ISO8601.framework; path = ../Carthage/Build/iOS/ISO8601.framework; sourceTree = "<group>"; };
 		FBCFDA7A1CCA3E0400E7FA59 /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		FBCFDA841CCD21A000E7FA59 /* main.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -210,6 +212,7 @@
 			isa = PBXGroup;
 			children = (
 				FBCFDA371CCA15C900E7FA59 /* TopStories-Bridging-Header.h */,
+				FBCFDA841CCD21A000E7FA59 /* main.swift */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -370,6 +373,7 @@
 				FB826C1E1CC66D4E000FC778 /* MasterViewController.swift in Sources */,
 				FBAF850B1CC8BE2F00F85BEA /* NetworkRequest.swift in Sources */,
 				FB41B3AF1CC7E2DD0053E803 /* Story.swift in Sources */,
+				FBCFDA851CCD21A000E7FA59 /* main.swift in Sources */,
 				FBCC5E181CC9585D001C937D /* ImageCache.swift in Sources */,
 				FBAF85091CC8BDA000F85BEA /* ImageRequest.swift in Sources */,
 				FBCFDA7B1CCA3E0400E7FA59 /* DetailViewController.swift in Sources */,
