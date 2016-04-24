@@ -9,7 +9,7 @@
 import UIKit
 import CoreData
 
-class RequestController {
+class RequestController: NSObject {
 
     enum Notifications {
         static let ImageRequestDidComplete = "com.sammeadley.TopStories.ImageRequestDidComplete"
@@ -23,11 +23,22 @@ class RequestController {
     var managedObjectContext: NSManagedObjectContext
     var URLSession: NSURLSession?
     
-    private let operationQueue = NSOperationQueue()
     private let imageCache = ImageCache()
+    private lazy var operationQueue: NSOperationQueue = {
+        
+        let operationQueue = NSOperationQueue()
+        operationQueue.addObserver(self,
+                                   forKeyPath: "operationCount", 
+                                   options: NSKeyValueObservingOptions.New,
+                                   context: nil)
+        
+        return operationQueue
+    }()
     
     init(managedObjectContext: NSManagedObjectContext) {
         self.managedObjectContext = managedObjectContext
+        
+        super.init()
     }
     
     /**
@@ -100,4 +111,28 @@ class RequestController {
         return nil
     }
     
+}
+
+extension RequestController {
+    
+    // MARK: - KVO
+    
+    override func observeValueForKeyPath(keyPath: String?,
+                                         ofObject object: AnyObject?,
+                                                  change: [String : AnyObject]?, 
+                                                  context: UnsafeMutablePointer<Void>) {
+        
+        guard keyPath == "operationCount" else {
+            super.observeValueForKeyPath(keyPath, ofObject: object, change: change, context: context)
+            return
+        }
+        
+        if let operationCount = change?[NSKeyValueChangeNewKey] as? Int {
+            let showNetworkActivityIndicator = operationCount > 0;
+            
+            let sharedApplication = UIApplication.sharedApplication()
+            sharedApplication.networkActivityIndicatorVisible = showNetworkActivityIndicator
+        }
+        
+    }
 }

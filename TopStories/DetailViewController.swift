@@ -38,6 +38,9 @@ class DetailViewController: UIViewController {
             }
         }
         
+        navigationItem.leftBarButtonItem = self.splitViewController?.displayModeButtonItem()
+        navigationItem.leftItemsSupplementBackButton = true
+        
         super.viewDidLoad()
     }
     
