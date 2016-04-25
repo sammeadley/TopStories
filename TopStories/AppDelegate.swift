@@ -24,6 +24,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
         
         let splitViewController = self.window!.rootViewController as! UISplitViewController
+        splitViewController.delegate = self
         
         let navigationController = splitViewController.viewControllers[splitViewController.viewControllers.count-1] as! UINavigationController
         navigationController.topViewController!.navigationItem.leftBarButtonItem = splitViewController.displayModeButtonItem()
@@ -58,3 +59,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 }
 
+extension AppDelegate: UISplitViewControllerDelegate {
+    
+    func splitViewController(splitViewController: UISplitViewController,
+                             collapseSecondaryViewController secondaryViewController: UIViewController,
+                                                             ontoPrimaryViewController primaryViewController: UIViewController) -> Bool {
+        return true
+    }
+}
