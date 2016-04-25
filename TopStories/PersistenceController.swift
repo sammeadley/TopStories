@@ -46,10 +46,7 @@ class PersistenceController {
             try coordinator.addPersistentStoreWithType(self.storeType, configuration: nil, URL: URL, options: nil)
 
         } catch {
-            
-            // TODO: Remove this temporary NSLog and report error to Framework/Server.
-            let error = error as NSError
-            NSLog("Unresolved error \(error), \(error.userInfo)")
+            // TODO: Handle error
         }
         
         return coordinator

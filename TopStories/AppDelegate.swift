@@ -50,10 +50,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 try managedObjectContext.save()
                 
             } catch {
-                
-                // TODO: Remove this temporary NSLog and report error to Framework/Server.
-                let error = error as NSError
-                NSLog("Unresolved error \(error), \(error.userInfo)")
+                // TODO: Handle error
             }
         }
     }
