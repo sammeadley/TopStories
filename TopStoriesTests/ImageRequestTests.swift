@@ -24,7 +24,7 @@ class ImageRequestTests: CoreDataTestCase {
         let imageCache = ImageCache(cache: NSCache(), fileManager: TestableFileManager())
         let request = ImageRequest(story: dummyStory,
                                    cache: imageCache,
-                                   imageURL: dummyStory.imageURL!)
+                                   imageSize: .Default)
         
         let URLSession = TestableURLSession(delegate: request)
         let task = TestableURLSessionDownloadTask(URLSession: URLSession)
