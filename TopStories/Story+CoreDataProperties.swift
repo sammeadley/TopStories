@@ -2,7 +2,7 @@
 //  Story+CoreDataProperties.swift
 //  TopStories
 //
-//  Created by Sam Meadley on 22/04/2016.
+//  Created by Sam Meadley on 25/04/2016.
 //  Copyright © 2016 Sam Meadley. All rights reserved.
 //
 //  Choose "Create NSManagedObject Subclass…" from the Core Data editor menu
@@ -19,5 +19,6 @@ extension Story {
     @NSManaged var imageURL: String?
     @NSManaged var createdDate: NSDate?
     @NSManaged var title: String?
+    @NSManaged var thumbnailURL: String?
 
 }

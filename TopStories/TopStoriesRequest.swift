@@ -88,7 +88,12 @@ class TopStoriesRequest: NetworkRequest {
                         if let index = multimedia.indexOf({ $0["format"] as? String == "superJumbo"}) {
                             let item = multimedia[index]
                             story.imageURL = item["url"] as? String
-                        }                        
+                        }
+                        
+                        if let index = multimedia.indexOf({ $0["format"] as? String == "thumbLarge"}) {
+                            let item = multimedia[index]
+                            story.thumbnailURL = item["url"] as? String
+                        }
                     }
                     
                     if let createdDate = storyJSON["created_date"] as? String {

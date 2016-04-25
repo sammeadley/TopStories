@@ -34,6 +34,7 @@
 		FBCFDA891CCD25A200E7FA59 /* image.jpg in Resources */ = {isa = PBXBuildFile; fileRef = FBCFDA861CCD25A200E7FA59 /* image.jpg */; };
 		FBCFDA8A1CCD25A200E7FA59 /* ImageCacheTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBCFDA871CCD25A200E7FA59 /* ImageCacheTests.swift */; };
 		FBCFDA8B1CCD25A200E7FA59 /* TestableFileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBCFDA881CCD25A200E7FA59 /* TestableFileManager.swift */; };
+		FBCFDA911CCD2D8B00E7FA59 /* RequestControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBCFDA901CCD2D8B00E7FA59 /* RequestControllerTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -79,6 +80,7 @@
 		FBCFDA861CCD25A200E7FA59 /* image.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = image.jpg; sourceTree = "<group>"; };
 		FBCFDA871CCD25A200E7FA59 /* ImageCacheTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageCacheTests.swift; sourceTree = "<group>"; };
 		FBCFDA881CCD25A200E7FA59 /* TestableFileManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestableFileManager.swift; sourceTree = "<group>"; };
+		FBCFDA901CCD2D8B00E7FA59 /* RequestControllerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestControllerTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,6 +107,7 @@
 			children = (
 				FBCFDA871CCD25A200E7FA59 /* ImageCacheTests.swift */,
 				FB41B3A01CC77B490053E803 /* NetworkRequestTests.swift */,
+				FBCFDA901CCD2D8B00E7FA59 /* RequestControllerTests.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -395,6 +398,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FBC1C32C1CC81210002F79A3 /* CoreDataTestCase.swift in Sources */,
+				FBCFDA911CCD2D8B00E7FA59 /* RequestControllerTests.swift in Sources */,
 				FBCFDA8A1CCD25A200E7FA59 /* ImageCacheTests.swift in Sources */,
 				FB41B3A81CC796F30053E803 /* TestableURLSession.swift in Sources */,
 				FB41B3A11CC77B490053E803 /* NetworkRequestTests.swift in Sources */,

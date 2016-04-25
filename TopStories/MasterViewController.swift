@@ -31,6 +31,12 @@ class MasterViewController: UICollectionViewController, NSFetchedResultsControll
         fetchedResultsController?.delegate = self
         collectionView?.reloadData()
         
+        let refreshControl = UIRefreshControl()
+        refreshControl.addTarget(self,
+                                 action: #selector(refresh),
+                                 forControlEvents: .ValueChanged)
+        collectionView?.addSubview(refreshControl)
+        
         super.viewDidLoad()
     }
     
@@ -85,9 +91,11 @@ class MasterViewController: UICollectionViewController, NSFetchedResultsControll
         
         // Fetching an image from the disk cache can be costly, so do this in a background queue.
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)) {
-            let image = self.requestController?.requestImageForStory(story)
+            let image = self.requestController?.requestImageForStory(story, imageSize: .Thumbnail)
             dispatch_async(dispatch_get_main_queue()) {
-                cell.image = image
+                if let cell = collectionView.cellForItemAtIndexPath(indexPath) as? StoryCollectionViewCell {
+                    cell.image = image
+                }
             }
         }
         
@@ -176,4 +184,9 @@ class MasterViewController: UICollectionViewController, NSFetchedResultsControll
         }
     }
     
+    func refresh(refreshControl: UIRefreshControl) {
+        
+        requestController?.requestTopStories()
+        refreshControl.endRefreshing()
+    }
 }

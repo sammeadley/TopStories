@@ -11,6 +11,8 @@ import CoreData
 
 class RequestController: NSObject {
 
+    // MARK: - Notifications and Keys
+    
     enum Notifications {
         static let ImageRequestDidComplete = "com.sammeadley.TopStories.ImageRequestDidComplete"
         
@@ -20,10 +22,12 @@ class RequestController: NSObject {
         }
     }
     
-    var managedObjectContext: NSManagedObjectContext
-    var URLSession: NSURLSession?
+    // MARK: - Properties
     
-    private let imageCache = ImageCache()
+    var managedObjectContext: NSManagedObjectContext
+    
+    private let URLSession: NSURLSession?
+    private let imageCache: ImageCache
     private lazy var operationQueue: NSOperationQueue = {
         
         let operationQueue = NSOperationQueue()
@@ -35,10 +39,20 @@ class RequestController: NSObject {
         return operationQueue
     }()
     
-    init(managedObjectContext: NSManagedObjectContext) {
+    // MARK: - Initializers
+    
+    init(managedObjectContext: NSManagedObjectContext,
+         URLSession: NSURLSession? = nil,
+         imageCache: ImageCache = ImageCache()) {
         self.managedObjectContext = managedObjectContext
+        self.URLSession = URLSession
+        self.imageCache = imageCache
         
         super.init()
+    }
+    
+    deinit {        
+        operationQueue.removeObserver(self, forKeyPath: "operationCount")
     }
     
     /**
@@ -75,6 +89,8 @@ class RequestController: NSObject {
         }
         
         let request = TopStoriesRequest(managedObjectContext: managedObjectContext, URL: URLComponents!.URL!)
+        request.URLSession = URLSession
+        
         operationQueue.addOperation(request)
         
         return fetchedResultsController
@@ -90,12 +106,13 @@ class RequestController: NSObject {
      from the disk cache can be slow.
      
      - parameter story: The story containing the imageURL to load.
+     - parameter imageSize: The size of the image to download, .Default by default.
      
      - returns: The image if cached, otherwise nil.
      */
-    func requestImageForStory(story: Story) -> UIImage? {
+    func requestImageForStory(story: Story, imageSize: ImageSize = .Default) -> UIImage? {
         
-        guard let imageURL = story.imageURL else {
+        guard let imageURL = (imageSize == .Default) ? story.imageURL : story.thumbnailURL else {
             return nil
         }
         
@@ -103,12 +120,22 @@ class RequestController: NSObject {
             return image
         }
         
-        let request = ImageRequest(story: story, cache: imageCache)
+        let request = ImageRequest(story: story, cache: imageCache, imageURL: imageURL)
+        request.URLSession = URLSession
+        
         if !operationQueue.operations.contains(request) {
             operationQueue.addOperation(request)
         }
         
         return nil
+    }
+    
+    /**
+     Use with requestImagForStory(_:imageSize) to specify size of image to request. 
+     */
+    enum ImageSize {
+        case Default
+        case Thumbnail
     }
     
 }
@@ -135,4 +162,5 @@ extension RequestController {
         }
         
     }
+
 }

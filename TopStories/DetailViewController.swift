@@ -27,6 +27,8 @@ class DetailViewController: UIViewController {
         self.titleLabel?.text = story?.title
         self.abstractLabel?.text = story?.abstract
         
+        addObservers()
+        
         // Fetching an image from the disk cache can be costly, so do this in a background queue.
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)) {
             
@@ -42,6 +44,26 @@ class DetailViewController: UIViewController {
         navigationItem.leftItemsSupplementBackButton = true
         
         super.viewDidLoad()
+    }
+    
+    // MARK: - NSNotificationCenter
+    
+    func addObservers() {
+        
+        NSNotificationCenter.defaultCenter().addObserver(self,
+                                                         selector: #selector(didReceiveImageRequestDidCompleteNotification),
+                                                         name: RequestController.Notifications.ImageRequestDidComplete,
+                                                         object: nil)
+    }
+    
+    func didReceiveImageRequestDidCompleteNotification(notification: NSNotification) {
+        
+        guard let userInfo = notification.userInfo else {
+            return
+        }
+        
+        let image = userInfo[RequestController.Notifications.Keys.Image] as? UIImage
+        imageView?.image = image
     }
     
 }

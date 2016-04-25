@@ -14,10 +14,12 @@ class ImageRequest: NetworkRequest, NSURLSessionDownloadDelegate {
     
     private let story: Story
     private let cache: ImageCache
+    private let imageURL: String
     
-    init(story: Story, cache: ImageCache) {
+    init(story: Story, cache: ImageCache, imageURL: String) {
         self.story = story
         self.cache = cache
+        self.imageURL = imageURL
         
         super.init()
         self.queuePriority = .Low
@@ -27,11 +29,6 @@ class ImageRequest: NetworkRequest, NSURLSessionDownloadDelegate {
     // MARK: - NSOperation
     
     override func start() {
-        
-        guard let imageURL = story.imageURL else {
-            self.state = .Finished
-            return
-        }
         
         guard let URL = NSURL(string: imageURL) else {
             self.error = NSError(domain: "", code: 000, userInfo: [NSLocalizedDescriptionKey : NSLocalizedString("Failed to build URL from URLString", comment: "")])
@@ -81,8 +78,7 @@ class ImageRequest: NetworkRequest, NSURLSessionDownloadDelegate {
             return
         }
         
-        // We've got this far, so we must have an imageURL
-        cache.setImage(image, forURL: story.imageURL!, temporaryFileURL: location)
+        cache.setImage(image, forURL: imageURL, temporaryFileURL: location)
         
         dispatch_async(dispatch_get_main_queue(), {
             NSNotificationCenter.defaultCenter().postNotificationName(RequestController.Notifications.ImageRequestDidComplete,
@@ -100,14 +96,14 @@ class ImageRequest: NetworkRequest, NSURLSessionDownloadDelegate {
     override func isEqual(object: AnyObject?) -> Bool {
         
         if let object = object as? ImageRequest {
-            return story == object.story
+            return imageURL == object.imageURL
         } else {
             return false
         }
     }
     
     override var hash: Int {
-        return story.hashValue
+        return imageURL.hashValue
     }
     
 }
