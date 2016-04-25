@@ -19,13 +19,24 @@ class DetailViewController: UIViewController {
     @IBOutlet private weak var titleLabel: UILabel?
     @IBOutlet private weak var abstractLabel: UILabel?
     @IBOutlet private weak var imageView: UIImageView?
+    @IBOutlet private weak var emptyLabel: UILabel?
     
     // MARK: - UIViewController
     
     override func viewDidLoad() {
         
-        self.titleLabel?.text = story?.title
-        self.abstractLabel?.text = story?.abstract
+        guard let story = story else {
+            titleLabel?.text = ""
+            abstractLabel?.text = ""
+            
+            emptyLabel?.hidden = false
+            self.navigationController?.toolbarHidden = true
+            
+            return
+        }
+        
+        titleLabel?.text = story.title
+        abstractLabel?.text = story.abstract
         
         addObservers()
         
