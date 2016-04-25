@@ -73,6 +73,7 @@
                                 </constraints>
                                 <connections>
                                     <outlet property="imageView" destination="p8z-7Y-atR" id="AtP-gy-562"/>
+                                    <outlet property="imageViewWidthConstraint" destination="5i1-lP-lMS" id="mc7-da-dQs"/>
                                     <outlet property="titleLabel" destination="OjP-Fl-k9X" id="ayX-G2-UCr"/>
                                     <segue destination="kXS-Ua-nJe" kind="showDetail" identifier="DetailViewController" id="iGK-Sf-aLw"/>
                                 </connections>
