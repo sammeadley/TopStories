@@ -14,12 +14,14 @@ class ImageRequest: NetworkRequest, NSURLSessionDownloadDelegate {
     
     private let story: Story
     private let cache: ImageCache
+    private let imageSize: Story.ImageSize
     private let imageURL: String
     
-    init(story: Story, cache: ImageCache, imageURL: String) {
+    init(story: Story, cache: ImageCache, imageSize: Story.ImageSize) {
         self.story = story
         self.cache = cache
-        self.imageURL = imageURL
+        self.imageSize = imageSize
+        self.imageURL = story.imageURLForSize(imageSize)!
         
         super.init()
         self.queuePriority = .Low
@@ -82,7 +84,7 @@ class ImageRequest: NetworkRequest, NSURLSessionDownloadDelegate {
         
         dispatch_async(dispatch_get_main_queue(), {
             NSNotificationCenter.defaultCenter().postNotificationName(RequestController.Notifications.ImageRequestDidComplete,
-                object: nil,
+                object: self.imageSize.rawValue, // Pass imageSize allowing observers to filter notifications they receive.
                 userInfo: [
                     RequestController.Notifications.Keys.Image : image,
                     RequestController.Notifications.Keys.Story : self.story])

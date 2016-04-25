@@ -42,5 +42,22 @@ class Story: NSManagedObject {
             return nil
         }
     }
+    
+    func imageURLForSize(imageSize: ImageSize) -> String? {
+        switch imageSize {
+        case .Default:
+            return imageURL
+        case .Thumbnail:
+            return thumbnailURL
+        }
+    }
 
+    /**
+     Use with imageURLForSize(_:) to return the correct URL for the desired size.
+     */
+    enum ImageSize: Int {
+        case Default
+        case Thumbnail
+    }
+    
 }

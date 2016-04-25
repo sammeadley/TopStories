@@ -53,7 +53,7 @@ class DetailViewController: UIViewController {
         NSNotificationCenter.defaultCenter().addObserver(self,
                                                          selector: #selector(didReceiveImageRequestDidCompleteNotification),
                                                          name: RequestController.Notifications.ImageRequestDidComplete,
-                                                         object: nil)
+                                                         object: Story.ImageSize.Default.rawValue)
     }
     
     func didReceiveImageRequestDidCompleteNotification(notification: NSNotification) {

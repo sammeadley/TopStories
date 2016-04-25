@@ -25,7 +25,7 @@ class MasterViewController: UICollectionViewController, NSFetchedResultsControll
         NSNotificationCenter.defaultCenter().addObserver(self,
                                                          selector: #selector(didReceiveImageRequestDidCompleteNotification),
                                                          name: RequestController.Notifications.ImageRequestDidComplete,
-                                                         object: nil)
+                                                         object: Story.ImageSize.Thumbnail.rawValue)
         
         fetchedResultsController = requestController?.requestTopStories()
         fetchedResultsController?.delegate = self

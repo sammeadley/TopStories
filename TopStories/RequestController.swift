@@ -110,9 +110,9 @@ class RequestController: NSObject {
      
      - returns: The image if cached, otherwise nil.
      */
-    func requestImageForStory(story: Story, imageSize: ImageSize = .Default) -> UIImage? {
+    func requestImageForStory(story: Story, imageSize: Story.ImageSize = .Default) -> UIImage? {
         
-        guard let imageURL = (imageSize == .Default) ? story.imageURL : story.thumbnailURL else {
+        guard let imageURL = story.imageURLForSize(imageSize) else {
             return nil
         }
         
@@ -120,7 +120,7 @@ class RequestController: NSObject {
             return image
         }
         
-        let request = ImageRequest(story: story, cache: imageCache, imageURL: imageURL)
+        let request = ImageRequest(story: story, cache: imageCache, imageSize: imageSize)
         request.URLSession = URLSession
         
         if !operationQueue.operations.contains(request) {
@@ -128,14 +128,6 @@ class RequestController: NSObject {
         }
         
         return nil
-    }
-    
-    /**
-     Use with requestImagForStory(_:imageSize) to specify size of image to request. 
-     */
-    enum ImageSize {
-        case Default
-        case Thumbnail
     }
     
 }

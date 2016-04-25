@@ -110,9 +110,8 @@
 			isa = PBXGroup;
 			children = (
 				FBCFDA871CCD25A200E7FA59 /* ImageCacheTests.swift */,
-				FBCFDA981CCDFE0500E7FA59 /* ImageRequestTests.swift */,
 				FBCFDA901CCD2D8B00E7FA59 /* RequestControllerTests.swift */,
-				FB41B3A01CC77B490053E803 /* TopStoriesRequestTests.swift */,
+				FBCFDA9C1CCE08E900E7FA59 /* Requests */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -198,8 +197,8 @@
 				FBCC5E171CC9585D001C937D /* ImageCache.swift */,
 				FB826C1D1CC66D4E000FC778 /* MasterViewController.swift */,
 				FB826C431CC6883E000FC778 /* PersistenceController.swift */,
-				FBAF85071CC8BD7900F85BEA /* Request */,
 				FB826C411CC68717000FC778 /* RequestController.swift */,
+				FBAF85071CC8BD7900F85BEA /* Requests */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -216,14 +215,14 @@
 			name = View;
 			sourceTree = "<group>";
 		};
-		FBAF85071CC8BD7900F85BEA /* Request */ = {
+		FBAF85071CC8BD7900F85BEA /* Requests */ = {
 			isa = PBXGroup;
 			children = (
 				FBAF85081CC8BDA000F85BEA /* ImageRequest.swift */,
 				FBAF850A1CC8BE2F00F85BEA /* NetworkRequest.swift */,
 				FB41B39E1CC7731A0053E803 /* TopStoriesRequest.swift */,
 			);
-			name = Request;
+			name = Requests;
 			sourceTree = "<group>";
 		};
 		FBCFDA3B1CCA179D00E7FA59 /* Supporting Files */ = {
@@ -242,6 +241,15 @@
 			);
 			name = Frameworks;
 			path = TopStories;
+			sourceTree = "<group>";
+		};
+		FBCFDA9C1CCE08E900E7FA59 /* Requests */ = {
+			isa = PBXGroup;
+			children = (
+				FBCFDA981CCDFE0500E7FA59 /* ImageRequestTests.swift */,
+				FB41B3A01CC77B490053E803 /* TopStoriesRequestTests.swift */,
+			);
+			name = Requests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
