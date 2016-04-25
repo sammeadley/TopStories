@@ -28,7 +28,7 @@ class TopStoriesRequestTests: CoreDataTestCase {
         let URLSession = TestableURLSession(delegate: request)
         let task = TestableURLSessionDataTask(URLSession: URLSession)
         task.stubData = data
-        URLSession.stubDataTask = task
+        URLSession.stubTask = task
         
         request.URLSession = URLSession
         

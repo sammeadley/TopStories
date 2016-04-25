@@ -12,6 +12,7 @@ class TestableFileManager: NSFileManager {
 
     private(set) var destinationOfMovedItem: NSURL?
     var stubFileExistsAtPath: Bool?
+    var stubContentsAtPath: NSData?
     
     override func fileExistsAtPath(path: String) -> Bool {
         
@@ -25,5 +26,14 @@ class TestableFileManager: NSFileManager {
     // We don't want the stub subclass to affect the file system, so we don't call super.
     override func moveItemAtURL(srcURL: NSURL, toURL dstURL: NSURL) throws {
         destinationOfMovedItem = dstURL
+    }
+    
+    override func contentsAtPath(path: String) -> NSData? {
+        
+        guard let stubContentsAtPath = stubContentsAtPath else {
+            return super.contentsAtPath(path)
+        }
+        
+        return stubContentsAtPath
     }
 }
