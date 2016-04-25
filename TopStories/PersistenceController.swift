@@ -13,10 +13,22 @@ class PersistenceController {
     
     private let storeType: String
     
+    /**
+     Initializes the persistence controller with a persistent store type.
+     
+     We allow customization of the persistent store type primarily for testing purposes (NSInMemoryStoreType). 
+     A default value NSSQLiteStoreType is set, so by default a SQLite store type is used.
+     
+     - parameter storeType: A string representing the store type. NSSQLiteStoreType by default.
+     */
     init(storeType: String = NSSQLiteStoreType) {
         self.storeType = storeType
     }
     
+    /**
+     The main Managed Object Context instance, any other created contexts will become children of 
+     this one and push changes up the hierarchy.
+     */
     lazy var managedObjectContext: NSManagedObjectContext = {
         
         let coordinator = self.persistentStoreCoordinator
@@ -35,6 +47,11 @@ class PersistenceController {
         return NSManagedObjectModel(contentsOfURL: modelURL)!
     }()
     
+    /**
+     The persistent store coordinator manages a single SQLite store (or memory store for testing).
+     The SQLite store is in Library/Caches as it is just a cache, and can be rebuilt. This way iOS 
+     can clear it down if it comes under storage pressure.
+     */
     lazy var persistentStoreCoordinator: NSPersistentStoreCoordinator? = {
         
         let coordinator = NSPersistentStoreCoordinator(managedObjectModel: self.managedObjectModel)
@@ -56,10 +73,14 @@ class PersistenceController {
 
 extension NSFileManager {
     
+    /**
+     The URL to the Application's Caches directory.
+     
+     - returns: NSURL containing the path to the Library/Caches, or nil.
+     */
     func URLForApplicationCachesDirectory() -> NSURL? {
         
         let URLs = URLsForDirectory(.CachesDirectory, inDomains: .UserDomainMask)
-        // URL is not optional, if URLsForDirectory returns an empty array.
         let URL = URLs.last
         
         return URL;

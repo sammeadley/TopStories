@@ -39,8 +39,19 @@ class RequestController: NSObject {
         return operationQueue
     }()
     
-    // MARK: - Initializers
-    
+    /**
+     Initializes the request controller with dependencies.
+     
+     - parameter managedObjectContext:  The main managed object context to use as the parent for any
+                                        child contexts that may be created to store downloaded entities.
+     
+     - parameter URLSession:    URLSession to use for any requests; optional- if nil individual
+                                requests will manage their own session. Primarily for testing.
+     
+     - parameter imageCache:    The ImageCache instance to interrogate for membership; optional-
+                                if nil a new ImageCache instance will be created. Primarily for 
+                                testing.
+     */
     init(managedObjectContext: NSManagedObjectContext,
          URLSession: NSURLSession? = nil,
          imageCache: ImageCache = ImageCache()) {

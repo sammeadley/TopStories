@@ -17,6 +17,13 @@ class ImageRequest: NetworkRequest, NSURLSessionDownloadDelegate {
     private let imageSize: Story.ImageSize
     private let imageURL: String
     
+    /**
+     Initializes the request with dependencies.
+     
+     - parameter story: The story with the image to load.
+     - parameter cache: The imageCache instance to check for membership.
+     - parameter imageSize: The image size to download, see Story.ImageSize for possible values.
+     */
     init(story: Story, cache: ImageCache, imageSize: Story.ImageSize) {
         self.story = story
         self.cache = cache

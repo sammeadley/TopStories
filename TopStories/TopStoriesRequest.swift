@@ -17,6 +17,12 @@ class TopStoriesRequest: NetworkRequest {
     private let managedObjectContext: NSManagedObjectContext
     private let URL: NSURL
     
+    /**
+     Initializes the request with dependencies.
+     
+     - parameter managedObjectContext: The parent MainQueue context, branch any children off this context.
+     - parameter URL: The URL of the top stories JSON.
+     */
     init(managedObjectContext: NSManagedObjectContext, URL: NSURL) {
         self.managedObjectContext = managedObjectContext
         self.URL = URL
@@ -139,6 +145,9 @@ class TopStoriesRequest: NetworkRequest {
 
 extension ISO8601DateFormatter {
     
+    /**
+     Reusable formatter instance to help performance.
+     */
     private static let formatter: ISO8601DateFormatter = {
         let formatter = ISO8601DateFormatter()
         return formatter
