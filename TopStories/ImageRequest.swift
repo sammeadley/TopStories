@@ -33,7 +33,7 @@ class ImageRequest: NetworkRequest, NSURLSessionDownloadDelegate {
     override func start() {
         
         guard let URL = NSURL(string: imageURL) else {
-            self.error = NSError(domain: "", code: 000, userInfo: [NSLocalizedDescriptionKey : NSLocalizedString("Failed to build URL from URLString", comment: "")])
+            self.error = .InvalidURL
             self.state = .Finished
             return
         }
@@ -52,8 +52,7 @@ class ImageRequest: NetworkRequest, NSURLSessionDownloadDelegate {
     func URLSession(session: NSURLSession, task: NSURLSessionTask, didCompleteWithError error: NSError?) {
         
         if error != nil {
-            self.error = error
-            NSLog("Failed to receive response: \(error)")
+            self.error = .NetworkError(error)
             self.state = .Finished
             return
         }
@@ -68,14 +67,14 @@ class ImageRequest: NetworkRequest, NSURLSessionDownloadDelegate {
         
         guard let data = NSData(contentsOfURL: location) else {
             
-            self.error = NSError(domain: "", code: 000, userInfo: [NSLocalizedDescriptionKey : NSLocalizedString("Failed to read image data", comment: "")])
+            self.error = .ClientError(NSLocalizedString("Failed to read image data", comment: ""), nil)
             self.state = .Finished
             return
         }
         
         guard let image = UIImage(data: data)?.decompress() else {
             
-            self.error = NSError(domain: "", code: 000, userInfo: [NSLocalizedDescriptionKey : NSLocalizedString("Failed to build image from data", comment: "")])
+            self.error = .ClientError(NSLocalizedString("Failed to build image from data", comment: ""), nil)
             self.state = .Finished
             return
         }

@@ -10,7 +10,7 @@ import Foundation
 
 class NetworkRequest: NSOperation, NSURLSessionDataDelegate {
     
-    var error: NSError?
+    var error: NetworkRequestError?
     
     internal var task: NSURLSessionTask?
     internal let data = NSMutableData()
@@ -89,4 +89,12 @@ class NetworkRequest: NSOperation, NSURLSessionDataDelegate {
         self.data.appendData(data)
     }
     
+}
+
+// MARK:- Error Types
+
+enum NetworkRequestError: ErrorType {
+    case InvalidURL
+    case NetworkError(NSError?)
+    case ClientError(String, NSError?)
 }

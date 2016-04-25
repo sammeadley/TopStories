@@ -50,8 +50,7 @@ class TopStoriesRequest: NetworkRequest {
         }
         
         if error != nil {
-            self.error = error
-            NSLog("Failed to receive response: \(error)")
+            self.error = .NetworkError(error)
             self.state = .Finished
             return
         }
@@ -108,7 +107,7 @@ class TopStoriesRequest: NetworkRequest {
                 do {
                     try privateContext.save()
                 } catch {
-                    self.error = error as NSError
+                    self.error = .ClientError("Failed to push changes to parent context.", error as NSError)
                     self.state = .Finished
                     return
                 }
@@ -119,7 +118,7 @@ class TopStoriesRequest: NetworkRequest {
                     do {
                         try self.managedObjectContext.save()
                     } catch {
-                        self.error = error as NSError
+                        self.error = .ClientError("Failed to save parent context changes to disk.", error as NSError)
                         self.state = .Finished
                         return
                     }
@@ -128,7 +127,7 @@ class TopStoriesRequest: NetworkRequest {
             
         } catch {
 
-            self.error = error as NSError
+            self.error = .ClientError("Failed to deserialize JSON object.", error as NSError)
         }
         
         self.state = .Finished
