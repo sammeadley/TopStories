@@ -1,5 +1,5 @@
 //
-//  MasterViewController.swift
+//  StoriesViewController.swift
 //  TopStories
 //
 //  Created by Sam Meadley on 19/04/2016.
@@ -9,7 +9,7 @@
 import UIKit
 import CoreData
 
-class MasterViewController: UICollectionViewController, NSFetchedResultsControllerDelegate {
+class StoriesViewController: UICollectionViewController, NSFetchedResultsControllerDelegate {
     
     var managedObjectContext: NSManagedObjectContext? = nil
     var requestController: RequestController?

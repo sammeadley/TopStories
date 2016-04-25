@@ -31,7 +31,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         navigationController.topViewController!.navigationItem.leftItemsSupplementBackButton = true
 
         let masterNavigationController = splitViewController.viewControllers[0] as! UINavigationController
-        let controller = masterNavigationController.topViewController as! MasterViewController
+        let controller = masterNavigationController.topViewController as! StoriesViewController
         controller.managedObjectContext = persistenceController?.managedObjectContext;
         controller.requestController = requestController
         

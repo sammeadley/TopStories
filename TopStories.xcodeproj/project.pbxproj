@@ -16,7 +16,7 @@
 		FB41B3AF1CC7E2DD0053E803 /* Story.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB41B3AD1CC7E2DD0053E803 /* Story.swift */; };
 		FB826C191CC66D4E000FC778 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB826C181CC66D4E000FC778 /* AppDelegate.swift */; };
 		FB826C1C1CC66D4E000FC778 /* TopStories.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = FB826C1A1CC66D4E000FC778 /* TopStories.xcdatamodeld */; };
-		FB826C1E1CC66D4E000FC778 /* MasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB826C1D1CC66D4E000FC778 /* MasterViewController.swift */; };
+		FB826C1E1CC66D4E000FC778 /* StoriesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB826C1D1CC66D4E000FC778 /* StoriesViewController.swift */; };
 		FB826C231CC66D4E000FC778 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FB826C211CC66D4E000FC778 /* Main.storyboard */; };
 		FB826C251CC66D4E000FC778 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FB826C241CC66D4E000FC778 /* Assets.xcassets */; };
 		FB826C281CC66D4E000FC778 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FB826C261CC66D4E000FC778 /* LaunchScreen.storyboard */; };
@@ -60,7 +60,7 @@
 		FB826C151CC66D4E000FC778 /* TopStories.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TopStories.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FB826C181CC66D4E000FC778 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FB826C1B1CC66D4E000FC778 /* TopStories.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TopStories.xcdatamodel; sourceTree = "<group>"; };
-		FB826C1D1CC66D4E000FC778 /* MasterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasterViewController.swift; sourceTree = "<group>"; };
+		FB826C1D1CC66D4E000FC778 /* StoriesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoriesViewController.swift; sourceTree = "<group>"; };
 		FB826C221CC66D4E000FC778 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		FB826C241CC66D4E000FC778 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FB826C271CC66D4E000FC778 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -195,7 +195,7 @@
 				FB826C181CC66D4E000FC778 /* AppDelegate.swift */,
 				FBCFDA7A1CCA3E0400E7FA59 /* DetailViewController.swift */,
 				FBCC5E171CC9585D001C937D /* ImageCache.swift */,
-				FB826C1D1CC66D4E000FC778 /* MasterViewController.swift */,
+				FB826C1D1CC66D4E000FC778 /* StoriesViewController.swift */,
 				FB826C431CC6883E000FC778 /* PersistenceController.swift */,
 				FB826C411CC68717000FC778 /* RequestController.swift */,
 				FBAF85071CC8BD7900F85BEA /* Requests */,
@@ -397,7 +397,7 @@
 				FBAF853E1CC9295700F85BEA /* StoryCollectionViewCell.swift in Sources */,
 				FB826C441CC6883E000FC778 /* PersistenceController.swift in Sources */,
 				FB41B3AE1CC7E2DD0053E803 /* Story+CoreDataProperties.swift in Sources */,
-				FB826C1E1CC66D4E000FC778 /* MasterViewController.swift in Sources */,
+				FB826C1E1CC66D4E000FC778 /* StoriesViewController.swift in Sources */,
 				FBAF850B1CC8BE2F00F85BEA /* NetworkRequest.swift in Sources */,
 				FB41B3AF1CC7E2DD0053E803 /* Story.swift in Sources */,
 				FBCFDA851CCD21A000E7FA59 /* main.swift in Sources */,
