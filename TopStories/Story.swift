@@ -11,6 +11,13 @@ import CoreData
 
 class Story: NSManagedObject {
 
+    /**
+     Default fetch request for Story entities.
+     
+     Returns a fetch request configured to return Story entities, sorted by date created descending.
+     
+     - returns: NSFetchRequest instance for Story entities.
+     */
     class func fetchRequest() -> NSFetchRequest {
         
         let fetchRequest = NSFetchRequest(entityName: String(Story))
@@ -19,6 +26,18 @@ class Story: NSManagedObject {
         return fetchRequest
     }
     
+    /**
+     Lookup Story instances by contentURL value.
+     
+     Looks up Story instances based on contentURL value. Ideally we would use something like a unique
+     identifier here to refer to unique instances. The API doesn't provide us with such, so we'll
+     key off contentURL.
+     
+     - parameter URLs: Array of contentURLs used to perform the story lookup.
+     - parameter managedObjectContext: The managedObjectContext instance to execute a fetch against.
+     
+     - returns: Array Story entities matching the contentURLs.
+     */
     class func instancesForContentURLs(URLs: [String],
                                        managedObjectContext: NSManagedObjectContext) -> [Story]? {
         
@@ -27,6 +46,16 @@ class Story: NSManagedObject {
         return results
     }
     
+    /**
+     Lookup Story instances by predicate.
+     
+     Looks up Story instances based on a supplied predicate.
+     
+     - parameter managedObjectContext: The managedObjectContext instance to execute a fetch against.
+     - parameter predicate: The predicate to use in the fetch request.
+     
+     - returns: Array Story entities matching the predicate.
+     */
     class func instancesInManagedObjectContext(managedObjectContext: NSManagedObjectContext,
                                                predicate: NSPredicate? = nil) -> [Story]? {
         
@@ -43,6 +72,13 @@ class Story: NSManagedObject {
         }
     }
     
+    /**
+     Return image URL by desired size.
+     
+     - parameter imageSize: The desired image size, see ImageSize for options.
+     
+     - returns: Image URL string.
+     */
     func imageURLForSize(imageSize: ImageSize) -> String? {
         switch imageSize {
         case .Default:
