@@ -90,7 +90,7 @@ class ImageRequest: NetworkRequest, NSURLSessionDownloadDelegate {
         
         dispatch_async(dispatch_get_main_queue(), {
             NSNotificationCenter.defaultCenter().postNotificationName(RequestController.Notifications.ImageRequestDidComplete,
-                object: self.imageSize.rawValue, // Pass imageSize allowing observers to filter notifications they receive.
+                object: self,
                 userInfo: [
                     RequestController.Notifications.Keys.Image : image,
                     RequestController.Notifications.Keys.Story : self.story])

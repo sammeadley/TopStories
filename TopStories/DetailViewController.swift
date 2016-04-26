@@ -38,13 +38,14 @@ class DetailViewController: UIViewController {
         titleLabel?.text = story.title
         abstractLabel?.text = story.abstract
         
-        addObservers()
-        
         // Fetching an image from the disk cache can be costly, so do this in a background queue.
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)) {
             
             if let story = self.story {
-                let image = self.requestController?.requestImageForStory(story)
+                let image = self.requestController?.requestImageForStory(story,
+                                                                         imageSize: .Default,
+                                                                         observer: self,
+                                                                         selector: #selector(self.didReceiveImageRequestDidCompleteNotification))
                 dispatch_async(dispatch_get_main_queue()) {
                     self.imageView?.image = image
                 }
@@ -58,14 +59,6 @@ class DetailViewController: UIViewController {
     }
     
     // MARK: - NSNotificationCenter
-    
-    func addObservers() {
-        
-        NSNotificationCenter.defaultCenter().addObserver(self,
-                                                         selector: #selector(didReceiveImageRequestDidCompleteNotification),
-                                                         name: RequestController.Notifications.ImageRequestDidComplete,
-                                                         object: Story.ImageSize.Default.rawValue)
-    }
     
     func didReceiveImageRequestDidCompleteNotification(notification: NSNotification) {
         

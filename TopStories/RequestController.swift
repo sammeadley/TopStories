@@ -116,12 +116,21 @@ class RequestController: NSObject {
      It is recommended that this function be called from a background thread, as fetching an image
      from the disk cache can be slow.
      
-     - parameter story: The story containing the imageURL to load.
+     If the image is not cached, it will be fetched from the network. A .ImageRequestDidComplete
+     notification will be posted on the main queue once complete.
+     
+     - parameter story:     The story containing the imageURL to load.
      - parameter imageSize: The size of the image to download, .Default by default.
+     - parameter observer:  The observer to be notified when the image download completes. If nil
+                            the observer will not be added.
+     - parameter selector:  The method to call on receipt of the notification.
      
      - returns: The image if cached, otherwise nil.
      */
-    func requestImageForStory(story: Story, imageSize: Story.ImageSize = .Default) -> UIImage? {
+    func requestImageForStory(story: Story,
+                              imageSize: Story.ImageSize = .Default,
+                              observer: AnyObject? = nil,
+                              selector: Selector? = nil) -> UIImage? {
         
         guard let imageURL = story.imageURLForSize(imageSize) else {
             return nil
@@ -133,6 +142,13 @@ class RequestController: NSObject {
         
         let request = ImageRequest(story: story, cache: imageCache, imageSize: imageSize)
         request.URLSession = URLSession
+        
+        if let observer = observer, selector = selector {
+            NSNotificationCenter.defaultCenter().addObserver(observer,
+                                                             selector: selector,
+                                                             name: Notifications.ImageRequestDidComplete,
+                                                             object: request)
+        }
         
         if !operationQueue.operations.contains(request) {
             operationQueue.addOperation(request)

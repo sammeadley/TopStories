@@ -22,11 +22,6 @@ class StoriesViewController: UICollectionViewController, NSFetchedResultsControl
     override func viewDidLoad() {
         collectionView?.collectionViewLayout = StoriesViewControllerLayout()
         
-        NSNotificationCenter.defaultCenter().addObserver(self,
-                                                         selector: #selector(didReceiveImageRequestDidCompleteNotification),
-                                                         name: RequestController.Notifications.ImageRequestDidComplete,
-                                                         object: Story.ImageSize.Thumbnail.rawValue)
-        
         fetchedResultsController = requestController?.requestTopStories()
         fetchedResultsController?.delegate = self
         collectionView?.reloadData()
@@ -91,7 +86,10 @@ class StoriesViewController: UICollectionViewController, NSFetchedResultsControl
         
         // Fetching an image from the disk cache can be costly, so do this in a background queue.
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)) {
-            let image = self.requestController?.requestImageForStory(story, imageSize: .Thumbnail)
+            let image = self.requestController?.requestImageForStory(story,
+                                                                     imageSize: .Thumbnail,
+                                                                     observer: self,
+                                                                     selector: #selector(self.didReceiveImageRequestDidCompleteNotification))
             dispatch_async(dispatch_get_main_queue()) {
                 if let cell = collectionView.cellForItemAtIndexPath(indexPath) as? StoryCollectionViewCell {
                     cell.image = image
