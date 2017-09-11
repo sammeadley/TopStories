@@ -8,24 +8,24 @@
 
 import Foundation
 
-class NetworkRequest: NSOperation, NSURLSessionDataDelegate {
+class NetworkRequest: Operation, URLSessionDataDelegate {
     
     var error: NetworkRequestError?
     
-    internal var task: NSURLSessionTask?
+    internal var task: URLSessionTask?
     internal let data = NSMutableData()
     
     // MARK: - Types
     
     enum State {
-        case Ready, Executing, Finished
+        case ready, executing, finished
         func keyPath() -> String {
             switch self {
-            case Ready:
+            case .ready:
                 return "isReady"
-            case Executing:
+            case .executing:
                 return "isExecuting"
-            case Finished:
+            case .finished:
                 return "isFinished"
             }
         }
@@ -33,68 +33,68 @@ class NetworkRequest: NSOperation, NSURLSessionDataDelegate {
     
     // MARK: - Properties
     
-    internal var state = State.Ready {
+    internal var state = State.ready {
         willSet {
-            willChangeValueForKey(newValue.keyPath())
-            willChangeValueForKey(state.keyPath())
+            willChangeValue(forKey: newValue.keyPath())
+            willChangeValue(forKey: state.keyPath())
         }
         didSet {
-            didChangeValueForKey(oldValue.keyPath())
-            didChangeValueForKey(state.keyPath())
+            didChangeValue(forKey: oldValue.keyPath())
+            didChangeValue(forKey: state.keyPath())
         }
     }
     
     // MARK: - NSOperation
     
-    override var ready: Bool {
-        return super.ready && state == .Ready
+    override var isReady: Bool {
+        return super.isReady && state == .ready
     }
     
-    override var executing: Bool {
-        return state == .Executing
+    override var isExecuting: Bool {
+        return state == .executing
     }
     
-    override var finished: Bool {
-        return state == .Finished
+    override var isFinished: Bool {
+        return state == .finished
     }
     
-    override var asynchronous: Bool {
+    override var isAsynchronous: Bool {
         return true
     }
     
     // MARK: - NSURLSessionDataDelegate
     
-    func URLSession(session: NSURLSession,
-                    dataTask: NSURLSessionDataTask,
-                    didReceiveResponse: NSURLResponse,
-                    completionHandler: (NSURLSessionResponseDisposition) -> Void) {
+    func urlSession(_ session: URLSession,
+                    dataTask: URLSessionDataTask,
+                    didReceive didReceiveResponse: URLResponse,
+                    completionHandler: @escaping (URLSession.ResponseDisposition) -> Void) {
         
-        if cancelled {
-            self.state = .Finished
+        if isCancelled {
+            state = .finished
             task?.cancel()
             return
         }
         
-        completionHandler(.Allow)
+        completionHandler(.allow)
     }
     
-    func URLSession(session: NSURLSession, dataTask: NSURLSessionDataTask, didReceiveData data: NSData) {
+    func urlSession(_ session: URLSession, dataTask: URLSessionDataTask, didReceive data: Data) {
         
-        if cancelled {
-            self.state = .Finished
+        if isCancelled {
+            state = .finished
             task?.cancel()
             return
         }
         
-        self.data.appendData(data)
+        self.data.append(data)
     }
     
 }
 
 // MARK:- Error Types
 
-enum NetworkRequestError: ErrorType {
-    case InvalidURL
-    case NetworkError(NSError?)
-    case ClientError(String, NSError?)
+enum NetworkRequestError: Error {
+    case invalidURL
+    case networkError(Error?)
+    case clientError(String, Error?)
 }

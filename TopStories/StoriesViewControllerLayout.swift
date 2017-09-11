@@ -10,25 +10,23 @@ import UIKit
 
 class StoriesViewControllerLayout: UICollectionViewFlowLayout {
 
-    private let defaultItemHeight: CGFloat = 75
-    private var bounds = CGRect.zero
+    fileprivate let defaultItemHeight: CGFloat = 75
+    fileprivate var bounds = CGRect.zero
     
-    override func prepareLayout() {
+    override func prepare() {
         
-        let itemSize = CGSize(width: (collectionView?.bounds.width)!, height: defaultItemHeight)
-        self.itemSize = itemSize
+        itemSize = CGSize(width: (collectionView?.bounds.width)!, height: defaultItemHeight)
     }
     
-    override func shouldInvalidateLayoutForBoundsChange(newBounds: CGRect) -> Bool {
+    override func shouldInvalidateLayout(forBoundsChange newBounds: CGRect) -> Bool {
         
-        if CGRectEqualToRect(bounds, newBounds) {
+        if bounds.equalTo(newBounds) {
             return false
         }
         
         bounds = newBounds
         
-        let itemSize = CGSize(width: newBounds.width, height: defaultItemHeight)
-        self.itemSize = itemSize
+        itemSize = CGSize(width: newBounds.width, height: defaultItemHeight)
         
         return true
     }

@@ -8,15 +8,15 @@
 
 import Foundation
 
-class TestableURLSessionDataTask: NSURLSessionDataTask {
+class TestableURLSessionDataTask: URLSessionDataTask {
 
-    var stubData: NSData?
+    var stubData: Data?
     var stubError: NSError?
     
-    private let URLSession: TestableURLSession
+    fileprivate let urlSession: TestableURLSession
     
-    init(URLSession: TestableURLSession) {
-        self.URLSession = URLSession
+    init(urlSession: TestableURLSession) {
+        self.urlSession = urlSession
     }
     
     override func resume() {
@@ -25,12 +25,12 @@ class TestableURLSessionDataTask: NSURLSessionDataTask {
             return
         }
         
-        guard let delegate = URLSession.delegate as? NSURLSessionDataDelegate else {
+        guard let delegate = urlSession.delegate as? URLSessionDataDelegate else {
             return
         }
         
-        delegate.URLSession!(URLSession, dataTask: self, didReceiveData: data)
-        delegate.URLSession!(URLSession, task: self, didCompleteWithError: stubError)
+        delegate.urlSession!(urlSession, dataTask: self, didReceive: data)
+        delegate.urlSession!(urlSession, task: self, didCompleteWithError: stubError)
     }
     
 }

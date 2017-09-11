@@ -20,20 +20,20 @@ class RequestControllerTests: CoreDataTestCase {
     func testRequestImageForStory_imageInMemoryCache() {
         
         // Arrange
-        let bundle = NSBundle(forClass: self.dynamicType)
-        let path = bundle.pathForResource("image", ofType: "jpg")!
+        let bundle = Bundle(for: type(of: self))
+        let path = bundle.path(forResource: "image", ofType: "jpg")!
         let expectedImage = UIImage(contentsOfFile: path)!
         let dummyStory = story()
         
-        let cache = NSCache()
-        cache.setObject(expectedImage, forKey: dummyStory.imageURL!)
+        let cache = NSCache<NSString, UIImage>()
+        cache.setObject(expectedImage, forKey: dummyStory.imageURL as NSString? ?? "")
         
-        let imageCache = ImageCache(cache: cache, fileManager: NSFileManager.defaultManager())
+        let imageCache = ImageCache(cache: cache, fileManager: FileManager.default)
         let requestController = RequestController(managedObjectContext: persistenceController.managedObjectContext,
-                                                  URLSession: NSURLSession.sharedSession(),
+                                                  urlSession: URLSession.shared,
                                                   imageCache: imageCache)
         // Act
-        let image = requestController.requestImageForStory(dummyStory)
+        let image = requestController.requestImage(for: dummyStory)
         
         // Assert
         XCTAssertEqual(image, expectedImage)
@@ -42,12 +42,12 @@ class RequestControllerTests: CoreDataTestCase {
     func testRequestImageForStory_imageInDiskCache() {
      
         // Arrange
-        let bundle = NSBundle(forClass: self.dynamicType)
-        let path = bundle.URLForResource("image", withExtension: "jpg")
-        let expectedImageData = NSData(contentsOfURL: (path?.absoluteURL)!)!
+        let bundle = Bundle(for: type(of: self))
+        let path = bundle.url(forResource: "image", withExtension: "jpg")
+        let expectedImageData = try! Data(contentsOf: (path?.absoluteURL)!)
         let expectedImage = UIImage(data: expectedImageData)
         
-        let cache = NSCache()
+        let cache = NSCache<NSString, UIImage>()
         
         let dummyStory = story()
         
@@ -57,17 +57,17 @@ class RequestControllerTests: CoreDataTestCase {
         
         let imageCache = ImageCache(cache: cache, fileManager: fileManager)
         let requestController = RequestController(managedObjectContext: persistenceController.managedObjectContext,
-                                                  URLSession: NSURLSession.sharedSession(),
+                                                  urlSession: URLSession.shared,
                                                   imageCache: imageCache)
         // Act
-        let image = requestController.requestImageForStory(dummyStory)
+        let image = requestController.requestImage(for: dummyStory)
         
         // Assert
         let expected = UIImageJPEGRepresentation(expectedImage!, 1)
         let actual = UIImageJPEGRepresentation(image!, 1)
         
         XCTAssertEqual(expected, actual)
-        XCTAssertNotNil(cache.objectForKey((dummyStory.imageURL)!)) // Check membership of in-memory cache.
+        XCTAssertNotNil(cache.object(forKey: dummyStory.imageURL as NSString!)) // Check membership of in-memory cache.
     }
     
     func testRequestImageForStory_imageNotCached() {
@@ -75,20 +75,20 @@ class RequestControllerTests: CoreDataTestCase {
         // Arrange
         let dummyStory = story()
         
-        let bundle = NSBundle(forClass: self.dynamicType)
-        let URL = bundle.URLForResource("image", withExtension: "jpg")
+        let bundle = Bundle(for: type(of: self))
+        let url = bundle.url(forResource: "image", withExtension: "jpg")
         
-        let URLSession = TestableURLSession(delegate: nil)
-        let task = TestableURLSessionDownloadTask(URLSession: URLSession)
-        task.stubDownloadLocation = URL
-        URLSession.stubTask = task
+        let urlSession = TestableURLSession(delegate: nil)
+        let task = TestableURLSessionDownloadTask(urlSession: urlSession)
+        task.stubDownloadLocation = url
+        urlSession.stubTask = task
         
         let requestController = RequestController(managedObjectContext: persistenceController.managedObjectContext,
-                                                  URLSession: URLSession,
+                                                  urlSession: urlSession,
                                                   imageCache: ImageCache())
 
         // Act
-        let image = requestController.requestImageForStory(dummyStory)
+        let image = requestController.requestImage(for: dummyStory)
         
         // Assert
         XCTAssertNil(image);

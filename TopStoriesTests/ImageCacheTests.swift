@@ -17,18 +17,18 @@ class ImageCacheTests: XCTestCase {
     func testImageForURL_imageInCache() {
      
         // Arrange
-        let bundle = NSBundle(forClass: self.dynamicType)
-        let path = bundle.pathForResource("image", ofType: "jpg")!
+        let bundle = Bundle(for: type(of: self))
+        let path = bundle.path(forResource: "image", ofType: "jpg")!
         let expectedImage = UIImage(contentsOfFile: path)!
-        let URL = "http://www.example.com/image.jpg"
+        let url = "http://www.example.com/image.jpg"
         
-        let cache = NSCache()
-        cache.setObject(expectedImage, forKey: URL)
+        let cache = NSCache<NSString, UIImage>()
+        cache.setObject(expectedImage, forKey: url as NSString)
         
-        let imageCache = ImageCache(cache: cache, fileManager: NSFileManager.defaultManager())
+        let imageCache = ImageCache(cache: cache, fileManager: FileManager.default)
         
         // Act
-        let image = imageCache.imageForURL(URL)
+        let image = imageCache.imageForURL(url)
         
         // Assert
         XCTAssertEqual(image, expectedImage)
@@ -37,9 +37,9 @@ class ImageCacheTests: XCTestCase {
     func testImageForURL_imageNotInCache() {
         
         // Arrange
-        let cache = NSCache()
+        let cache = NSCache<NSString, UIImage>()
         
-        let URL = "http://www.example.com/image.jpg"
+        let url = "http://www.example.com/image.jpg"
 
         let fileManager = TestableFileManager()
         fileManager.stubFileExistsAtPath = false
@@ -47,7 +47,7 @@ class ImageCacheTests: XCTestCase {
         let imageCache = ImageCache(cache: cache, fileManager: fileManager)
         
         // Act
-        let image = imageCache.imageForURL(URL)
+        let image = imageCache.imageForURL(url)
         
         // Assert
         XCTAssertNil(image)
@@ -58,21 +58,21 @@ class ImageCacheTests: XCTestCase {
     func testSetImageForURL_temporaryFileExists() {
         
         // Arrange
-        let bundle = NSBundle(forClass: self.dynamicType)
-        let temporaryFileURL = bundle.URLForResource("image", withExtension: "jpg")!
-        let expectedImage = UIImage(contentsOfFile: temporaryFileURL.path!)!
-        let URL = "http://www.example.com/image.jpg"
+        let bundle = Bundle(for: type(of: self))
+        let temporaryFileURL = bundle.url(forResource: "image", withExtension: "jpg")!
+        let expectedImage = UIImage(contentsOfFile: temporaryFileURL.path)!
+        let url = "http://www.example.com/image.jpg"
         
-        let cache = NSCache()
+        let cache = NSCache<NSString, UIImage>()
         
         let fileManager = TestableFileManager()
         let imageCache = ImageCache(cache: cache, fileManager: fileManager)
         
         // Act
-        imageCache.setImage(expectedImage, forURL: URL, temporaryFileURL: temporaryFileURL)
+        imageCache.setImage(expectedImage, forURL: url, temporaryFileURL: temporaryFileURL)
         
         // Assert
-        let image = imageCache.imageForURL(URL)
+        let image = imageCache.imageForURL(url)
         XCTAssertEqual(image, expectedImage)
         XCTAssertNotNil(fileManager.destinationOfMovedItem)
     }
@@ -80,21 +80,21 @@ class ImageCacheTests: XCTestCase {
     func testSetImageForURL_temporaryFileNotFound() {
         
         // Arrange
-        let bundle = NSBundle(forClass: self.dynamicType)
-        let temporaryFileURL = bundle.URLForResource("image", withExtension: "jpg")!
-        let expectedImage = UIImage(contentsOfFile: temporaryFileURL.path!)!
-        let URL = "http://www.example.com/image.jpg"
+        let bundle = Bundle(for: type(of: self))
+        let temporaryFileURL = bundle.url(forResource: "image", withExtension: "jpg")!
+        let expectedImage = UIImage(contentsOfFile: temporaryFileURL.path)!
+        let url = "http://www.example.com/image.jpg"
         
-        let cache = NSCache()
+        let cache = NSCache<NSString, UIImage>()
         
         let fileManager = TestableFileManager()
         let imageCache = ImageCache(cache: cache, fileManager: fileManager)
         
         // Act
-        imageCache.setImage(expectedImage, forURL: URL, temporaryFileURL: NSURL())
+        imageCache.setImage(expectedImage, forURL: url, temporaryFileURL: URL(string: "±"))
         
         // Assert
-        let image = imageCache.imageForURL(URL)
+        let image = imageCache.imageForURL(url)
         XCTAssertEqual(image, expectedImage)
         XCTAssertNil(fileManager.destinationOfMovedItem)
     }
@@ -110,7 +110,7 @@ class ImageCacheTests: XCTestCase {
         let imageCache = ImageCache()
         
         do {
-            let URL = try imageCache.URLForCachedImageForKey(key)
+            let URL = try imageCache.urlForCachedImageForKey(key)
             
             // Assert
             let expectedSuffix = "/Library/Caches/fbef9ea4cf2f8b617a030743b49d3097"

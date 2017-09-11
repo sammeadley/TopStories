@@ -18,25 +18,25 @@ class TopStoriesRequestTests: CoreDataTestCase {
     func testStart() {
         
         // Arrange
-        let bundle = NSBundle(forClass: self.dynamicType)
-        let path = bundle.pathForResource("home", ofType: "json")
-        let data = NSData(contentsOfFile: path!)
+        let bundle = Bundle(for: type(of: self))
+        let path = bundle.path(forResource: "home", ofType: "json")
+        let data = try? Data(contentsOf: URL(fileURLWithPath: path!))
         
         let request = TopStoriesRequest(managedObjectContext: persistenceController.managedObjectContext,
-                                        URL: NSURL())
+                                        URL: URL.fake)
 
-        let URLSession = TestableURLSession(delegate: request)
-        let task = TestableURLSessionDataTask(URLSession: URLSession)
+        let urlSession = TestableURLSession(delegate: request)
+        let task = TestableURLSessionDataTask(urlSession: urlSession)
         task.stubData = data
-        URLSession.stubTask = task
+        urlSession.stubTask = task
         
-        request.URLSession = URLSession
+        request.urlSession = urlSession
         
         // Act
         request.start()
         
         // Assert
-        expectation = expectationWithDescription("testStart")
+        expectation = self.expectation(description: "testStart")
         
         // Operation internally dispatches async block operations to update private/main MOCs.
         // As this is done asyncronously, we listen for NSManagedObjectContextDidSaveNotification before
@@ -45,11 +45,11 @@ class TopStoriesRequestTests: CoreDataTestCase {
         // We could KVO the request operation's isFinished, which would work just as well. However
         // that would mean implementing observeValueForKeyPath(_:ofObject:change:context:).
         // This way we keep all test logic together.
-        let defaultCenter = NSNotificationCenter.defaultCenter()
-        let observer = defaultCenter.addObserverForName(NSManagedObjectContextDidSaveNotification,
+        let defaultCenter = NotificationCenter.default
+        let observer = defaultCenter.addObserver(forName: NSNotification.Name.NSManagedObjectContextDidSave,
                                                         object: persistenceController.managedObjectContext,
                                                         queue: nil,
-                                                        usingBlock: { notification in
+                                                        using: { notification in
                                                             
                                                             let stories = Story.instancesInManagedObjectContext(self.persistenceController.managedObjectContext)
                                                             
@@ -58,7 +58,7 @@ class TopStoriesRequestTests: CoreDataTestCase {
                                                             self.expectation?.fulfill()
         })
         
-        waitForExpectationsWithTimeout(2.0, handler: { error in
+        waitForExpectations(timeout: 2.0, handler: { error in
             
             // Cleanup
             defaultCenter.removeObserver(observer)

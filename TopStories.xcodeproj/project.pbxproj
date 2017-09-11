@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6CBB2A651F65DF9E003F9962 /* RequestController+Notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CBB2A641F65DF9E003F9962 /* RequestController+Notifications.swift */; };
+		6CBB2A681F65E325003F9962 /* URL+Fake.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CBB2A671F65E325003F9962 /* URL+Fake.swift */; };
+		6CCA67BD1F658AD60079B720 /* ISO8601.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FBCFDA751CCA2B9C00E7FA59 /* ISO8601.framework */; };
 		FB41B39F1CC7731A0053E803 /* TopStoriesRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB41B39E1CC7731A0053E803 /* TopStoriesRequest.swift */; };
 		FB41B3A11CC77B490053E803 /* TopStoriesRequestTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB41B3A01CC77B490053E803 /* TopStoriesRequestTests.swift */; };
 		FB41B3A51CC7957F0053E803 /* home.json in Resources */ = {isa = PBXBuildFile; fileRef = FB41B3A41CC7957F0053E803 /* home.json */; };
@@ -28,7 +31,6 @@
 		FBAF85401CC934AA00F85BEA /* StoriesViewControllerLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBAF853F1CC934AA00F85BEA /* StoriesViewControllerLayout.swift */; };
 		FBC1C32C1CC81210002F79A3 /* CoreDataTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBC1C32B1CC81210002F79A3 /* CoreDataTestCase.swift */; };
 		FBCC5E181CC9585D001C937D /* ImageCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBCC5E171CC9585D001C937D /* ImageCache.swift */; };
-		FBCFDA761CCA2B9C00E7FA59 /* ISO8601.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FBCFDA751CCA2B9C00E7FA59 /* ISO8601.framework */; };
 		FBCFDA7B1CCA3E0400E7FA59 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBCFDA7A1CCA3E0400E7FA59 /* DetailViewController.swift */; };
 		FBCFDA851CCD21A000E7FA59 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBCFDA841CCD21A000E7FA59 /* main.swift */; };
 		FBCFDA891CCD25A200E7FA59 /* image.jpg in Resources */ = {isa = PBXBuildFile; fileRef = FBCFDA861CCD25A200E7FA59 /* image.jpg */; };
@@ -50,6 +52,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		6CBB2A641F65DF9E003F9962 /* RequestController+Notifications.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "RequestController+Notifications.swift"; sourceTree = "<group>"; };
+		6CBB2A671F65E325003F9962 /* URL+Fake.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "URL+Fake.swift"; sourceTree = "<group>"; };
 		FB41B39E1CC7731A0053E803 /* TopStoriesRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TopStoriesRequest.swift; sourceTree = "<group>"; };
 		FB41B3A01CC77B490053E803 /* TopStoriesRequestTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TopStoriesRequestTests.swift; sourceTree = "<group>"; };
 		FB41B3A41CC7957F0053E803 /* home.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = home.json; sourceTree = "<group>"; };
@@ -92,7 +96,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FBCFDA761CCA2B9C00E7FA59 /* ISO8601.framework in Frameworks */,
+				6CCA67BD1F658AD60079B720 /* ISO8601.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -133,6 +137,7 @@
 				FB41B3A71CC796F30053E803 /* TestableURLSession.swift */,
 				FB41B3A91CC797770053E803 /* TestableURLSessionDataTask.swift */,
 				FBCFDA9A1CCDFF5500E7FA59 /* TestableURLSessionDownloadTask.swift */,
+				6CBB2A671F65E325003F9962 /* URL+Fake.swift */,
 			);
 			name = "Test Support";
 			sourceTree = "<group>";
@@ -198,6 +203,7 @@
 				FB826C1D1CC66D4E000FC778 /* StoriesViewController.swift */,
 				FB826C431CC6883E000FC778 /* PersistenceController.swift */,
 				FB826C411CC68717000FC778 /* RequestController.swift */,
+				6CBB2A641F65DF9E003F9962 /* RequestController+Notifications.swift */,
 				FBAF85071CC8BD7900F85BEA /* Requests */,
 			);
 			name = Controller;
@@ -299,14 +305,16 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0730;
-				LastUpgradeCheck = 0730;
+				LastUpgradeCheck = 0830;
 				ORGANIZATIONNAME = "Sam Meadley";
 				TargetAttributes = {
 					FB826C141CC66D4E000FC778 = {
 						CreatedOnToolsVersion = 7.3;
+						LastSwiftMigration = 0830;
 					};
 					FB826C2D1CC66D4E000FC778 = {
 						CreatedOnToolsVersion = 7.3;
+						LastSwiftMigration = 0830;
 						TestTargetID = FB826C141CC66D4E000FC778;
 					};
 				};
@@ -391,6 +399,7 @@
 			files = (
 				FB41B39F1CC7731A0053E803 /* TopStoriesRequest.swift in Sources */,
 				FB826C191CC66D4E000FC778 /* AppDelegate.swift in Sources */,
+				6CBB2A651F65DF9E003F9962 /* RequestController+Notifications.swift in Sources */,
 				FB826C421CC68717000FC778 /* RequestController.swift in Sources */,
 				FBAF85401CC934AA00F85BEA /* StoriesViewControllerLayout.swift in Sources */,
 				FB826C1C1CC66D4E000FC778 /* TopStories.xcdatamodeld in Sources */,
@@ -417,6 +426,7 @@
 				FBCFDA8A1CCD25A200E7FA59 /* ImageCacheTests.swift in Sources */,
 				FB41B3A81CC796F30053E803 /* TestableURLSession.swift in Sources */,
 				FB41B3A11CC77B490053E803 /* TopStoriesRequestTests.swift in Sources */,
+				6CBB2A681F65E325003F9962 /* URL+Fake.swift in Sources */,
 				FBCFDA9B1CCDFF5500E7FA59 /* TestableURLSessionDownloadTask.swift in Sources */,
 				FB41B3AA1CC797770053E803 /* TestableURLSessionDataTask.swift in Sources */,
 				FBCFDA8B1CCD25A200E7FA59 /* TestableFileManager.swift in Sources */,
@@ -467,8 +477,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -513,8 +525,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -533,6 +547,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 			};
@@ -553,6 +568,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "TopStories/TopStories-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -570,6 +586,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.sammeadley.TopStories;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "TopStories/TopStories-Bridging-Header.h";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};
@@ -581,6 +598,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.sammeadley.TopStoriesTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TopStories.app/TopStories";
 			};
 			name = Debug;
@@ -593,6 +611,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.sammeadley.TopStoriesTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TopStories.app/TopStories";
 			};
 			name = Release;

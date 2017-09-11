@@ -10,7 +10,9 @@ import UIKit
 
 class StoryCollectionViewCell: UICollectionViewCell {
 
-    static let defaultReuseIdentifier = String(StoryCollectionViewCell)
+    static var defaultReuseIdentifier: String {
+        return String(describing: self)
+    }
         
     var image: UIImage? {
         didSet {
@@ -18,17 +20,17 @@ class StoryCollectionViewCell: UICollectionViewCell {
         }
     }
     
-    private let defaultImageViewWidth: CGFloat = 75
+    fileprivate let defaultImageViewWidth: CGFloat = 75
     
-    @IBOutlet private weak var titleLabel: UILabel?
-    @IBOutlet private weak var imageView: UIImageView?
-    @IBOutlet private weak var imageViewWidthConstraint: NSLayoutConstraint?
+    @IBOutlet fileprivate weak var titleLabel: UILabel?
+    @IBOutlet fileprivate weak var imageView: UIImageView?
+    @IBOutlet fileprivate weak var imageViewWidthConstraint: NSLayoutConstraint?
 
-    func updateForStory(story: Story) {
+    func updateForStory(_ story: Story) {
         
         titleLabel?.text = story.title
         
-        if story.imageURLForSize(Story.ImageSize.Thumbnail) == nil {
+        if story.imageURL(for: Story.ImageSize.thumbnail) == nil {
             imageViewWidthConstraint?.constant = 0
         } else {
             imageViewWidthConstraint?.constant = defaultImageViewWidth

@@ -12,10 +12,10 @@ import ISO8601
 
 class TopStoriesRequest: NetworkRequest {
     
-    var URLSession: NSURLSession?
+    var urlSession: Foundation.URLSession?
     
-    private let managedObjectContext: NSManagedObjectContext
-    private let URL: NSURL
+    fileprivate let managedObjectContext: NSManagedObjectContext
+    fileprivate let URL: Foundation.URL
     
     /**
      Initializes the request with dependencies.
@@ -23,53 +23,53 @@ class TopStoriesRequest: NetworkRequest {
      - parameter managedObjectContext: The parent MainQueue context, branch any children off this context.
      - parameter URL: The URL of the top stories JSON.
      */
-    init(managedObjectContext: NSManagedObjectContext, URL: NSURL) {
+    init(managedObjectContext: NSManagedObjectContext, URL: Foundation.URL) {
         self.managedObjectContext = managedObjectContext
         self.URL = URL
         
         super.init()
-        self.queuePriority = .Normal
-        self.qualityOfService = .UserInitiated
+        self.queuePriority = .normal
+        self.qualityOfService = .userInitiated
     }
     
     // MARK: - NSOperation
     
     override func start() {
         
-        if (URLSession == nil) {
-            let configuration = NSURLSessionConfiguration.defaultSessionConfiguration()
-            URLSession = NSURLSession(configuration: configuration, delegate: self, delegateQueue: nil)
+        if (urlSession == nil) {
+            let configuration = URLSessionConfiguration.default
+            urlSession = Foundation.URLSession(configuration: configuration, delegate: self, delegateQueue: nil)
         }
         
-        task = URLSession?.dataTaskWithURL(URL)
+        task = urlSession?.dataTask(with: URL)
         task?.resume()
     }
     
     // MARK: - NSURLSessionDataDelegate
     
-    func URLSession(session: NSURLSession, task: NSURLSessionTask, didCompleteWithError error: NSError?) {
+    func URLSession(_ session: Foundation.URLSession, task: URLSessionTask, didCompleteWithError error: NSError?) {
         
-        if cancelled {
-            self.state = .Finished
+        if isCancelled {
+            self.state = .finished
             self.task?.cancel()
             return
         }
         
         if error != nil {
-            self.error = .NetworkError(error)
-            self.state = .Finished
+            self.error = .networkError(error)
+            self.state = .finished
             return
         }
         
         do {
-            guard let JSONObject = try NSJSONSerialization.JSONObjectWithData(self.data,
+            guard let JSONObject = try JSONSerialization.jsonObject(with: self.data as Data,
                                                                               options: []) as? Dictionary<String, AnyObject> else {
                                                                                 return;
             }
             
-            let privateContext = NSManagedObjectContext(concurrencyType: .PrivateQueueConcurrencyType)
-            privateContext.parentContext = managedObjectContext
-            privateContext.performBlock({
+            let privateContext = NSManagedObjectContext(concurrencyType: .privateQueueConcurrencyType)
+            privateContext.parent = managedObjectContext
+            privateContext.perform({
                 
                 let results = JSONObject["results"] as! [Dictionary<String, AnyObject>]
                 let URLs = results.map({ $0["url"] as! String })
@@ -79,31 +79,31 @@ class TopStoriesRequest: NetworkRequest {
                 _ = results.map({ storyJSON in
                     
                     var story: Story
-                    if let index = (existing?.map({ $0.contentURL }).indexOf({ $0 == storyJSON["url"] as? String })) {
+                    if let index = (existing?.map({ $0.contentURL }).index(where: { $0 == storyJSON["url"] as? String })) {
                         story = existing![index]
                     } else {
-                        story = NSEntityDescription.insertNewObjectForEntityForName(String(Story),
-                            inManagedObjectContext: privateContext) as! Story
+                        story = NSEntityDescription.insertNewObject(forEntityName: String(describing: Story.self),
+                            into: privateContext) as! Story
                     }
                     
                     story.abstract = storyJSON["abstract"] as? String
                     story.contentURL = storyJSON["url"] as? String
                     
                     if let multimedia = storyJSON["multimedia"] as? [Dictionary<String, AnyObject>] {
-                        if let index = multimedia.indexOf({ $0["format"] as? String == "superJumbo"}) {
+                        if let index = multimedia.index(where: { $0["format"] as? String == "superJumbo"}) {
                             let item = multimedia[index]
                             story.imageURL = item["url"] as? String
                         }
                         
-                        if let index = multimedia.indexOf({ $0["format"] as? String == "thumbLarge"}) {
+                        if let index = multimedia.index(where: { $0["format"] as? String == "thumbLarge"}) {
                             let item = multimedia[index]
                             story.thumbnailURL = item["url"] as? String
                         }
                     }
                     
                     if let createdDate = storyJSON["created_date"] as? String {
-                        let formatter = ISO8601DateFormatter.formatter
-                        story.createdDate = formatter.dateFromString(createdDate)
+                        let formatter = ISO8601.ISO8601DateFormatter.formatter
+                        story.createdDate = formatter.date(from: createdDate)
                     }
                     
                     story.title = storyJSON["title"] as? String
@@ -113,19 +113,19 @@ class TopStoriesRequest: NetworkRequest {
                 do {
                     try privateContext.save()
                 } catch {
-                    self.error = .ClientError("Failed to push changes to parent context.", error as NSError)
-                    self.state = .Finished
+                    self.error = .clientError("Failed to push changes to parent context.", error as NSError)
+                    self.state = .finished
                     return
                 }
                 
                 // Save parent context to disk
-                self.managedObjectContext.performBlock({
+                self.managedObjectContext.perform({
                     
                     do {
                         try self.managedObjectContext.save()
                     } catch {
-                        self.error = .ClientError("Failed to save parent context changes to disk.", error as NSError)
-                        self.state = .Finished
+                        self.error = .clientError("Failed to save parent context changes to disk.", error as NSError)
+                        self.state = .finished
                         return
                     }
                 })
@@ -133,23 +133,23 @@ class TopStoriesRequest: NetworkRequest {
             
         } catch {
 
-            self.error = .ClientError("Failed to deserialize JSON object.", error as NSError)
+            self.error = .clientError("Failed to deserialize JSON object.", error as NSError)
         }
         
-        self.state = .Finished
+        state = .finished
     }
     
 }
 
 // MARK: - ISO8601DateFormatter extensions
 
-extension ISO8601DateFormatter {
+extension ISO8601.ISO8601DateFormatter {
     
     /**
      Reusable formatter instance to help performance.
      */
-    private static let formatter: ISO8601DateFormatter = {
-        let formatter = ISO8601DateFormatter()
+    fileprivate static let formatter: ISO8601.ISO8601DateFormatter = {
+        let formatter = ISO8601.ISO8601DateFormatter()
         return formatter
     }()
     

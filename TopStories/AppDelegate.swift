@@ -9,14 +9,14 @@
 import UIKit
 
 class AppDelegate: UIResponder, UIApplicationDelegate {
-
+    
     var window: UIWindow?
     var persistenceController: PersistenceController?
     var requestController: RequestController?
     
     // MARK: - UIApplicationDelegate
     
-    func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         
         persistenceController = PersistenceController()
         if let managedObjectContext = persistenceController?.managedObjectContext {
@@ -27,9 +27,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         splitViewController.delegate = self
         
         let navigationController = splitViewController.viewControllers[splitViewController.viewControllers.count-1] as! UINavigationController
-        navigationController.topViewController!.navigationItem.leftBarButtonItem = splitViewController.displayModeButtonItem()
+        navigationController.topViewController!.navigationItem.leftBarButtonItem = splitViewController.displayModeButtonItem
         navigationController.topViewController!.navigationItem.leftItemsSupplementBackButton = true
-
+        
         let masterNavigationController = splitViewController.viewControllers[0] as! UINavigationController
         let controller = masterNavigationController.topViewController as! StoriesViewController
         controller.managedObjectContext = persistenceController?.managedObjectContext;
@@ -38,8 +38,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return true
     }
     
-    func applicationWillTerminate(application: UIApplication) {
-
+    func applicationWillTerminate(_ application: UIApplication) {
+        
         // Saves changes in the application's managed object context before the application terminates.
         guard let managedObjectContext = self.persistenceController?.managedObjectContext else {
             return;
@@ -58,9 +58,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 extension AppDelegate: UISplitViewControllerDelegate {
     
-    func splitViewController(splitViewController: UISplitViewController,
-                             collapseSecondaryViewController secondaryViewController: UIViewController,
-                                                             ontoPrimaryViewController primaryViewController: UIViewController) -> Bool {
+    func splitViewController(_ splitViewController: UISplitViewController,
+                             collapseSecondary secondaryViewController: UIViewController,
+                             onto primaryViewController: UIViewController) -> Bool {
         return true
     }
 }

@@ -16,8 +16,8 @@ class CoreDataTestCase: XCTestCase {
     let persistenceController = PersistenceController(storeType: NSInMemoryStoreType)
  
     func story() -> Story {
-        let story = NSEntityDescription.insertNewObjectForEntityForName(String(Story),
-                                                                        inManagedObjectContext: persistenceController.managedObjectContext) as! Story
+        let story = NSEntityDescription.insertNewObject(forEntityName: String(describing: Story.self),
+                                                        into: persistenceController.managedObjectContext) as! Story
         story.imageURL = "http://www.example.com/image.jpg"
         
         return story

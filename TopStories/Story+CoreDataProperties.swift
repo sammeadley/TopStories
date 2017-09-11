@@ -17,7 +17,7 @@ extension Story {
     @NSManaged var abstract: String?
     @NSManaged var contentURL: String?
     @NSManaged var imageURL: String?
-    @NSManaged var createdDate: NSDate?
+    @NSManaged var createdDate: Date?
     @NSManaged var title: String?
     @NSManaged var thumbnailURL: String?
 

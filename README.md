@@ -6,7 +6,7 @@ The project uses Carthage to manage dependencies, so you'll probably want to ins
 Setup should be as simple as;
 
 - Install Carthage
-- Run `carthage update`
+- Run `carthage update --platform iOS `
 - Open TopStories.xcodeproj
 
 Let me know if you have any difficulties loading the project.

@@ -8,14 +8,14 @@
 
 import UIKit
 
-class ImageRequest: NetworkRequest, NSURLSessionDownloadDelegate {
+class ImageRequest: NetworkRequest, URLSessionDownloadDelegate {
     
-    var URLSession: NSURLSession?
+    var urlSession: URLSession?
     
-    private let story: Story
-    private let cache: ImageCache
-    private let imageSize: Story.ImageSize
-    private let imageURL: String
+    fileprivate let story: Story
+    fileprivate let cache: ImageCache
+    fileprivate let imageSize: Story.ImageSize
+    fileprivate let imageURL: String
     
     /**
      Initializes the request with dependencies.
@@ -28,80 +28,79 @@ class ImageRequest: NetworkRequest, NSURLSessionDownloadDelegate {
         self.story = story
         self.cache = cache
         self.imageSize = imageSize
-        self.imageURL = story.imageURLForSize(imageSize)!
+        self.imageURL = story.imageURL(for: imageSize)!
         
         super.init()
-        self.queuePriority = .Low
-        self.qualityOfService = .Utility
+        self.queuePriority = .low
+        self.qualityOfService = .utility
     }
     
     // MARK: - NSOperation
     
     override func start() {
         
-        guard let URL = NSURL(string: imageURL) else {
-            self.error = .InvalidURL
-            self.state = .Finished
+        guard let url = URL(string: imageURL) else {
+            error = .invalidURL
+            state = .finished
             return
         }
         
-        if (URLSession == nil) {
-            let configuration = NSURLSessionConfiguration.defaultSessionConfiguration()
-            URLSession = NSURLSession(configuration: configuration, delegate: self, delegateQueue: nil)
+        if (urlSession == nil) {
+            let configuration = URLSessionConfiguration.default
+            urlSession = URLSession(configuration: configuration, delegate: self, delegateQueue: nil)
         }
         
-        task = URLSession?.downloadTaskWithURL(URL)
+        task = urlSession?.downloadTask(with: url)
         task?.resume()
     }
     
     // MARK: - NSURLSessionDownloadDelegate
     
-    func URLSession(session: NSURLSession, task: NSURLSessionTask, didCompleteWithError error: NSError?) {
+    func urlSession(_ session: URLSession, task: URLSessionTask, didCompleteWithError error: Error?) {
         
         if error != nil {
-            self.error = .NetworkError(error)
-            self.state = .Finished
+            self.error = .networkError(error)
+            state = .finished
             return
         }
     }
     
-    func URLSession(session: NSURLSession, downloadTask: NSURLSessionDownloadTask, didFinishDownloadingToURL location: NSURL) {
+    func urlSession(_ session: URLSession, downloadTask: URLSessionDownloadTask, didFinishDownloadingTo location: URL) {
         
-        if cancelled {
-            self.state = .Finished
+        if isCancelled {
+            state = .finished
             return
         }
         
-        guard let data = NSData(contentsOfURL: location) else {
+        guard let data = try? Data(contentsOf: location) else {
             
-            self.error = .ClientError(NSLocalizedString("Failed to read image data", comment: ""), nil)
-            self.state = .Finished
+            error = .clientError(NSLocalizedString("Failed to read image data", comment: ""), nil)
+            state = .finished
             return
         }
         
         guard let image = UIImage(data: data)?.decompress() else {
             
-            self.error = .ClientError(NSLocalizedString("Failed to build image from data", comment: ""), nil)
-            self.state = .Finished
+            error = .clientError(NSLocalizedString("Failed to build image from data", comment: ""), nil)
+            state = .finished
             return
         }
         
         cache.setImage(image, forURL: imageURL, temporaryFileURL: location)
         
-        dispatch_async(dispatch_get_main_queue(), {
-            NSNotificationCenter.defaultCenter().postNotificationName(RequestController.Notifications.ImageRequestDidComplete,
-                object: self,
-                userInfo: [
-                    RequestController.Notifications.Keys.Image : image,
-                    RequestController.Notifications.Keys.Story : self.story])
-            })
+        DispatchQueue.main.async(execute: {
+            NotificationCenter.default.post(name: .imageRequestDidComplete,
+                                            object: self,
+                                            userInfo: [ImageRequestDidCompleteUserInfoKeys.image: image,
+                                                       ImageRequestDidCompleteUserInfoKeys.story: self.story])
+        })
         
-        self.state = .Finished
+        state = .finished
     }
     
     // MARK: - NSObject
     
-    override func isEqual(object: AnyObject?) -> Bool {
+    override func isEqual(_ object: Any?) -> Bool {
         
         if let object = object as? ImageRequest {
             return imageURL == object.imageURL

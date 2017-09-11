@@ -9,28 +9,32 @@
 import UIKit
 import SafariServices
 
-class DetailViewController: UIViewController {
+final class DetailViewController: UIViewController {
     
-    static let defaultSegueIdentifier = String(DetailViewController)
+    static var defaultSegueIdentifier: String {
+        return String(describing: self)
+    }
     
-    var story: Story?
     var requestController: RequestController?
+    var story: Story?
     
-    @IBOutlet private weak var titleLabel: UILabel?
+    @IBOutlet fileprivate weak var imageView: UIImageView?
+    
     @IBOutlet private weak var abstractLabel: UILabel?
-    @IBOutlet private weak var imageView: UIImageView?
     @IBOutlet private weak var emptyLabel: UILabel?
+    @IBOutlet private weak var titleLabel: UILabel?
     
     // MARK: - UIViewController
     
     override func viewDidLoad() {
+        super.viewDidLoad()
         
         guard let story = story else {
             titleLabel?.text = ""
             abstractLabel?.text = ""
             
-            emptyLabel?.hidden = false
-            self.navigationController?.toolbarHidden = true
+            emptyLabel?.isHidden = false
+            self.navigationController?.isToolbarHidden = true
             
             return
         }
@@ -39,56 +43,53 @@ class DetailViewController: UIViewController {
         abstractLabel?.text = story.abstract
         
         // Fetching an image from the disk cache can be costly, so do this in a background queue.
-        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)) {
+        DispatchQueue.global(qos: .default).async {
             
             if let story = self.story {
-                let image = self.requestController?.requestImageForStory(story,
-                                                                         imageSize: .Default,
-                                                                         observer: self,
-                                                                         selector: #selector(self.didReceiveImageRequestDidCompleteNotification))
-                dispatch_async(dispatch_get_main_queue()) {
+                let image = self.requestController?.requestImage(for: story,
+                                                                 imageSize: .default,
+                                                                 observer: self,
+                                                                 selector: #selector(self.imageRequestDidComplete(_:)))
+                DispatchQueue.main.async {
                     self.imageView?.image = image
                 }
             }
         }
         
-        navigationItem.leftBarButtonItem = self.splitViewController?.displayModeButtonItem()
+        navigationItem.leftBarButtonItem = self.splitViewController?.displayModeButtonItem
         navigationItem.leftItemsSupplementBackButton = true
-        
-        super.viewDidLoad()
     }
-    
-    // MARK: - NSNotificationCenter
-    
-    func didReceiveImageRequestDidCompleteNotification(notification: NSNotification) {
-        
-        guard let userInfo = notification.userInfo else {
-            return
-        }
-        
-        let image = userInfo[RequestController.Notifications.Keys.Image] as? UIImage
-        imageView?.image = image
-    }
-    
 }
 
+// MARK: - Actions
 private extension DetailViewController {
     
-    // MARK: - Actions
-    
-    @IBAction func showArticle(sender: UIBarButtonItem) {
+    @IBAction func showArticle(_ sender: UIBarButtonItem) {
         
         guard let contentURL = story?.contentURL else {
             return
         }
         
-        guard let URL = NSURL(string: contentURL) else {
+        guard let url = URL(string: contentURL) else {
             return
         }
         
-        let viewController = SFSafariViewController(URL: URL)
+        let viewController = SFSafariViewController(url: url)
         
-        presentViewController(viewController, animated: true, completion: nil)
+        present(viewController, animated: true, completion: nil)
     }
+}
 
+// MARK: - Notifications
+private extension DetailViewController {
+
+    @objc dynamic func imageRequestDidComplete(_ notification: Notification) {
+        
+        guard let userInfo = notification.userInfo else {
+            return
+        }
+        
+        let image = userInfo[ImageRequestDidCompleteUserInfoKeys.image] as? UIImage
+        imageView?.image = image
+    }
 }

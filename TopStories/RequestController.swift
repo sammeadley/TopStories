@@ -9,60 +9,49 @@
 import UIKit
 import CoreData
 
-class RequestController: NSObject {
-
-    // MARK: - Notifications and Keys
-    
-    enum Notifications {
-        static let ImageRequestDidComplete = "com.sammeadley.TopStories.ImageRequestDidComplete"
-        
-        enum Keys {
-            static let Image = "image"
-            static let Story = "story"
-        }
-    }
-    
-    // MARK: - Properties
+final class RequestController: NSObject {
     
     var managedObjectContext: NSManagedObjectContext
     
-    private let URLSession: NSURLSession?
     private let imageCache: ImageCache
-    private lazy var operationQueue: NSOperationQueue = {
+    
+    private lazy var operationQueue: OperationQueue = {
         
-        let operationQueue = NSOperationQueue()
+        let operationQueue = OperationQueue()
         operationQueue.addObserver(self,
-                                   forKeyPath: "operationCount", 
-                                   options: NSKeyValueObservingOptions.New,
+                                   forKeyPath: "operationCount",
+                                   options: NSKeyValueObservingOptions.new,
                                    context: nil)
         
         return operationQueue
     }()
     
+    private let urlSession: URLSession?
+    
     /**
      Initializes the request controller with dependencies.
      
      - parameter managedObjectContext:  The main managed object context to use as the parent for any
-                                        child contexts that may be created to store downloaded entities.
+     child contexts that may be created to store downloaded entities.
      
      - parameter URLSession:    URLSession to use for any requests; optional- if nil individual
-                                requests will manage their own session. Primarily for testing.
+     requests will manage their own session. Primarily for testing.
      
      - parameter imageCache:    The ImageCache instance to interrogate for membership; optional-
-                                if nil a new ImageCache instance will be created. Primarily for 
-                                testing.
+     if nil a new ImageCache instance will be created. Primarily for
+     testing.
      */
     init(managedObjectContext: NSManagedObjectContext,
-         URLSession: NSURLSession? = nil,
+         urlSession: URLSession? = nil,
          imageCache: ImageCache = ImageCache()) {
         self.managedObjectContext = managedObjectContext
-        self.URLSession = URLSession
+        self.urlSession = urlSession
         self.imageCache = imageCache
         
         super.init()
     }
     
-    deinit {        
+    deinit {
         operationQueue.removeObserver(self, forKeyPath: "operationCount")
     }
     
@@ -70,23 +59,25 @@ class RequestController: NSObject {
      Performs top stories API request
      
      Requests the top stories from the home section of the NYTimes API, and stores the parsed
-     Story entities to the Core Data cache. The returned NSFetchedResultsController instance is 
+     Story entities to the Core Data cache. The returned NSFetchedResultsController instance is
      configured to monitor the Story entities and the delegate will be triggered for any update.
- 
+     
      Consuming classes should use the returned NSFetchedResultsController instance to make any
      changes to view content.
      
      - returns: NSFetchedResultsController instance configured to monitor Story entities.
      */
-    func requestTopStories() -> NSFetchedResultsController {
-     
-        let APIKey = "015e7acf5628e1337cd461eff1cf7283:18:75044656"
+    @discardableResult
+    func requestTopStories() -> NSFetchedResultsController<NSFetchRequestResult> {
+        
+        // A production app would not store the API key here.
+        let apiKey = "514c06bb180a4ec5b18e11c64479fee7"
         let defaultSection = "home"
         let responseFormat = "json"
         
-        let URLComponents = NSURLComponents(string: "http://api.nytimes.com/svc/topstories/v1/")
-        URLComponents?.path = (URLComponents?.path)! + "\(defaultSection).\(responseFormat)"
-        URLComponents?.queryItems = [ NSURLQueryItem(name: "api-key", value: APIKey) ]
+        var urlComponents = URLComponents(string: "http://api.nytimes.com/svc/topstories/v1/")
+        urlComponents?.path = (urlComponents?.path)! + "\(defaultSection).\(responseFormat)"
+        urlComponents?.queryItems = [ URLQueryItem(name: "api-key", value: apiKey) ]
         
         
         let fetchedResultsController = NSFetchedResultsController(fetchRequest: Story.fetchRequest(),
@@ -99,8 +90,8 @@ class RequestController: NSObject {
             // TODO: Handle error
         }
         
-        let request = TopStoriesRequest(managedObjectContext: managedObjectContext, URL: URLComponents!.URL!)
-        request.URLSession = URLSession
+        let request = TopStoriesRequest(managedObjectContext: managedObjectContext, URL: urlComponents!.url!)
+        request.urlSession = urlSession
         
         operationQueue.addOperation(request)
         
@@ -122,17 +113,17 @@ class RequestController: NSObject {
      - parameter story:     The story containing the imageURL to load.
      - parameter imageSize: The size of the image to download, .Default by default.
      - parameter observer:  The observer to be notified when the image download completes. If nil
-                            the observer will not be added.
+     the observer will not be added.
      - parameter selector:  The method to call on receipt of the notification.
      
      - returns: The image if cached, otherwise nil.
      */
-    func requestImageForStory(story: Story,
-                              imageSize: Story.ImageSize = .Default,
-                              observer: AnyObject? = nil,
-                              selector: Selector? = nil) -> UIImage? {
+    func requestImage(for story: Story,
+                      imageSize: Story.ImageSize = .default,
+                      observer: AnyObject? = nil,
+                      selector: Selector? = nil) -> UIImage? {
         
-        guard let imageURL = story.imageURLForSize(imageSize) else {
+        guard let imageURL = story.imageURL(for: imageSize) else {
             return nil
         }
         
@@ -141,13 +132,13 @@ class RequestController: NSObject {
         }
         
         let request = ImageRequest(story: story, cache: imageCache, imageSize: imageSize)
-        request.URLSession = URLSession
+        request.urlSession = urlSession
         
-        if let observer = observer, selector = selector {
-            NSNotificationCenter.defaultCenter().addObserver(observer,
-                                                             selector: selector,
-                                                             name: Notifications.ImageRequestDidComplete,
-                                                             object: request)
+        if let observer = observer, let selector = selector {
+            NotificationCenter.default.addObserver(observer,
+                                                   selector: selector,
+                                                   name: .imageRequestDidComplete,
+                                                   object: request)
         }
         
         if !operationQueue.operations.contains(request) {
@@ -156,30 +147,26 @@ class RequestController: NSObject {
         
         return nil
     }
-    
 }
 
+// MARK: - KVO
 extension RequestController {
     
-    // MARK: - KVO
-    
-    override func observeValueForKeyPath(keyPath: String?,
-                                         ofObject object: AnyObject?,
-                                                  change: [String : AnyObject]?, 
-                                                  context: UnsafeMutablePointer<Void>) {
+    override func observeValue(forKeyPath keyPath: String?,
+                               of object: Any?,
+                               change: [NSKeyValueChangeKey : Any]?,
+                               context: UnsafeMutableRawPointer?) {
         
         guard keyPath == "operationCount" else {
-            super.observeValueForKeyPath(keyPath, ofObject: object, change: change, context: context)
+            super.observeValue(forKeyPath: keyPath, of: object, change: change, context: context)
             return
         }
         
-        if let operationCount = change?[NSKeyValueChangeNewKey] as? Int {
+        if let operationCount = change?[NSKeyValueChangeKey.newKey] as? Int {
             let showNetworkActivityIndicator = operationCount > 0;
             
-            let sharedApplication = UIApplication.sharedApplication()
-            sharedApplication.networkActivityIndicatorVisible = showNetworkActivityIndicator
+            let sharedApplication = UIApplication.shared
+            sharedApplication.isNetworkActivityIndicatorVisible = showNetworkActivityIndicator
         }
-        
     }
-
 }

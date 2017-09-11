@@ -18,9 +18,9 @@ class Story: NSManagedObject {
      
      - returns: NSFetchRequest instance for Story entities.
      */
-    class func fetchRequest() -> NSFetchRequest {
+    override class func fetchRequest() -> NSFetchRequest<NSFetchRequestResult> {
         
-        let fetchRequest = NSFetchRequest(entityName: String(Story))
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: String(describing: self))
         fetchRequest.sortDescriptors = [ NSSortDescriptor(key: "createdDate", ascending: false) ]
         
         return fetchRequest
@@ -38,7 +38,7 @@ class Story: NSManagedObject {
      
      - returns: Array Story entities matching the contentURLs.
      */
-    class func instancesForContentURLs(URLs: [String],
+    class func instancesForContentURLs(_ URLs: [String],
                                        managedObjectContext: NSManagedObjectContext) -> [Story]? {
         
         let results = self.instancesInManagedObjectContext(managedObjectContext,
@@ -56,14 +56,14 @@ class Story: NSManagedObject {
      
      - returns: Array Story entities matching the predicate.
      */
-    class func instancesInManagedObjectContext(managedObjectContext: NSManagedObjectContext,
+    class func instancesInManagedObjectContext(_ managedObjectContext: NSManagedObjectContext,
                                                predicate: NSPredicate? = nil) -> [Story]? {
         
         let fetchRequest = self.fetchRequest()
         fetchRequest.predicate = predicate
         
         do {
-            let results = try managedObjectContext.executeFetchRequest(fetchRequest)
+            let results = try managedObjectContext.fetch(fetchRequest)
             return results as? [Story]
             
         } catch {
@@ -79,11 +79,11 @@ class Story: NSManagedObject {
      
      - returns: Image URL string.
      */
-    func imageURLForSize(imageSize: ImageSize) -> String? {
+    func imageURL(for imageSize: ImageSize) -> String? {
         switch imageSize {
-        case .Default:
+        case .default:
             return imageURL
-        case .Thumbnail:
+        case .thumbnail:
             return thumbnailURL
         }
     }
@@ -92,8 +92,8 @@ class Story: NSManagedObject {
      Use with imageURLForSize(_:) to return the correct URL for the desired size.
      */
     enum ImageSize: Int {
-        case Default
-        case Thumbnail
+        case `default`
+        case thumbnail
     }
     
 }

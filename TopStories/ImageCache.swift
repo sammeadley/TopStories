@@ -8,10 +8,10 @@
 
 import UIKit
 
-class ImageCache {
+final class ImageCache {
     
-    private let cache: NSCache
-    private let fileManager: NSFileManager
+    private let cache: NSCache<NSString, UIImage>
+    private let fileManager: FileManager
     
     /**
      Initializes the ImageCache with dependent objects.
@@ -28,7 +28,7 @@ class ImageCache {
      - parameter fileManager:   The file manager to use to access the disk cache or nil. If not
                                 supplied the defaultManager is used.
      */
-    init(cache: NSCache = NSCache(), fileManager: NSFileManager = NSFileManager.defaultManager()) {
+    init(cache: NSCache<NSString, UIImage> = NSCache(), fileManager: FileManager = FileManager.default) {
         self.cache = cache
         self.fileManager = fileManager
     }
@@ -44,42 +44,37 @@ class ImageCache {
      
      - returns: UIImage instance if image is in the cache or nil.
      */
-    func imageForURL(URL: String) -> UIImage? {
+    func imageForURL(_ url: String) -> UIImage? {
         
-        if let image = cache.objectForKey(URL) as? UIImage {
+        if let image = cache.object(forKey: url as NSString) {
             return image
         }
         
         // Attempt to fetch from Library/Caches.
-        do {
-            guard let path = try self.URLForCachedImageForKey(URL).path else {
-                return nil
-            }
-            
-            if !fileManager.fileExistsAtPath(path) {
-                return nil
-            }
-            
-            guard let data = fileManager.contentsAtPath(path) else {
-                return nil
-            }
-            
-            guard let image = UIImage(data: data)?.decompress() else {
-                return nil
-            }
-            
-            setImage(image, forURL: URL)
-            return image
-            
-        } catch {
+        guard let path = try? urlForCachedImageForKey(url).path else {
             return nil
         }
+        
+        if !fileManager.fileExists(atPath: path) {
+            return nil
+        }
+        
+        guard let data = fileManager.contents(atPath: path) else {
+            return nil
+        }
+        
+        guard let image = UIImage(data: data)?.decompress() else {
+            return nil
+        }
+        
+        setImage(image, forURL: url)
+        return image
     }
     
     /**
      Adds an image to the cache.
      
-     Adds UIImage instance to in-memory cache and disk cache. It is recommended that 
+     Adds UIImage instance to in-memory cache and disk cache. It is recommended that
      setImage(_:forURL:temporaryFileURL:) is called from a background queue, as disk IO can be slow.
      
      Copies the downloaded data to a temporary location (returned from NSURLSessionDownloadTask) to
@@ -89,17 +84,17 @@ class ImageCache {
      - parameter URL: Web URL of the downloaded image- used to calculate the MD5 cache key.
      - parameter temporaryFileURL: URL on disk of the temporary file download.
      */
-    func setImage(image: UIImage, forURL URL: String, temporaryFileURL: NSURL? = nil) {
+    func setImage(_ image: UIImage, forURL url: String, temporaryFileURL: URL? = nil) {
         
-        cache.setObject(image, forKey: URL)
+        cache.setObject(image, forKey: url as NSString)
         
         guard let sourceURL = temporaryFileURL else {
             return
         }
         
         do {
-            let destinationURL = try self.URLForCachedImageForKey(URL)
-            try fileManager.moveItemAtURL(sourceURL, toURL: destinationURL)
+            let destinationURL = try urlForCachedImageForKey(url)
+            try fileManager.moveItem(at: sourceURL, to: destinationURL)
             
         } catch {
             // TODO: Handle error
@@ -120,22 +115,22 @@ class ImageCache {
      
      - returns: NSURL instance containing the path of the cached image on disk.
      */
-    func URLForCachedImageForKey(key: String) throws -> NSURL {
+    func urlForCachedImageForKey(_ key: String) throws -> URL {
         
-        let URLs = fileManager.URLsForDirectory(.CachesDirectory, inDomains: .UserDomainMask)
-        guard let URL = URLs.last else {
-            throw ImageCacheError.CachesDirectoryNotFound
+        let urls = fileManager.urls(for: .cachesDirectory, in: .userDomainMask)
+        guard let url = urls.last else {
+            throw ImageCacheError.cachesDirectoryNotFound
         }
         
-        return URL.URLByAppendingPathComponent(key.MD5())
+        return url.appendingPathComponent(key.MD5())
     }
     
 }
 
 // MARK:- Error Types
 
-enum ImageCacheError: ErrorType {
-    case CachesDirectoryNotFound
+enum ImageCacheError: Error {
+    case cachesDirectoryNotFound
 }
 
 // MARK: - String extension methods
@@ -149,12 +144,12 @@ extension String {
      */
     func MD5() -> String {
         
-        let data = self.dataUsingEncoding(NSUTF8StringEncoding)!
-        var digest = [UInt8](count: Int(CC_MD5_DIGEST_LENGTH), repeatedValue: 0)
-        CC_MD5(data.bytes, CC_LONG(data.length), &digest)
+        let data = self.data(using: String.Encoding.utf8)!
+        var digest = [UInt8](repeating: 0, count: Int(CC_MD5_DIGEST_LENGTH))
+        CC_MD5((data as NSData).bytes, CC_LONG(data.count), &digest)
         let hexBytes = digest.map { String(format: "%02x", $0) }
         
-        return hexBytes.joinWithSeparator("")
+        return hexBytes.joined(separator: "")
     }
     
 }
@@ -174,19 +169,19 @@ extension UIImage {
      */
     func decompress() -> UIImage? {
         
-        let imageRef = self.CGImage
+        let imageRef = self.cgImage
         let colorSpace = CGColorSpaceCreateDeviceRGB()
-        let bitmapInfo = CGBitmapInfo(rawValue: CGImageAlphaInfo.PremultipliedLast.rawValue).rawValue
+        let bitmapInfo = CGBitmapInfo(rawValue: CGImageAlphaInfo.premultipliedLast.rawValue).rawValue
         
-        guard let context = CGBitmapContextCreate(nil, CGImageGetWidth(imageRef), CGImageGetHeight(imageRef), 8, 0, colorSpace, bitmapInfo) else {
+        guard let context = CGContext(data: nil, width: (imageRef?.width)!, height: (imageRef?.height)!, bitsPerComponent: 8, bytesPerRow: 0, space: colorSpace, bitmapInfo: bitmapInfo) else {
             return nil
         }
         
-        let rect = CGRect(x: 0, y: 0, width: CGImageGetWidth(imageRef), height: CGImageGetHeight(imageRef))
-        CGContextDrawImage(context, rect, imageRef)
+        let rect = CGRect(x: 0, y: 0, width: (imageRef?.width)!, height: (imageRef?.height)!)
+        context.draw(imageRef!, in: rect)
         
-        let decompressedImageRef = CGBitmapContextCreateImage(context)
-        return UIImage(CGImage: decompressedImageRef!)
+        let decompressedImageRef = context.makeImage()
+        return UIImage(cgImage: decompressedImageRef!)
     }
     
 }

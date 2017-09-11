@@ -8,14 +8,14 @@
 
 import Foundation
 
-class TestableURLSessionDownloadTask: NSURLSessionDownloadTask {
+class TestableURLSessionDownloadTask: URLSessionDownloadTask {
 
-    var stubDownloadLocation: NSURL?
+    var stubDownloadLocation: URL?
     
-    private let URLSession: TestableURLSession
+    fileprivate let urlSession: TestableURLSession
     
-    init(URLSession: TestableURLSession) {
-        self.URLSession = URLSession
+    init(urlSession: TestableURLSession) {
+        self.urlSession = urlSession
     }
     
     override func resume() {
@@ -24,11 +24,11 @@ class TestableURLSessionDownloadTask: NSURLSessionDownloadTask {
             return
         }
         
-        guard let delegate = URLSession.delegate as? NSURLSessionDownloadDelegate else {
+        guard let delegate = urlSession.delegate as? URLSessionDownloadDelegate else {
             return
         }
         
-        delegate.URLSession(URLSession, downloadTask: self, didFinishDownloadingToURL: stubDownloadLocation)
+        delegate.urlSession(urlSession, downloadTask: self, didFinishDownloadingTo: stubDownloadLocation)
     }
     
 }

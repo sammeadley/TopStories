@@ -8,19 +8,19 @@
 
 import Foundation
 
-class TestableURLSession: NSURLSession {
+class TestableURLSession: URLSession {
 
-    var stubTask: NSURLSessionTask?
+    var stubTask: URLSessionTask?
     
     // Not possible to override init(configuration:delegate:delegateQueue:) so we'll manage
     // the delegate property internally.
-    private var internalDelegate: NSURLSessionDelegate?
+    fileprivate var internalDelegate: URLSessionDelegate?
     
-    init(delegate: NSURLSessionDelegate?) {
+    init(delegate: URLSessionDelegate?) {
         self.internalDelegate = delegate
     }
     
-    override var delegate: NSURLSessionDelegate? {
+    override var delegate: URLSessionDelegate? {
         get {
             return internalDelegate
         }
@@ -29,12 +29,12 @@ class TestableURLSession: NSURLSession {
         }
     }
     
-    override func dataTaskWithURL(url: NSURL) -> NSURLSessionDataTask {
+    override func dataTask(with url: URL) -> URLSessionDataTask {
         // Failing to set dataTask is a programmer error, so we are safe to force unwrap here.
         return stubTask as! TestableURLSessionDataTask
     }
     
-    override func downloadTaskWithURL(url: NSURL) -> NSURLSessionDownloadTask {
+    override func downloadTask(with url: URL) -> URLSessionDownloadTask {
         // Failing to set dataTask is a programmer error, so we are safe to force unwrap here.
         return stubTask as! TestableURLSessionDownloadTask
     }

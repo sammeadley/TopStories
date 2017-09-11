@@ -9,7 +9,7 @@
 import Foundation
 import CoreData
 
-class PersistenceController {
+final class PersistenceController {
     
     private let storeType: String
     
@@ -32,7 +32,7 @@ class PersistenceController {
     lazy var managedObjectContext: NSManagedObjectContext = {
         
         let coordinator = self.persistentStoreCoordinator
-        var managedObjectContext = NSManagedObjectContext(concurrencyType: .MainQueueConcurrencyType)
+        var managedObjectContext = NSManagedObjectContext(concurrencyType: .mainQueueConcurrencyType)
         managedObjectContext.persistentStoreCoordinator = coordinator
         
         return managedObjectContext
@@ -42,9 +42,9 @@ class PersistenceController {
         
         // The managed object model for the application. This property is not optional. 
         // It is a fatal error for the application not to be able to find and load its model.
-        let modelURL = NSBundle.mainBundle().URLForResource("TopStories", withExtension: "momd")!
+        let modelURL = Bundle.main.url(forResource: "TopStories", withExtension: "momd")!
         
-        return NSManagedObjectModel(contentsOfURL: modelURL)!
+        return NSManagedObjectModel(contentsOf: modelURL)!
     }()
     
     /**
@@ -55,12 +55,12 @@ class PersistenceController {
     lazy var persistentStoreCoordinator: NSPersistentStoreCoordinator? = {
         
         let coordinator = NSPersistentStoreCoordinator(managedObjectModel: self.managedObjectModel)
-        guard let URL = NSFileManager.defaultManager().URLForApplicationCachesDirectory()?.URLByAppendingPathComponent("TopStories.sqlite") else {
+        guard let url = FileManager.default.urlForApplicationCachesDirectory?.appendingPathComponent("TopStories.sqlite") else {
             return nil;
         }
 
         do {
-            try coordinator.addPersistentStoreWithType(self.storeType, configuration: nil, URL: URL, options: nil)
+            try coordinator.addPersistentStore(ofType: self.storeType, configurationName: nil, at: url, options: nil)
 
         } catch {
             // TODO: Handle error
@@ -71,19 +71,19 @@ class PersistenceController {
 }
 
 
-extension NSFileManager {
+extension FileManager {
     
     /**
      The URL to the Application's Caches directory.
      
      - returns: NSURL containing the path to the Library/Caches, or nil.
      */
-    func URLForApplicationCachesDirectory() -> NSURL? {
+    var urlForApplicationCachesDirectory: URL? {
         
-        let URLs = URLsForDirectory(.CachesDirectory, inDomains: .UserDomainMask)
-        let URL = URLs.last
+        let urls = self.urls(for: .cachesDirectory, in: .userDomainMask)
+        let url = urls.last
         
-        return URL;
+        return url;
     }
     
 }
